@@ -1,0 +1,7 @@
+# Created by Chicanem
+.idea
+/admin/src/test/
+/web/src/test/
+/admin/target/
+/web/target/
+/test/target/
