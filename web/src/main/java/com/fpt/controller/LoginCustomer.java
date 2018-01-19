@@ -5,11 +5,13 @@ package com.fpt.controller;/*
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
-public class LoginAdminController {
+public class LoginCustomer {
     @RequestMapping(value = "/login.html")
-    public String viewLogin() {
+    public String viewLogin(HttpServletRequest request) {
+        System.out.println(request.getSession().getId());
         return "login";
     }
-
 }
