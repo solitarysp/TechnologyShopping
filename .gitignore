@@ -6,3 +6,7 @@
 /web/target/
 /test/target/
 /persistence/target/
+/web/web.iml
+/test/test.iml
+/persistence/persistence.iml
+/admin/admin.iml
