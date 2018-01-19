@@ -24,7 +24,7 @@
 </script>
 <c:if test="${pageContext.request.userPrincipal.name != null}">
     <h2>
-        Welcome admin : ${pageContext.request.userPrincipal.name} | <a
+        Welcome member : ${pageContext.request.userPrincipal.name} | <a
             href="javascript:formSubmit()"> Logout</a>
     </h2>
 </c:if>
