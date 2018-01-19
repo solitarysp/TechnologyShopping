@@ -5,10 +5,8 @@ package com.fpt.entity;/*
 import javax.persistence.*;
 
 @Entity
-@Table(name = "administrator")
-public class Administrator extends Person {
-    public Administrator() {
-    }
+@Table(name = "customer")
+public class Customer extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
