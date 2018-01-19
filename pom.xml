@@ -32,6 +32,7 @@
         <jdk.version>1.8</jdk.version>
         <jdk.target.version>1.8</jdk.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springframework>4.3.5.RELEASE</springframework>
     </properties>
 
     <!--cấu hình chung thư viện cho cả admin và web-->
@@ -40,6 +41,21 @@
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <version>6.1.0.jre8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
 
