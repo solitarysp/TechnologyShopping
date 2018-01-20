@@ -3,6 +3,7 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "administrator")
@@ -87,5 +88,16 @@ public class Administrator extends Person {
     @Override
     public void setAuthority(String authority) {
         super.setAuthority(authority);
+    }
+
+    private Set<LogAdmin> logAdmin;
+
+    @OneToMany(mappedBy = "administrator", cascade = CascadeType.ALL)
+    public Set<LogAdmin> getLogAdmin() {
+        return logAdmin;
+    }
+
+    public void setLogAdmin(Set<LogAdmin> logAdmin) {
+        this.logAdmin = logAdmin;
     }
 }

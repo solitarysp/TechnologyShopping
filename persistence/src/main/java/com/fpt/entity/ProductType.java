@@ -3,6 +3,7 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "product_type")
@@ -38,5 +39,16 @@ public class ProductType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    private Set<Product> product;
+
+    @OneToMany(mappedBy = "productType", cascade = CascadeType.ALL)
+    public Set<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(Set<Product> product) {
+        this.product = product;
     }
 }
