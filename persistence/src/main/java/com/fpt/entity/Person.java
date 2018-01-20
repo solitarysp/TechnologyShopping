@@ -8,8 +8,26 @@ public class Person {
     private String email;
     private String user;
     private String password;
+    private Byte enabled;
+    private String authority;
 
     public Person() {
+    }
+
+    public Byte getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Byte enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     public Integer getId() {

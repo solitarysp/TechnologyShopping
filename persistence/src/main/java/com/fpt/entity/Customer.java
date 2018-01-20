@@ -6,10 +6,8 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "administrator")
-public class Administrator extends Person {
-    public Administrator() {
-    }
+@Table(name = "customer")
+public class Customer extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,21 +88,34 @@ public class Administrator extends Person {
         super.setAuthority(authority);
     }
 
-    private Set<LogAdmin> logAdmin;
+    //config pk
 
-    @OneToMany(mappedBy = "administrator", cascade = CascadeType.ALL)
-    public Set<LogAdmin> getLogAdmin() {
-        return logAdmin;
+    private Set<CustomerAddress> customerAddress;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public Set<CustomerAddress> getCustomerAddress() {
+        return customerAddress;
     }
 
-    public void setLogAdmin(Set<LogAdmin> logAdmin) {
-        this.logAdmin = logAdmin;
+    public void setCustomerAddress(Set<CustomerAddress> customerAddress) {
+        this.customerAddress = customerAddress;
+    }
+
+    private Set<OrderProduct> orderProduct;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public Set<OrderProduct> getOrderProduct() {
+        return orderProduct;
+    }
+
+    public void setOrderProduct(Set<OrderProduct> orderProduct) {
+        this.orderProduct = orderProduct;
     }
 
 
     private Set<Review> review;
 
-    @OneToMany(mappedBy = "administrator", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     public Set<Review> getReview() {
         return review;
     }
