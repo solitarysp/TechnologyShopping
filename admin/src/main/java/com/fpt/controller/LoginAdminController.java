@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginAdminController {
     @RequestMapping(value = "/login.html")
     public String viewLogin() {
+        System.out.println("Ss");
         return "login";
     }
 
