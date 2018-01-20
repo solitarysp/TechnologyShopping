@@ -100,4 +100,16 @@ public class Administrator extends Person {
     public void setLogAdmin(Set<LogAdmin> logAdmin) {
         this.logAdmin = logAdmin;
     }
+
+
+    private Set<Review> review;
+
+    @OneToMany(mappedBy = "administrator", cascade = CascadeType.ALL)
+    public Set<Review> getReview() {
+        return review;
+    }
+
+    public void setReview(Set<Review> review) {
+        this.review = review;
+    }
 }

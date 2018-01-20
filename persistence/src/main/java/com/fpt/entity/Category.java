@@ -3,6 +3,8 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
@@ -38,5 +40,16 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    private Set<Product> product = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "category")
+    public Set<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(Set<Product> product) {
+        this.product = product;
     }
 }

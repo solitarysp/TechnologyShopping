@@ -5,6 +5,8 @@ package com.fpt.entity;/*
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -133,5 +135,28 @@ public class Product {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+    private Set<Category> category = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "category_product", joinColumns = {@JoinColumn(name = "_id_product")}, inverseJoinColumns = {@JoinColumn(name = "_id_category")})
+    public Set<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(Set<Category> category) {
+        this.category = category;
+    }
+
+    private Set<Review> review;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    public Set<Review> getReview() {
+        return review;
+    }
+
+    public void setReview(Set<Review> review) {
+        this.review = review;
     }
 }

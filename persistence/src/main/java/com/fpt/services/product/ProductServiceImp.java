@@ -18,4 +18,9 @@ public class ProductServiceImp implements ProductServices {
     public List<Product> getAll() {
         return productRepo.getAll();
     }
+
+    @Override
+    public List<Product> getAllByCategoryID(Integer idCategory) {
+        return productRepo.getAllByCategoryID(idCategory);
+    }
 }

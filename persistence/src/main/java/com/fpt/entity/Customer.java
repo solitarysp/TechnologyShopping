@@ -100,4 +100,27 @@ public class Customer extends Person {
     public void setCustomerAddress(Set<CustomerAddress> customerAddress) {
         this.customerAddress = customerAddress;
     }
+
+    private Set<OrderProduct> orderProduct;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public Set<OrderProduct> getOrderProduct() {
+        return orderProduct;
+    }
+
+    public void setOrderProduct(Set<OrderProduct> orderProduct) {
+        this.orderProduct = orderProduct;
+    }
+
+
+    private Set<Review> review;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public Set<Review> getReview() {
+        return review;
+    }
+
+    public void setReview(Set<Review> review) {
+        this.review = review;
+    }
 }

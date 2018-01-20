@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface ProductServices {
     List<Product> getAll();
+
+    List<Product> getAllByCategoryID(Integer idCategory);
 }

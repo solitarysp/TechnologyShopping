@@ -3,6 +3,7 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "payment")
@@ -28,5 +29,16 @@ public class Payment {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    private Set<OrderProduct> orderProduct;
+
+    @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL)
+    public Set<OrderProduct> getOrderProduct() {
+        return orderProduct;
+    }
+
+    public void setOrderProduct(Set<OrderProduct> orderProduct) {
+        this.orderProduct = orderProduct;
     }
 }
