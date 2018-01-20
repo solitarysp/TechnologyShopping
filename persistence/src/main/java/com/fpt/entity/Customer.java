@@ -3,6 +3,7 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer")
@@ -85,5 +86,18 @@ public class Customer extends Person {
     @Override
     public void setAuthority(String authority) {
         super.setAuthority(authority);
+    }
+
+    //config pk
+
+    private Set<CustomerAddress> customerAddress;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public Set<CustomerAddress> getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(Set<CustomerAddress> customerAddress) {
+        this.customerAddress = customerAddress;
     }
 }
