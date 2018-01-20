@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface CustomerServices {
     List<Customer> getAll();
+
+    void saveCustomer(Customer customer);
 }

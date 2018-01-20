@@ -23,4 +23,9 @@ public class ProductServiceImp implements ProductServices {
     public List<Product> getAllByCategoryID(Integer idCategory) {
         return productRepo.getAllByCategoryID(idCategory);
     }
+
+    @Override
+    public void saveProduct(Product product) {
+        productRepo.save(product);
+    }
 }

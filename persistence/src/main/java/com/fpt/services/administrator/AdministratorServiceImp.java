@@ -6,6 +6,7 @@ import com.fpt.entity.Administrator;
 import com.fpt.repositories.administrator.AdministratorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,5 +18,11 @@ public class AdministratorServiceImp implements AdministratorServices {
     @Override
     public List<Administrator> getAll() {
         return administratorRepo.getAll();
+    }
+
+    @Transactional
+    @Override
+    public void saveAdministrator(Administrator administrator) {
+        administratorRepo.save(administrator);
     }
 }

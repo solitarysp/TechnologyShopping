@@ -18,4 +18,9 @@ public class CategoryServiceImp implements CategoryServices {
     public List<Category> getAllCategory() {
         return categoryRepo.getAllCategory();
     }
+
+    @Override
+    public void saveCategory(Category category) {
+        categoryRepo.save(category);
+    }
 }

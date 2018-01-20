@@ -11,4 +11,5 @@ import java.util.List;
 public interface LogAdminServices {
     public List<LogAdmin> getAll();
 
+    void saveLogAdmin(LogAdmin logAdmin);
 }

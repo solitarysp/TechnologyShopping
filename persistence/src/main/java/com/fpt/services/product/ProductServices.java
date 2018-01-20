@@ -12,4 +12,6 @@ public interface ProductServices {
     List<Product> getAll();
 
     List<Product> getAllByCategoryID(Integer idCategory);
+
+    void saveProduct(Product product);
 }
