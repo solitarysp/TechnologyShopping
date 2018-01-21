@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface PaymentServices {
     List<Payment> getAll();
+
+    void savePayment(Payment payment);
 }

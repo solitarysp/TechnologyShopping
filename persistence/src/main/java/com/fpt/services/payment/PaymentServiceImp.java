@@ -18,4 +18,9 @@ public class PaymentServiceImp implements PaymentServices {
     public List<Payment> getAll() {
         return paymentRepo.getAll();
     }
+
+    @Override
+    public void savePayment(Payment payment) {
+        paymentRepo.save(payment);
+    }
 }

@@ -6,6 +6,7 @@ import com.fpt.entity.Customer;
 import com.fpt.repositories.customer.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,5 +18,10 @@ public class CustomerServiceImp implements CustomerServices {
     @Override
     public List<Customer> getAll() {
         return customerRepo.getAll();
+    }
+    @Transactional
+    @Override
+    public void saveCustomer(Customer customer) {
+        customerRepo.save(customer);
     }
 }

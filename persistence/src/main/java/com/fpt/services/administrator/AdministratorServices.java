@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface AdministratorServices {
     List<Administrator> getAll();
+
+    void saveAdministrator(Administrator administrator);
 }

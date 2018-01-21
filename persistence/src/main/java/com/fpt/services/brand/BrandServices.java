@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface BrandServices {
     List<Brand> getAllBrand();
+
+    void saveBrand(Brand brand);
 }
