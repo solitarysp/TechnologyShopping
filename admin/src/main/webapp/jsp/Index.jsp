@@ -13,12 +13,7 @@
 </head>
 <body>
 <jsp:include page="layoutAdminTop.jsp"/>
-<c:url value="/j_spring_security_logout" var="logoutUrl"/>
-<form action="${logoutUrl}" method="post" id="logoutForm">
-    <input type="hidden" name="${_csrf.parameterName}"
-           value="${_csrf.token}"/>
-    <input type="submit" value="gui"/>
-</form>
+
 <jsp:include page="layoutAdminBot.jsp"/>
 </body>
 </html>

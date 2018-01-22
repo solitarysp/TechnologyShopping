@@ -1,6 +1,8 @@
+<form action="j_spring_security_logout" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
+</form>
 </div>
-
-
 <div class="footer">
     <div class="footer-inner">
         <div class="footer-content">
@@ -288,7 +290,6 @@
         document.getElementById("logoutForm").submit();
     }
 </script>
-
 
 
 </body>

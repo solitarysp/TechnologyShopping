@@ -891,6 +891,6 @@
         </div>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" style="padding: 10px">
 
 
