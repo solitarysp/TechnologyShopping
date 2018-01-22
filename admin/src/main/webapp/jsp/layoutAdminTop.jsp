@@ -5,11 +5,12 @@
 
 <meta name="description" content="overview &amp; stats"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 <!-- bootstrap & fontawesome -->
 <link rel="stylesheet" href="css/bootstrap.min.css"/>
 <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@6.10.2/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@6.10.2/dist/sweetalert2.min.js"></script>
 <!-- page specific plugin styles -->
 
 <!-- text fonts -->
