@@ -9,22 +9,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>add Category</title>
+    <title>add ProductType</title>
 </head>
 <body>
-<jsp:include page="layoutAdminTop.jsp"/>
+<jsp:include page="/jsp/Layout/layoutAdminTop.jsp"/>
 <div>
-    <h1>thêm Brand</h1>
+    <h1>thêm ProductType</h1>
     <form id="form" method="post">
         name:<input name="name"/>
         description:<input name="description"/>
     </form>
-    <button onclick="addBrand()">add</button>
+    <button onclick="addCategory()">add</button>
     <script type="text/javascript">
-        function addBrand() {
+        function addCategory() {
             var data = $("form").serialize();
             $.ajax({
-                url: "addBrand?${_csrf.parameterName}=${_csrf.token}",
+                url: "addProductType?${_csrf.parameterName}=${_csrf.token}",
                 type: "post",
                 dataType: "text",
                 data: data,
@@ -47,6 +47,6 @@
         }
     </script>
 </div>
-<jsp:include page="layoutAdminBot.jsp"/>
+<jsp:include page="/jsp/Layout/layoutAdminBot.jsp"/>
 </body>
 </html>

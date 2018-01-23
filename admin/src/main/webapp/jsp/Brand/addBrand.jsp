@@ -12,19 +12,19 @@
     <title>add Category</title>
 </head>
 <body>
-<jsp:include page="layoutAdminTop.jsp"/>
+<jsp:include page="../Layout/layoutAdminTop.jsp"/>
 <div>
-    <h1>thêm Category</h1>
+    <h1>thêm Brand</h1>
     <form id="form" method="post">
         name:<input name="name"/>
         description:<input name="description"/>
     </form>
-    <button onclick="addCategory()">add</button>
+    <button onclick="addBrand()">add</button>
     <script type="text/javascript">
-        function addCategory() {
+        function addBrand() {
             var data = $("form").serialize();
             $.ajax({
-                url: "addCategory?${_csrf.parameterName}=${_csrf.token}",
+                url: "addBrand?${_csrf.parameterName}=${_csrf.token}",
                 type: "post",
                 dataType: "text",
                 data: data,
@@ -42,11 +42,9 @@
                     }
                 }
             });
-
-
         }
     </script>
 </div>
-<jsp:include page="layoutAdminBot.jsp"/>
+<jsp:include page="../Layout/layoutAdminBot.jsp"/>
 </body>
 </html>

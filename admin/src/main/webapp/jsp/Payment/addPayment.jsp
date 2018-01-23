@@ -12,7 +12,7 @@
     <title>add Payment</title>
 </head>
 <body>
-<jsp:include page="layoutAdminTop.jsp"/>
+<jsp:include page="../Layout/layoutAdminTop.jsp"/>
 <div>
     <h1>thêm Payment</h1>
     <form id="form" method="post">
@@ -46,6 +46,6 @@
         }
     </script>
 </div>
-<jsp:include page="layoutAdminBot.jsp"/>
+<jsp:include page="../Layout/layoutAdminBot.jsp"/>
 </body>
 </html>
