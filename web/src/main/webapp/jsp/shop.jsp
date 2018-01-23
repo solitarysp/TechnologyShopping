@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <jsp:include page="../resources/layout/header"/>
+    <jsp:include page="/jsp/layout/header.jsp"/>
 </head>
 <body class="home page-template-default page page-id-2603 animated-css layout-switch home-construction-v2 primary-menu-not-active wpb-js-composer js-comp-ver-5.2.1 vc_responsive"  data-scrolling-animations="false" data-header="fixed-header">
 <!-- Loader -->
@@ -17,7 +17,7 @@
 <!-- Loader end -->
 <div class="sp-body">
     <div class="b-page">
-        <jsp:include page="../resources/layout/nav-header"/>
+        <jsp:include page="/jsp/layout/nav-header.jsp"/>
 
         <div class="b-page-header custom-7bg-hs_90">
             <div class="container">
@@ -676,9 +676,9 @@
 
 
 
-        <jsp:include page="../resources/layout/footer"/>
+        <jsp:include page="/jsp/layout/footer.jsp"/>
     </div>
-    <jsp:include page="../resources/layout/js-footer"/>
+    <jsp:include page="/jsp/layout/js-footer.jsp"/>
 </div>
 </body>
 </html>
