@@ -18,4 +18,9 @@ public class LogAdminServiceImp implements LogAdminServices {
     public List<LogAdmin> getAll() {
         return logAdminRepo.getAll();
     }
+
+    @Override
+    public void saveLogAdmin(LogAdmin logAdmin) {
+        logAdminRepo.save(logAdmin);
+    }
 }

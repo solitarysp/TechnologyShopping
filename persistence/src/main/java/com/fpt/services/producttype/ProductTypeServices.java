@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface ProductTypeServices {
     List<ProductType> getAllProductType();
+
+    void saveProductType(ProductType productType);
 }

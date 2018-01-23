@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface CustomerAddressServices {
     List<CustomerAddress> getAll();
+
+    void saveCustomerAddress(CustomerAddress customerAddress);
 }

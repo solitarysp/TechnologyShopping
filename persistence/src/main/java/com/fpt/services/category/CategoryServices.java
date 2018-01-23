@@ -10,4 +10,6 @@ import java.util.List;
 @Service
 public interface CategoryServices {
     List<Category> getAllCategory();
+
+    void saveCategory(Category category);
 }

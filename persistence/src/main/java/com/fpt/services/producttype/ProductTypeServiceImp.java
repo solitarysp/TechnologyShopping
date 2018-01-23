@@ -18,4 +18,9 @@ public class ProductTypeServiceImp implements ProductTypeServices {
     public List<ProductType> getAllProductType() {
         return productTypeRepo.getAllProductType();
     }
+
+    @Override
+    public void saveProductType(ProductType productType) {
+        productTypeRepo.save(productType);
+    }
 }

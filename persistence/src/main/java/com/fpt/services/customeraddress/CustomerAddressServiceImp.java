@@ -18,4 +18,9 @@ public class CustomerAddressServiceImp implements CustomerAddressServices {
     public List<CustomerAddress> getAll() {
         return customerAddressRepo.getAll();
     }
+
+    @Override
+    public void saveCustomerAddress(CustomerAddress customerAddress) {
+        customerAddressRepo.save(customerAddress);
+    }
 }
