@@ -1,0 +1,35 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+- Project:	iSmile - Phones Market HTML/CSS Template
+- Version:	1.1
+- Author:  Alex Zaymund
+
+-------------------------------------------------------------------*/
+
+/* MAIN CSS */
+@import url('bootstrap.min.css');
+@import url('jquery-ui.min.css');
+@import url('theme.css');
+@import url('category.css');
+@import url('products.css');
+@import url('blog.css');
+@import url('responsive.css');
+@import url('hover-min.css');
+
+
+/* PLUGIN CSS */
+
+@import url('../assets/owl-carousel/owl.carousel.css');
+@import url('../assets/owl-carousel/owl.theme.css');
+@import url('../assets/owl-carousel/owl.transitions.css');
+/*@import url('../assets/bxslider/jquery.bxslider.css');*/
+@import url('../assets/hover-effect-ideas/css/set1.css');
+/*@import url('../assets/hover-effect-ideas/css/set2.css');*/
+@import url('../assets/isotope/isotope.css');
+
+
+
+
+
+
