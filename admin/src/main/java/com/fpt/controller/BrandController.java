@@ -31,14 +31,14 @@ public class BrandController {
 //    }
 
     @RequestMapping(value = "/addBrand", method = RequestMethod.POST)
-    public String AddBrand(Brand brand, HttpServletResponse response) {
+    public void AddBrand(Brand brand, HttpServletResponse response) {
         try {
             brandServices.saveBrand(brand);
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Brand/addBrand";
+
     }
 
     @RequestMapping(value = "/editBrand", method = RequestMethod.PUT)
