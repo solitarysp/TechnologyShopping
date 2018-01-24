@@ -14,4 +14,6 @@ public interface ProductServices {
     List<Product> getAllByCategoryID(Integer idCategory);
 
     void saveProduct(Product product);
+
+    Product getProductById(String id);
 }

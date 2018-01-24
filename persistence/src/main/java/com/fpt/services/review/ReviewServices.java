@@ -5,7 +5,12 @@ package com.fpt.services.review;/*
 import com.fpt.entity.Review;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface ReviewServices {
     void saveReview(Review review);
+
+    public List<Review> getAllByIdProduct(String id);
+
 }

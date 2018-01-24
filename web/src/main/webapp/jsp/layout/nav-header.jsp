@@ -46,7 +46,7 @@
 					<div class="b-logo">
 
 
-						<a href="http://wpsparrow.com/wordpress/ismiler/"  >
+						<a href="/"  >
 					    						        <img src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2016/08/logo-w.png" alt="" />
 					        				    	</a>
 

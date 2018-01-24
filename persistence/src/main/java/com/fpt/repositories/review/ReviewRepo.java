@@ -3,9 +3,15 @@ package com.fpt.repositories.review;/*
  */
 
 import com.fpt.entity.Review;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ReviewRepo extends PagingAndSortingRepository<Review, Integer>, ReviewRepoCustom {
+    @Query(value = "SELECT * FROM review WHERE _id_Product=:id", nativeQuery = true)
+    public List<Review> getAllByIdProduct(@Param("id") String id);
 }

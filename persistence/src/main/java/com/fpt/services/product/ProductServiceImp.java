@@ -28,4 +28,9 @@ public class ProductServiceImp implements ProductServices {
     public void saveProduct(Product product) {
         productRepo.save(product);
     }
+
+    @Override
+    public Product getProductById(String id) {
+        return productRepo.findOne(id);
+    }
 }

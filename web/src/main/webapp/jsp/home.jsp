@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: tungct
@@ -304,134 +305,12 @@
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css");
-                                            var htmlDivCss = "";
-                                            if (htmlDiv) {
-                                                htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
-                                            } else {
-                                                var htmlDiv = document.createElement("div");
-                                                htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
-                                                document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
-                                            }
-                                            </script>
+
                                             <div class="tp-bannertimer"
                                                  style="height: 5px; background: rgba(0,0,0,0.15);"></div>
                                         </div>
-                                        <script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css");
-                                        var htmlDivCss = "";
-                                        if (htmlDiv) {
-                                            htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
-                                        } else {
-                                            var htmlDiv = document.createElement("div");
-                                            htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
-                                            document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
-                                        }
-                                        </script>
-                                        <script type="text/javascript">
-                                            setREVStartSize({
-                                                c: jQuery('#rev_slider_1_1'),
-                                                responsiveLevels: [1240, 1024, 778, 480],
-                                                gridwidth: [1240, 1024, 778, 480],
-                                                gridheight: [600, 600, 500, 400],
-                                                sliderLayout: 'fullwidth'
-                                            });
 
-                                            var revapi1,
-                                                tpj = jQuery;
 
-                                            tpj(document).ready(function () {
-                                                if (tpj("#rev_slider_1_1").revolution == undefined) {
-                                                    revslider_showDoubleJqueryError("#rev_slider_1_1");
-                                                } else {
-                                                    revapi1 = tpj("#rev_slider_1_1").show().revolution({
-                                                        sliderType: "standard",
-                                                        jsFileLocation: "//wpsparrow.com/wordpress/ismiler/wp-content/plugins/revslider/public/assets/js/",
-                                                        sliderLayout: "fullwidth",
-                                                        dottedOverlay: "none",
-                                                        delay: 9000,
-                                                        navigation: {
-                                                            keyboardNavigation: "off",
-                                                            keyboard_direction: "horizontal",
-                                                            mouseScrollNavigation: "off",
-                                                            mouseScrollReverse: "default",
-                                                            onHoverStop: "off",
-                                                            touch: {
-                                                                touchenabled: "on",
-                                                                touchOnDesktop: "off",
-                                                                swipe_threshold: 75,
-                                                                swipe_min_touches: 50,
-                                                                swipe_direction: "horizontal",
-                                                                drag_block_vertical: false
-                                                            }
-                                                            ,
-                                                            bullets: {
-                                                                enable: true,
-                                                                hide_onmobile: true,
-                                                                hide_under: 600,
-                                                                style: "hermes",
-                                                                hide_onleave: false,
-                                                                direction: "horizontal",
-                                                                h_align: "center",
-                                                                v_align: "bottom",
-                                                                h_offset: 20,
-                                                                v_offset: 30,
-                                                                space: 15,
-                                                                tmp: ''
-                                                            }
-                                                        },
-                                                        responsiveLevels: [1240, 1024, 778, 480],
-                                                        visibilityLevels: [1240, 1024, 778, 480],
-                                                        gridwidth: [1240, 1024, 778, 480],
-                                                        gridheight: [600, 600, 500, 400],
-                                                        lazyType: "smart",
-                                                        parallax: {
-                                                            type: "3D",
-                                                            origo: "slidercenter",
-                                                            speed: 1000,
-                                                            speedbg: 0,
-                                                            speedls: 0,
-                                                            levels: [1, 2, 3, 4, 5, 6, 12, 16, 10, 50, 47, 48, 49, 50, 51, 7],
-                                                            ddd_shadow: "off",
-                                                            ddd_bgfreeze: "off",
-                                                            ddd_overflow: "visible",
-                                                            ddd_layer_overflow: "visible",
-                                                            ddd_z_correction: 65,
-                                                            disable_onmobile: "on"
-                                                        },
-                                                        spinner: "off",
-                                                        stopLoop: "off",
-                                                        stopAfterLoops: -1,
-                                                        stopAtSlide: -1,
-                                                        shuffle: "off",
-                                                        autoHeight: "off",
-                                                        hideThumbsOnMobile: "off",
-                                                        hideSliderAtLimit: 0,
-                                                        hideCaptionAtLimit: 0,
-                                                        hideAllCaptionAtLilmit: 0,
-                                                        debugMode: false,
-                                                        fallbacks: {
-                                                            simplifyAll: "off",
-                                                            nextSlideOnWindowFocus: "off",
-                                                            disableFocusListener: false,
-                                                        }
-                                                    });
-                                                }
-
-                                            });
-                                            /*ready*/
-                                        </script>
-                                        <script>
-                                            var htmlDivCss = unescape(".hermes.tp-bullets%20%7B%0A%7D%0A%0A.hermes%20.tp-bullet%20%7B%0A%20%20%20%20overflow%3Ahidden%3B%0A%20%20%20%20border-radius%3A50%25%3B%0A%20%20%20%20width%3A16px%3B%0A%20%20%20%20height%3A16px%3B%0A%20%20%20%20background-color%3A%20rgba%280%2C%200%2C%200%2C%200%29%3B%0A%20%20%20%20box-shadow%3A%20inset%200%200%200%202px%20rgb%28255%2C%20255%2C%20255%29%3B%0A%20%20%20%20-webkit-transition%3A%20background%200.3s%20ease%3B%0A%20%20%20%20transition%3A%20background%200.3s%20ease%3B%0A%20%20%20%20position%3Aabsolute%3B%0A%7D%0A%0A.hermes%20.tp-bullet%3Ahover%20%7B%0A%09%20%20background-color%3A%20rgba%28226%2C%2069%2C%2069%2C%201%29%3B%0A%7D%0A.hermes%20.tp-bullet%3Aafter%20%7B%0A%20%20content%3A%20%27%20%27%3B%0A%20%20position%3A%20absolute%3B%0A%20%20bottom%3A%200%3B%0A%20%20height%3A%200%3B%0A%20%20left%3A%200%3B%0A%20%20width%3A%20100%25%3B%0A%20%20background-color%3A%20rgb%28255%2C%20255%2C%20255%29%3B%0A%20%20box-shadow%3A%200%200%201px%20rgb%28255%2C%20255%2C%20255%29%3B%0A%20%20-webkit-transition%3A%20height%200.3s%20ease%3B%0A%20%20transition%3A%20height%200.3s%20ease%3B%0A%7D%0A.hermes%20.tp-bullet.selected%3Aafter%20%7B%0A%20%20height%3A100%25%3B%0A%7D%0A%0A");
-                                            var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
-                                            if (htmlDiv) {
-                                                htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
-                                            }
-                                            else {
-                                                var htmlDiv = document.createElement('div');
-                                                htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
-                                                document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
-                                            }
-                                        </script>
                                     </div><!-- END REVOLUTION SLIDER --></div>
                             </div>
                         </div>
@@ -511,7 +390,7 @@
                         <div class="vc_column-inner ">
                             <div class="wpb_wrapper">
                                 <div class="clearfix">
-                                    <h3 class="heading-line-long">featured phones</h3>
+                                    <h3 class="heading-line-long">Phones SaLe</h3>
                                 </div>
 
 
@@ -538,581 +417,108 @@
                                         <div class="  clearfix b-grid row ">
                                             <ul class="products-grid ">
 
+                                                <c:set var="item" value="${productList}"/>
 
-                                                <li class="col-sm-4 col-xs-6">
-                                                    <div class="first item-grid b-item-card post-2034 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nexus product_tag-nokia product_tag-premium product_tag-samsung product_tag-smart product_tag-unlocked yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7  instock sale featured shipping-taxable purchasable product-type-simple">
-                                                        <div class="image">
-
-
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">
-
-                                                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>sale</span></span>
+                                                <c:forEach var="imtem" items="${item}" begin="0" end="5">
+                                                    <li class="col-sm-4 col-xs-6">
+                                                        <div class="first item-grid b-item-card post-2034 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nexus product_tag-nokia product_tag-premium product_tag-samsung product_tag-smart product_tag-unlocked yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7  instock sale featured shipping-taxable purchasable product-type-simple">
+                                                            <div class="image">
 
 
-                                                                <img width="470" height="450"
-                                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-470x450.jpg"
-                                                                     class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                     alt=""/> </a>
+                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">
+
+                                                                    <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>sale</span></span>
 
 
-                                                            <a class="slider_img"
-                                                               href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/"><img
-                                                                    width="470" height="450"
-                                                                    src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                    class="attachment-shop_catalog size-shop_catalog"
-                                                                    alt=""/></a></div>
-                                                        <div class="card-info">
-                                                            <div class="caption">
-                                                                <div class="name-item">
-                                                                    <a class="product-name"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">Apple
-                                                                        iPhone 6s Plus</a>
-                                                                </div>
-                                                                <span class="product-price card-price-block">
+                                                                    <img width="470" height="450"
+                                                                         src="${imtem.IMG}"
+                                                                         class="attachment-shop_catalog size-shop_catalog wp-post-image"
+                                                                         alt=""/> </a>
+
+
+                                                                <a class="slider_img"
+                                                                   href="/viewProduct.html?id=${imtem.id}"><img
+                                                                        width="470" height="450"
+                                                                        src="${imtem.IMG}"
+                                                                        class="attachment-shop_catalog size-shop_catalog"
+                                                                        alt=""/></a></div>
+                                                            <div class="card-info">
+                                                                <div class="caption">
+                                                                    <div class="name-item">
+                                                                        <a class="product-name"
+                                                                           href="/viewProduct.html?id=${imtem.id}">${imtem.name}</a>
+                                                                    </div>
+                                                                    <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
 	<span class="price"><del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>600.00</span></del> <ins><span
-            class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>560.00</span></ins></span>
+            class="woocommerce-Price-currencySymbol">&pound;</span>${imtem.price}</span></del> <ins><span
+            class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>${imtem.salePrice}</span></ins></span>
 				</span>
-                                                                <div class="rating">
+                                                                    <div class="rating">
 
-                                                                    <div class="star-rating"><span style="width:40680%">Rated <strong
-                                                                            class="rating">2034</strong> out of 5</span>
+                                                                        <div class="star-rating"><span
+                                                                                style="width:40680%">Rated <strong
+                                                                                class="rating">2034</strong> out of 5</span>
+                                                                        </div>
+                                                                        <div class="add-review">
+                                                                            <span><span class="review-counter">2</span>Review(s)</span>
+                                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/#comments">Add
+                                                                                Your Review</a>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="add-review">
-                                                                        <span><span class="review-counter">2</span>Review(s)</span>
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/#comments">Add
-                                                                            Your Review</a>
+
+                                                                    <div class="product-description">
+                                                                        <p>Ut enim ad minim veniam quis nostrud exercita
+                                                                            tion ullamco laboris nisi aliquip exa
+                                                                            commodo
+                                                                            consequat. Duis aute irure dolor in
+                                                                            reprehenderit in voluptate velit esse cillum
+                                                                            dolore eu fugiat nulla pariatur</p>
                                                                     </div>
+
                                                                 </div>
 
-                                                                <div class="product-description">
-                                                                    <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                        tion ullamco laboris nisi aliquip exa commodo
-                                                                        consequat. Duis aute irure dolor in
-                                                                        reprehenderit in voluptate velit esse cillum
-                                                                        dolore eu fugiat nulla pariatur</p>
-                                                                </div>
 
-                                                            </div>
+                                                                <div class="add-buttons">
 
 
-                                                            <div class="add-buttons">
+                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/"
+                                                                       class="btn btn-add btn-add-quickview">
+                                                                        <i class="icon-eye"></i>
+                                                                    </a>
 
 
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/"
-                                                                   class="btn btn-add btn-add-quickview">
-                                                                    <i class="icon-eye"></i>
-                                                                </a>
+                                                                    <a class="btn btn-add btn-add-compare"><i
+                                                                            class="fa fa-refresh"></i></a>
+                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/?add_to_wishlist=2034"
+                                                                       class="btn btn-add btn-add-wish">
+                                                                        <i class="fa fa-heart-o"></i>
+                                                                    </a>
 
-
-                                                                <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/?add_to_wishlist=2034"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>
-
-
-                                                                <a href="/wordpress/ismiler/?add-to-cart=2034"
-                                                                   rel="nofollow" data-product_id="2034"
-                                                                   data-product_sku="3445" data-quantity="1"
-                                                                   class="btn btn-add btn-add-cart"> <i
-                                                                        class="icon-bag"></i>
-                                                                </a>
-
-                                                                <div class="cart-add-buttons">
 
                                                                     <a href="/wordpress/ismiler/?add-to-cart=2034"
                                                                        rel="nofollow" data-product_id="2034"
                                                                        data-product_sku="3445" data-quantity="1"
-                                                                       class="btn "> <i class="fa fa-shopping-cart"></i>
-                                                                        add to cart</a>
-                                                                </div>
+                                                                       class="btn btn-add btn-add-cart"> <i
+                                                                            class="icon-bag"></i>
+                                                                    </a>
 
+                                                                    <div class="cart-add-buttons">
+
+                                                                        <a href="/wordpress/ismiler/?add-to-cart=2034"
+                                                                           rel="nofollow" data-product_id="2034"
+                                                                           data-product_sku="3445" data-quantity="1"
+                                                                           class="btn "> <i
+                                                                                class="fa fa-shopping-cart"></i>
+                                                                            add to cart</a>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </li>
-
-
-                                                <li class="col-sm-4 col-xs-6">
-                                                    <div class="last item-grid b-item-card post-2977 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7 first instock featured shipping-taxable purchasable product-type-simple">
-                                                        <div class="image">
-
-
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/">
-
-
-                                                                <img width="470" height="450"
-                                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/81lZPI2hmoL._SX522_-470x450.jpg"
-                                                                     class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                     alt=""/> </a>
-
-
-                                                            <a class="slider_img"
-                                                               href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"><img
-                                                                    width="470" height="450"
-                                                                    src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                    class="attachment-shop_catalog size-shop_catalog"
-                                                                    alt=""/></a></div>
-                                                        <div class="card-info">
-                                                            <div class="caption">
-                                                                <div class="name-item">
-                                                                    <a class="product-name"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/">BLU
-                                                                        VIVO 5 Smartphone</a>
-                                                                </div>
-                                                                <span class="product-price card-price-block">
-					<span class="price-title">Price</span>
-
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span></span>
-				</span>
-                                                                <div class="rating">
-
-                                                                    <div class="star-rating"><span style="width:59540%">Rated <strong
-                                                                            class="rating">2977</strong> out of 5</span>
-                                                                    </div>
-                                                                    <div class="add-review">
-                                                                        <span><span class="review-counter">0</span>Review(s)</span>
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/#comments">Add
-                                                                            Your Review</a>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="product-description">
-                                                                    <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                        tion ullamco laboris nisi aliquip exa commodo
-                                                                        consequat. Duis aute irure dolor in
-                                                                        reprehenderit in voluptate velit esse cillum
-                                                                        dolore eu fugiat nulla pariatur</p>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                            <div class="add-buttons">
-
-
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"
-                                                                   class="btn btn-add btn-add-quickview">
-                                                                    <i class="icon-eye"></i>
-                                                                </a>
-
-
-                                                                <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>
-
-
-                                                                <a href="/wordpress/ismiler/?add-to-cart=2977"
-                                                                   rel="nofollow" data-product_id="2977"
-                                                                   data-product_sku="" data-quantity="1"
-                                                                   class="btn btn-add btn-add-cart"> <i
-                                                                        class="icon-bag"></i>
-                                                                </a>
-
-                                                                <div class="cart-add-buttons">
-
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2977"
-                                                                       rel="nofollow" data-product_id="2977"
-                                                                       data-product_sku="" data-quantity="1"
-                                                                       class="btn "> <i class="fa fa-shopping-cart"></i>
-                                                                        add to cart</a>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
-                                                <li class="col-sm-4 col-xs-6">
-                                                    <div class="item-grid b-item-card post-2978 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand3 yith_product_brand-brand4 yith_product_brand-brand7 last instock featured shipping-taxable purchasable product-type-simple">
-                                                        <div class="image">
-
-
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/huawei-nexus-6p/">
-
-
-                                                                <img width="470" height="450"
-                                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/61QfYbX8lwL._SX522_-470x450.jpg"
-                                                                     class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                     alt=""/> </a>
-
-
-                                                            <a class="slider_img"
-                                                               href="http://wpsparrow.com/wordpress/ismiler/product/huawei-nexus-6p/"><img
-                                                                    width="470" height="450"
-                                                                    src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                    class="attachment-shop_catalog size-shop_catalog"
-                                                                    alt=""/></a></div>
-                                                        <div class="card-info">
-                                                            <div class="caption">
-                                                                <div class="name-item">
-                                                                    <a class="product-name"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/huawei-nexus-6p/">Huawei
-                                                                        Nexus 6P</a>
-                                                                </div>
-                                                                <span class="product-price card-price-block">
-					<span class="price-title">Price</span>
-
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span></span>
-				</span>
-                                                                <div class="rating">
-
-                                                                    <div class="star-rating"><span style="width:59560%">Rated <strong
-                                                                            class="rating">2978</strong> out of 5</span>
-                                                                    </div>
-                                                                    <div class="add-review">
-                                                                        <span><span class="review-counter">0</span>Review(s)</span>
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product/huawei-nexus-6p/#comments">Add
-                                                                            Your Review</a>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="product-description">
-                                                                    <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                        tion ullamco laboris nisi aliquip exa commodo
-                                                                        consequat. Duis aute irure dolor in
-                                                                        reprehenderit in voluptate velit esse cillum
-                                                                        dolore eu fugiat nulla pariatur</p>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                            <div class="add-buttons">
-
-
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/huawei-nexus-6p/"
-                                                                   class="btn btn-add btn-add-quickview">
-                                                                    <i class="icon-eye"></i>
-                                                                </a>
-
-
-                                                                <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/huawei-nexus-6p/?add_to_wishlist=2978"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>
-
-
-                                                                <a href="/wordpress/ismiler/?add-to-cart=2978"
-                                                                   rel="nofollow" data-product_id="2978"
-                                                                   data-product_sku="" data-quantity="1"
-                                                                   class="btn btn-add btn-add-cart"> <i
-                                                                        class="icon-bag"></i>
-                                                                </a>
-
-                                                                <div class="cart-add-buttons">
-
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2978"
-                                                                       rel="nofollow" data-product_id="2978"
-                                                                       data-product_sku="" data-quantity="1"
-                                                                       class="btn "> <i class="fa fa-shopping-cart"></i>
-                                                                        add to cart</a>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
-                                                <li class="col-sm-4 col-xs-6">
-                                                    <div class="first item-grid b-item-card post-2998 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand3 yith_product_brand-brand4 yith_product_brand-brand7  instock sale featured shipping-taxable purchasable product-type-simple">
-                                                        <div class="image">
-
-
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/">
-
-                                                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>sale</span></span>
-
-
-                                                                <img width="470" height="450"
-                                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/revslider/home1/s3-3-470x450.png"
-                                                                     class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                     alt=""
-                                                                     srcset="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/revslider/home1/s3-3-470x450.png 470w, //wpsparrow.com/wordpress/ismiler/wp-content/uploads/revslider/home1/s3-3-64x60.png 64w"
-                                                                     sizes="(max-width: 470px) 100vw, 470px"/> </a>
-
-
-                                                            <a class="slider_img"
-                                                               href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/"><img
-                                                                    width="470" height="450"
-                                                                    src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                    class="attachment-shop_catalog size-shop_catalog"
-                                                                    alt=""/></a></div>
-                                                        <div class="card-info">
-                                                            <div class="caption">
-                                                                <div class="name-item">
-                                                                    <a class="product-name"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/">ORBIC
-                                                                        SLIM</a>
-                                                                </div>
-                                                                <span class="product-price card-price-block">
-					<span class="price-title">Price</span>
-
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>456.00</span></del> <ins><span
-            class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>451.00</span></ins></span>
-				</span>
-                                                                <div class="rating">
-
-                                                                    <div class="star-rating"><span style="width:59960%">Rated <strong
-                                                                            class="rating">2998</strong> out of 5</span>
-                                                                    </div>
-                                                                    <div class="add-review">
-                                                                        <span><span class="review-counter">0</span>Review(s)</span>
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/#comments">Add
-                                                                            Your Review</a>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="product-description">
-                                                                    <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                        tion ullamco laboris nisi aliquip exa commodo
-                                                                        consequat. Duis aute irure dolor in
-                                                                        reprehenderit in voluptate velit esse cillum
-                                                                        dolore eu fugiat nulla pariatur</p>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                            <div class="add-buttons">
-
-
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/"
-                                                                   class="btn btn-add btn-add-quickview">
-                                                                    <i class="icon-eye"></i>
-                                                                </a>
-
-
-                                                                <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/?add_to_wishlist=2998"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>
-
-
-                                                                <a href="/wordpress/ismiler/?add-to-cart=2998"
-                                                                   rel="nofollow" data-product_id="2998"
-                                                                   data-product_sku="" data-quantity="1"
-                                                                   class="btn btn-add btn-add-cart"> <i
-                                                                        class="icon-bag"></i>
-                                                                </a>
-
-                                                                <div class="cart-add-buttons">
-
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2998"
-                                                                       rel="nofollow" data-product_id="2998"
-                                                                       data-product_sku="" data-quantity="1"
-                                                                       class="btn "> <i class="fa fa-shopping-cart"></i>
-                                                                        add to cart</a>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
-                                                <li class="col-sm-4 col-xs-6">
-                                                    <div class="last item-grid b-item-card post-2975 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7 first instock featured shipping-taxable purchasable product-type-simple">
-                                                        <div class="image">
-
-
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/">
-
-
-                                                                <img width="470" height="450"
-                                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/71kr9vLUvWL._SX522_-470x450.jpg"
-                                                                     class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                     alt=""/> </a>
-
-
-                                                            <a class="slider_img"
-                                                               href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/"><img
-                                                                    width="470" height="450"
-                                                                    src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                    class="attachment-shop_catalog size-shop_catalog"
-                                                                    alt=""/></a></div>
-                                                        <div class="card-info">
-                                                            <div class="caption">
-                                                                <div class="name-item">
-                                                                    <a class="product-name"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/">Moto
-                                                                        G Plus (4th Gen.)</a>
-                                                                </div>
-                                                                <span class="product-price card-price-block">
-					<span class="price-title">Price</span>
-
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>456.00</span></span>
-				</span>
-                                                                <div class="rating">
-
-                                                                    <div class="star-rating"><span style="width:59500%">Rated <strong
-                                                                            class="rating">2975</strong> out of 5</span>
-                                                                    </div>
-                                                                    <div class="add-review">
-                                                                        <span><span class="review-counter">0</span>Review(s)</span>
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/#comments">Add
-                                                                            Your Review</a>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="product-description">
-                                                                    <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                        tion ullamco laboris nisi aliquip exa commodo
-                                                                        consequat. Duis aute irure dolor in
-                                                                        reprehenderit in voluptate velit esse cillum
-                                                                        dolore eu fugiat nulla pariatur</p>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                            <div class="add-buttons">
-
-
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/"
-                                                                   class="btn btn-add btn-add-quickview">
-                                                                    <i class="icon-eye"></i>
-                                                                </a>
-
-
-                                                                <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/?add_to_wishlist=2975"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>
-
-
-                                                                <a href="/wordpress/ismiler/?add-to-cart=2975"
-                                                                   rel="nofollow" data-product_id="2975"
-                                                                   data-product_sku="" data-quantity="1"
-                                                                   class="btn btn-add btn-add-cart"> <i
-                                                                        class="icon-bag"></i>
-                                                                </a>
-
-                                                                <div class="cart-add-buttons">
-
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2975"
-                                                                       rel="nofollow" data-product_id="2975"
-                                                                       data-product_sku="" data-quantity="1"
-                                                                       class="btn "> <i class="fa fa-shopping-cart"></i>
-                                                                        add to cart</a>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
-                                                <li class="col-sm-4 col-xs-6">
-                                                    <div class="item-grid b-item-card post-2976 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7 last instock featured shipping-taxable purchasable product-type-simple">
-                                                        <div class="image">
-
-
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/">
-
-
-                                                                <img width="470" height="450"
-                                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                     class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                     alt=""/> </a>
-
-
-                                                            <a class="slider_img"
-                                                               href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/"><img
-                                                                    width="470" height="450"
-                                                                    src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                    class="attachment-shop_catalog size-shop_catalog"
-                                                                    alt=""/></a></div>
-                                                        <div class="card-info">
-                                                            <div class="caption">
-                                                                <div class="name-item">
-                                                                    <a class="product-name"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/">Samsung
-                                                                        Galaxy S5</a>
-                                                                </div>
-                                                                <span class="product-price card-price-block">
-					<span class="price-title">Price</span>
-
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span></span>
-				</span>
-                                                                <div class="rating">
-
-                                                                    <div class="star-rating"><span style="width:59520%">Rated <strong
-                                                                            class="rating">2976</strong> out of 5</span>
-                                                                    </div>
-                                                                    <div class="add-review">
-                                                                        <span><span class="review-counter">2</span>Review(s)</span>
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/#comments">Add
-                                                                            Your Review</a>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="product-description">
-                                                                    <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                        tion ullamco laboris nisi aliquip exa commodo
-                                                                        consequat. Duis aute irure dolor in
-                                                                        reprehenderit in voluptate velit esse cillum
-                                                                        dolore eu fugiat nulla pariatur</p>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                            <div class="add-buttons">
-
-
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/"
-                                                                   class="btn btn-add btn-add-quickview">
-                                                                    <i class="icon-eye"></i>
-                                                                </a>
-
-
-                                                                <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/?add_to_wishlist=2976"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>
-
-
-                                                                <a href="/wordpress/ismiler/?add-to-cart=2976"
-                                                                   rel="nofollow" data-product_id="2976"
-                                                                   data-product_sku="" data-quantity="1"
-                                                                   class="btn btn-add btn-add-cart"> <i
-                                                                        class="icon-bag"></i>
-                                                                </a>
-
-                                                                <div class="cart-add-buttons">
-
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2976"
-                                                                       rel="nofollow" data-product_id="2976"
-                                                                       data-product_sku="" data-quantity="1"
-                                                                       class="btn "> <i class="fa fa-shopping-cart"></i>
-                                                                        add to cart</a>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                     </div>
@@ -1122,72 +528,72 @@
                     </div>
                     <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
                          data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
-                    <div class="wpb_column vc_column_container vc_col-sm-4">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
+                    <%--      <div class="wpb_column vc_column_container vc_col-sm-4">
+                              <div class="vc_column-inner ">
+                                  <div class="wpb_wrapper">
 
-                                <div class="b-hot-deal woocommerce">
-                                    <div class="product-item_sale deal">
-                                        <span>sale</span>
-                                    </div>
-                                    <div class="hot-deal-card">
-                                        <h3 class="heading-line">WEEK`S HOT DEAL</h3>
-                                        <div class="image">
-                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">
-                                                <img width="300" height="300"
-                                                     src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-300x300.jpg"
-                                                     class="img-responsive center-block wp-post-image" alt=""
-                                                     srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-300x300.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-150x150.jpg 150w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-60x60.jpg 60w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-100x100.jpg 100w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1.jpg 522w"
-                                                     sizes="(max-width: 300px) 100vw, 300px"/> </a>
-                                        </div>
+                                      <div class="b-hot-deal woocommerce">
+                                          <div class="product-item_sale deal">
+                                              <span>sale</span>
+                                          </div>
+                                          <div class="hot-deal-card">
+                                              <h3 class="heading-line">WEEK`S HOT DEAL</h3>
+                                              <div class="image">
+                                                  <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">
+                                                      <img width="300" height="300"
+                                                           src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-300x300.jpg"
+                                                           class="img-responsive center-block wp-post-image" alt=""
+                                                           srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-300x300.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-150x150.jpg 150w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-60x60.jpg 60w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-100x100.jpg 100w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1.jpg 522w"
+                                                           sizes="(max-width: 300px) 100vw, 300px"/> </a>
+                                              </div>
 
-                                        <div class="countdown dsCountDown ds-custom"
-                                             data-end-date="February 12, 2020 23:59:00" data-theme="custom"
-                                             data-title-days="DAY" data-title-hours="HRS" data-title-minutes="MINS"
-                                             data-title-seconds="SECS">
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="caption">
-                                                <div class="name-item">
-                                                    <a class="product-name"
-                                                       href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">Apple
-                                                        iPhone 6s Plus</a>
+                                              <div class="countdown dsCountDown ds-custom"
+                                                   data-end-date="February 12, 2020 23:59:00" data-theme="custom"
+                                                   data-title-days="DAY" data-title-hours="HRS" data-title-minutes="MINS"
+                                                   data-title-seconds="SECS">
+                                              </div>
+                                              <div class="card-info">
+                                                  <div class="caption">
+                                                      <div class="name-item">
+                                                          <a class="product-name"
+                                                             href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">Apple
+                                                              iPhone 6s Plus</a>
 
-                                                    <div class="star-rating"><span style="width:40680%">Rated <strong
-                                                            class="rating">2034</strong> out of 5</span></div>
-                                                </div>
-                                                <div class="deal-prices clearfix">
-                                                    <div class="deal pull-left">
-                                                        <span>deal price</span>
-                                                        <br>
-                                                        <span class="product-price"><span
-                                                                class="woocommerce-Price-amount amount"><span
-                                                                class="woocommerce-Price-currencySymbol">&pound;</span>560.00</span></span>
-                                                    </div>
-                                                    <div class="regular pull-right">
-                                                        <span>regular price</span>
-                                                        <br>
-                                                        <span class="product-price-old"><span
-                                                                class="woocommerce-Price-amount amount"><span
-                                                                class="woocommerce-Price-currencySymbol">&pound;</span>600.00</span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cart-add-buttons">
-                                                <a href="?add-to-cart=2034" id="add-cart1" rel="nofollow"
-                                                   data-product_id="2034" data-product_sku="3445" data-quantity="1"
-                                                   class="btn btn-add-cart-full"> <span><i
-                                                        class="fa fa-shopping-cart"></i></span>add to cart
-                                                </a>
+                                                          <div class="star-rating"><span style="width:40680%">Rated <strong
+                                                                  class="rating">2034</strong> out of 5</span></div>
+                                                      </div>
+                                                      <div class="deal-prices clearfix">
+                                                          <div class="deal pull-left">
+                                                              <span>deal price</span>
+                                                              <br>
+                                                              <span class="product-price"><span
+                                                                      class="woocommerce-Price-amount amount"><span
+                                                                      class="woocommerce-Price-currencySymbol">&pound;</span>560.00</span></span>
+                                                          </div>
+                                                          <div class="regular pull-right">
+                                                              <span>regular price</span>
+                                                              <br>
+                                                              <span class="product-price-old"><span
+                                                                      class="woocommerce-Price-amount amount"><span
+                                                                      class="woocommerce-Price-currencySymbol">&pound;</span>600.00</span></span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="cart-add-buttons">
+                                                      <a href="?add-to-cart=2034" id="add-cart1" rel="nofollow"
+                                                         data-product_id="2034" data-product_sku="3445" data-quantity="1"
+                                                         class="btn btn-add-cart-full"> <span><i
+                                                              class="fa fa-shopping-cart"></i></span>add to cart
+                                                      </a>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
 
-                            </div>
-                        </div>
-                    </div>
+                                  </div>
+                              </div>
+                          </div>--%>
                     <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
                          data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
                 </div>

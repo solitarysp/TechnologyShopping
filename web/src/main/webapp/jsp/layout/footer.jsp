@@ -93,22 +93,7 @@ New York 226688</p>
  </div></div></div><div class="kswr-column-settings" data-minheight="0px" data-isminheight="off" data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div><div class="wpb_column vc_column_container vc_col-sm-5"><div class="vc_column-inner "><div class="wpb_wrapper">
 <div class="b-footer-subsc">
 	<div class="subsc-mail">
-	 	<script type="text/javascript">(function() {
-	if (!window.mc4wp) {
-		window.mc4wp = {
-			listeners: [],
-			forms    : {
-				on: function (event, callback) {
-					window.mc4wp.listeners.push({
-						event   : event,
-						callback: callback
-					});
-				}
-			}
-		}
-	}
-})();
-</script><!-- MailChimp for WordPress v4.1.6 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-3011" method="post" data-id="3011" data-name="newsletter" ><div class="mc4wp-form-fields"><input type="email" name="EMAIL"  placeholder="Your email address" required />
+<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-3011" method="post" data-id="3011" data-name="newsletter" ><div class="mc4wp-form-fields"><input type="email" name="EMAIL"  placeholder="Your email address" required />
 <i class="fa fa-envelope-o fa-fw"></i>
 <input type="submit" value="">
 

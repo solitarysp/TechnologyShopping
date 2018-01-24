@@ -7,6 +7,8 @@ import com.fpt.repositories.review.ReviewRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReviewServiceImp implements ReviewServices {
     @Autowired
@@ -15,5 +17,10 @@ public class ReviewServiceImp implements ReviewServices {
     @Override
     public void saveReview(Review review) {
         reviewRepo.save(review);
+    }
+
+    @Override
+    public List<Review> getAllByIdProduct(String id) {
+        return reviewRepo.getAllByIdProduct(id);
     }
 }
