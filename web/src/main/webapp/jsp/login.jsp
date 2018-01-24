@@ -16,13 +16,13 @@
 <!-- Loader -->
 <div id="page-preloader"><span class="spinner"></span></div>
 <!-- Loader end -->
-<div class="sp-body">
+<div  class="sp-body">
     <div class="b-page">
         <jsp:include page="/jsp/layout/nav-header.jsp"/>
-        <div class="woocommerce">
+        <div style="margin-left: 30px;margin-right: 30px;" class="woocommerce">
 
 
-            <h2>Login</h2>
+            <h2 style="margin-left: 30px;">Login</h2>
 
             <form class="woocommerce-form woocommerce-form-login login" name='f' action="login.html" method='POST'>
 
