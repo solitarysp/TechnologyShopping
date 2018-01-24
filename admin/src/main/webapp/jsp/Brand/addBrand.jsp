@@ -12,7 +12,7 @@
     <title>add Category</title>
 </head>
 <body>
-<jsp:include page="layoutAdminTop.jsp"/>
+<jsp:include page="../Layout/layoutAdminTop.jsp"/>
 <div>
     <h1>thêm Brand</h1>
     <form id="form" method="post">
@@ -39,14 +39,16 @@
                     if (xhr.status == 403) {
                         $('#result').html("Bạn không có quyền xem");
                         $('#stt').html("Bạn không có quyền xem");
-                    }
+                }
                 }
             });
-
-
         }
+
+
     </script>
 </div>
-<jsp:include page="layoutAdminBot.jsp"/>
+
+<jsp:include page="../Layout/layoutAdminBot.jsp"/>
+
 </body>
 </html>

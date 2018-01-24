@@ -6,6 +6,7 @@ import com.fpt.entity.ProductType;
 import com.fpt.repositories.producttype.ProductTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,8 +20,15 @@ public class ProductTypeServiceImp implements ProductTypeServices {
         return productTypeRepo.getAllProductType();
     }
 
+    @Transactional
     @Override
     public void saveProductType(ProductType productType) {
         productTypeRepo.save(productType);
+    }
+
+    @Transactional
+    @Override
+    public void deleteProductType(ProductType productType) {
+        productTypeRepo.delete(productType);
     }
 }

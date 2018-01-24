@@ -12,4 +12,6 @@ public interface CategoryServices {
     List<Category> getAllCategory();
 
     void saveCategory(Category category);
+
+    void deleteCategory(Category category);
 }
