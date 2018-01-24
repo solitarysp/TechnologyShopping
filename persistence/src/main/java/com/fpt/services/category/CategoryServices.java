@@ -15,4 +15,6 @@ public interface CategoryServices {
 
     Category getCategoryById(Integer id);
      void deleteCategory(Category category);
+
+    Category findByID(Integer id);
 }
