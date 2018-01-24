@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Title</title>
+    <script type='text/javascript' src='jsCustom/Home.js'></script>
     <jsp:include page="/jsp/layout/header.jsp"/>
 </head>
 <body class="home page-template-default page page-id-2603 animated-css layout-switch home-construction-v2 primary-menu-not-active wpb-js-composer js-comp-ver-5.2.1 vc_responsive"
@@ -439,12 +440,12 @@
                                                                          alt=""/> </a>
 
 
-                                                                <a class="slider_img"
-                                                                   href="/viewProduct.html?id=${imtem.id}"><img
-                                                                        width="470" height="450"
-                                                                        src="${imtem.IMG}"
-                                                                        class="attachment-shop_catalog size-shop_catalog"
-                                                                        alt=""/></a></div>
+                                                                    <%-- <a class="slider_img"
+                                                                        href="/viewProduct.html?id=${imtem.id}"><img
+                                                                             width="470" height="450"
+                                                                             src="${imtem.IMG}"
+                                                                             class="attachment-shop_catalog size-shop_catalog"
+                                                                             alt=""/></a>--%></div>
                                                             <div class="card-info">
                                                                 <div class="caption">
                                                                     <div class="name-item">
@@ -457,7 +458,22 @@
 	<span class="price"><del><span class="woocommerce-Price-amount amount"><span
             class="woocommerce-Price-currencySymbol">&pound;</span>${imtem.price}</span></del> <ins><span
             class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>${imtem.salePrice}</span></ins></span>
+            class="woocommerce-Price-currencySymbol">&pound;
+
+
+
+    <c:forEach var="cate" items="${imtem.category}">
+        <c:if test="${cate.id==1}">
+                </span>${imtem.price - (imtem.price /100 * cate.value)}</span>
+
+        </c:if>
+
+    </c:forEach>
+
+
+
+
+    </ins></span>
 				</span>
                                                                     <div class="rating">
 
@@ -489,23 +505,23 @@
 
                                                                     <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/"
                                                                        class="btn btn-add btn-add-quickview">
-                                                                        <i class="icon-eye"></i>
+                                                                        <i class="fa fa-eye"></i>
                                                                     </a>
 
 
-                                                                    <a class="btn btn-add btn-add-compare"><i
+                                                   <%--                 <a class="btn btn-add btn-add-compare"><i
                                                                             class="fa fa-refresh"></i></a>
                                                                     <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/?add_to_wishlist=2034"
                                                                        class="btn btn-add btn-add-wish">
                                                                         <i class="fa fa-heart-o"></i>
-                                                                    </a>
+                                                                    </a>--%>
 
 
                                                                     <a href="/wordpress/ismiler/?add-to-cart=2034"
                                                                        rel="nofollow" data-product_id="2034"
                                                                        data-product_sku="3445" data-quantity="1"
                                                                        class="btn btn-add btn-add-cart"> <i
-                                                                            class="icon-bag"></i>
+                                                                            class="fa fa-shopping-bag"></i>
                                                                     </a>
 
                                                                     <div class="cart-add-buttons">
@@ -679,42 +695,48 @@
                                 <div class="b-brand-filters">
                                     <ul id="filter"
                                         class="product-filter col-sm-12 tags-buttons list-inline by-brands-buttons clearfix">
-                                        <li><a href="#"
+                                        <li><a onclick="clickGetSaleCATEGORIES(null,null)"
                                                class="btn btn-tag font-additional font-weight-normal text-uppercase hover-focus-bg current"
                                                data-filter="*">All products</a></li>
-                                        <li class="cat-item cat-item-151"><a href="#" data-filter=".accessories"
-                                                                             class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Accessories</a>
+                                        <li class="cat-item cat-item-151"><a
+                                                onclick="clickGetSaleCATEGORIES(1,13)"
+                                                class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">SaLe</a>
                                         </li>
-                                        <li class="cat-item cat-item-149"><a href="#" data-filter=".carrier-phones"
-                                                                             class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Carrier
-                                            Phones</a>
+                                        <li class="cat-item cat-item-149"><a onclick="clickGetSaleCATEGORIES(2,13)"
+                                                                             class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">New
+                                            </a>
                                         </li>
-                                        <li class="cat-item cat-item-152"><a href="#" data-filter=".cases"
+                                        <%--    <li class="cat-item cat-item-152"><a href="#"
                                                                              class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Cases</a>
                                         </li>
-                                        <li class="cat-item cat-item-150"><a href="#" data-filter=".exclusive-phones"
+                                        <li class="cat-item cat-item-150"><a href="#"
                                                                              class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Exclusive
                                             Phones</a>
                                         </li>
-                                        <li class="cat-item cat-item-153"><a href="#" data-filter=".unlocked-phones"
+                                        <li class="cat-item cat-item-153"><a href="#"
                                                                              class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Unlocked
                                             Phones</a>
-                                        </li>
+                                        </li>--%>
                                     </ul>
                                 </div>
                                 <div class="isotope-frame">
                                     <ul class="isotope-filter products-grid row">
 
                                         <div id="iphoneByCATEGORIES">
-                                            <c:forEach var="item" items="${itemAll}" begin="0" end="10">
-                                                <li class="isotope-item col-sm-4 accessories carrier-phones cases unlocked-phones ">
+                                            <c:forEach var="item" items="${itemAll}" begin="0" end="11">
+                                                <li class="isotope-item col-sm-4 accessories carrier-phones cases  <c:forEach var="item2" items="${item.category}" begin="0" end="10">
+                                                ${item2.name}
+</c:forEach> ">
                                                     <div class="first item-grid b-item-card post-2977 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7  instock featured shipping-taxable purchasable product-type-simple">
                                                         <div class="image">
 
+                                                            <c:forEach var="cate" items="${item.category}">
+                                                                <c:if test="${cate.id==1}">
+                                                                    <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                                    <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span> </c:if>
 
+                                                            </c:forEach>
                                                             <a href="/viewProduct.html?id=${item.id}">
-
-
                                                                 <img width="470" height="450"
                                                                      src="${item.IMG}"
                                                                      class="attachment-shop_catalog size-shop_catalog wp-post-image"
@@ -824,151 +846,157 @@
                 </div>
                 <div class="kswr-row-element-back" data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
                 <div class="vc_row_anchor js_stretch_anchor"></div>
-                <div class="vc_row wpb_row vc_row-fluid vc_row-padding-both carousel-type-None carousel-in-row-enabled vc_custom_1502193424664">
-                    <div class="wpb_column vc_column_container vc_col-sm-12">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div class="clearfix">
-                                    <h3 class="heading-line-long">BEST SELLERS</h3>
-                                </div>
 
-
-                                <div class="woocommerce columns-4 ">
-
-                                    <div class="custom-nav-mod">
-                                        <div class="slider-nav">
-                                            <a class="slider-prev best_selling_products-prev"><i
-                                                    class="fa fa-chevron-left"></i></a>
-                                            <span class="nav-divider"></span>
-                                            <a class="slider-next best_selling_products-next"><i
-                                                    class="fa fa-chevron-right"></i></a>
-                                        </div>
+                <c:if test="${not empty productListBestSellers}">
+                    <div class="vc_row wpb_row vc_row-fluid vc_row-padding-both carousel-type-None carousel-in-row-enabled vc_custom_1502193424664">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="clearfix">
+                                        <h3 class="heading-line-long">BEST SELLERS</h3>
                                     </div>
 
-                                    <div class="b-related bestseller-home wow fadeInUp enable-owl-carousel-ul"
-                                         data-loop="true" data-auto-width="false" data-dots="false" data-nav="false"
-                                         data-margin="30" data-responsive-class="true"
-                                         data-responsive='{"0":{"items":1},"479":{"items":2},"768":{"items":3},"1199":{"items":4}}'
-                                         data-slider-next=".best_selling_products-next"
-                                         data-slider-prev=".best_selling_products-prev">
+
+                                    <div class="woocommerce columns-4 ">
+
+                                        <div class="custom-nav-mod">
+                                            <div class="slider-nav">
+                                                <a class="slider-prev best_selling_products-prev"><i
+                                                        class="fa fa-chevron-left"></i></a>
+                                                <span class="nav-divider"></span>
+                                                <a class="slider-next best_selling_products-next"><i
+                                                        class="fa fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="b-related bestseller-home wow fadeInUp enable-owl-carousel-ul"
+                                             data-loop="true" data-auto-width="false" data-dots="false" data-nav="false"
+                                             data-margin="30" data-responsive-class="true"
+                                             data-responsive='{"0":{"items":1},"479":{"items":2},"768":{"items":3},"1199":{"items":4}}'
+                                             data-slider-next=".best_selling_products-next"
+                                             data-slider-prev=".best_selling_products-prev">
 
 
-                                        <div class="  clearfix b-grid row ">
-                                            <ul class="products-grid ">
+                                            <div class="  clearfix b-grid row ">
+                                                <ul class="products-grid ">
 
-                                                <c:forEach var="itemProduct" items="${productListBestSellers}">
+                                                    <c:forEach var="itemProduct" items="${productListBestSellers}">
 
-                                                    <li class="isotope-item col-sm-4 accessories cases exclusive-phones unlocked-phones ">
-                                                        <div class="item-grid b-item-card post-2977 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7 last instock featured shipping-taxable purchasable product-type-simple">
-                                                            <div class="image">
-
-
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/">
+                                                        <li class="isotope-item col-sm-4 accessories cases exclusive-phones unlocked-phones ">
+                                                            <div class="item-grid b-item-card post-2977 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7 last instock featured shipping-taxable purchasable product-type-simple">
+                                                                <div class="image">
 
 
-                                                                    <img width="470" height="450"
-                                                                         src="${itemProduct.IMG}"
-                                                                         class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                         alt=""/> </a>
+                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/">
 
 
-                                                                    <%--<a class="slider_img"
-                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"><img
-                                                                            width="470" height="450"
-                                                                            src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
-                                                                            class="attachment-shop_catalog size-shop_catalog"
-                                                                            alt=""/></a>--%>
+                                                                        <img width="470" height="450"
+                                                                             src="${itemProduct.IMG}"
+                                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
+                                                                             alt=""/> </a>
 
-                                                            </div>
-                                                            <div class="card-info">
-                                                                <div class="caption">
-                                                                    <div class="name-item">
-                                                                        <a class="product-name"
-                                                                           href="/viewProduct.html?id=${itemProduct.id}">${itemProduct.name}</a>
-                                                                    </div>
-                                                                    <span class="product-price card-price-block">
+
+                                                                        <%--<a class="slider_img"
+                                                                           href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"><img
+                                                                                width="470" height="450"
+                                                                                src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
+                                                                                class="attachment-shop_catalog size-shop_catalog"
+                                                                                alt=""/></a>--%>
+
+                                                                </div>
+                                                                <div class="card-info">
+                                                                    <div class="caption">
+                                                                        <div class="name-item">
+                                                                            <a class="product-name"
+                                                                               href="/viewProduct.html?id=${itemProduct.id}">${itemProduct.name}</a>
+                                                                        </div>
+                                                                        <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
 	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>${itemProduct.price}</span></span>
 				</span>
-                                                                    <div class="rating">
+                                                                        <div class="rating">
 
-                                                                        <div class="star-rating"><span
-                                                                                style="width:59540%">Rated <strong
-                                                                                class="rating">2977</strong> out of 5</span>
+                                                                            <div class="star-rating"><span
+                                                                                    style="width:59540%">Rated <strong
+                                                                                    class="rating">2977</strong> out of 5</span>
+                                                                            </div>
+                                                                            <div class="add-review">
+                                                                                <span><span class="review-counter">0</span>Review(s)</span>
+                                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/#comments">Add
+                                                                                    Your Review</a>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="add-review">
-                                                                            <span><span class="review-counter">0</span>Review(s)</span>
-                                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/#comments">Add
-                                                                                Your Review</a>
+
+                                                                        <div class="product-description">
+                                                                            <p>Ut enim ad minim veniam quis nostrud exercita
+                                                                                tion ullamco laboris nisi aliquip exa
+                                                                                commodo
+                                                                                consequat. Duis aute irure dolor in
+                                                                                reprehenderit in voluptate velit esse cillum
+                                                                                dolore eu fugiat nulla pariatur</p>
                                                                         </div>
+
                                                                     </div>
 
-                                                                    <div class="product-description">
-                                                                        <p>Ut enim ad minim veniam quis nostrud exercita
-                                                                            tion ullamco laboris nisi aliquip exa
-                                                                            commodo
-                                                                            consequat. Duis aute irure dolor in
-                                                                            reprehenderit in voluptate velit esse cillum
-                                                                            dolore eu fugiat nulla pariatur</p>
-                                                                    </div>
 
-                                                                </div>
+                                                                    <div class="add-buttons">
 
 
-                                                                <div class="add-buttons">
+                                                                        <a href="/viewProduct.html?id=${imtem.id}"
+                                                                           class="btn btn-add btn-add-quickview">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
 
 
-                                                                    <a href="/viewProduct.html?id=${imtem.id}"
-                                                                       class="btn btn-add btn-add-quickview">
-                                                                        <i class="fa fa-eye"></i>
-                                                                    </a>
+                                                                            <%--                         <a class="btn btn-add btn-add-compare"><i
+                                                                                                             class="fa fa-refresh"></i></a>
+                                                                                                     <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
+                                                                                                        class="btn btn-add btn-add-wish">
+                                                                                                         <i class="fa fa-heart-o"></i>
+                                                                                                     </a>--%>
 
-
-                                           <%--                         <a class="btn btn-add btn-add-compare"><i
-                                                                            class="fa fa-refresh"></i></a>
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
-                                                                       class="btn btn-add btn-add-wish">
-                                                                        <i class="fa fa-heart-o"></i>
-                                                                    </a>--%>
-
-
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2977"
-                                                                       rel="nofollow" data-product_id="2977"
-                                                                       data-product_sku="" data-quantity="1"
-                                                                       class="btn btn-add btn-add-cart"> <i
-                                                                            class="fa fa-shopping-bag"></i>
-                                                                    </a>
-
-                                                                    <div class="cart-add-buttons">
 
                                                                         <a href="/wordpress/ismiler/?add-to-cart=2977"
                                                                            rel="nofollow" data-product_id="2977"
                                                                            data-product_sku="" data-quantity="1"
-                                                                           class="btn "> <i
-                                                                                class="fa fa-shopping-cart"></i>
-                                                                            add to cart</a>
-                                                                    </div>
+                                                                           class="btn btn-add btn-add-cart"> <i
+                                                                                class="fa fa-shopping-bag"></i>
+                                                                        </a>
 
+                                                                        <div class="cart-add-buttons">
+
+                                                                            <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                               rel="nofollow" data-product_id="2977"
+                                                                               data-product_sku="" data-quantity="1"
+                                                                               class="btn "> <i
+                                                                                    class="fa fa-shopping-cart"></i>
+                                                                                add to cart</a>
+                                                                        </div>
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
+                                                        </li>
 
 
-                                                </c:forEach>
+                                                    </c:forEach>
 
 
-                                            </ul>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
+                             data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
                     </div>
-                    <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
-                         data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
-                </div>
+
+                </c:if>
+
+
                 <div class="kswr-row-element-back" data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
                 <div class="vc_row_anchor js_stretch_anchor">
                     <div class="wrap-anchor">
@@ -1235,5 +1263,25 @@
     </div>
     <jsp:include page="/jsp/layout/js-footer.jsp"/>
 </div>
+<script type="text/javascript">
+    function clickGetSaleCATEGORIES(idCategories, limit) {
+        var data = {'id': idCategories, 'limit': limit};
+        $.ajax({
+            url: "/getCategories?${_csrf.parameterName}=${_csrf.token}",
+            type: "post",
+            dataType: "text",
+            data: data,
+            success: function (result) {
+                $('#iphoneByCATEGORIES').html(result);
+            },
+            complete: function (xhr, textStatus) {
+                if (xhr.status == 403) {
+                    $('#result').html("Bạn không có quyền xem");
+                    $('#stt').html("Bạn không có quyền xem");
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>

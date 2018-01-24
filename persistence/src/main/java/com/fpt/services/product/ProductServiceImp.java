@@ -38,4 +38,9 @@ public class ProductServiceImp implements ProductServices {
     public List<Product> getAllProductBestSellers() {
         return productRepo.getAllProductBestSellers();
     }
+
+    @Override
+    public List<Product> getProductByCategoriesHasLimit(Integer id, Integer limit) {
+        return productRepo.getProductByCategoriesHasLimit(id, limit);
+    }
 }

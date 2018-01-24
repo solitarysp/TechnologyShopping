@@ -2748,9 +2748,6 @@ footer .b-socials li a:hover {
 
 
 
-.section-home .featured-holder .b-related .related-item {
-    min-height: auto;
-}
 
 .section-home .featured-holder .b-related .related-item .b-item-card {}
 
@@ -3421,6 +3418,23 @@ html .yith-wcbr-archive-header.term-description {
     transform: rotate(-45deg);
 }
 
+.product-item_sale_value.sale {
+    background: #e04b34;
+}
+.product-item_sale_value {
+    position: absolute;
+    right: -24px;
+    top: -8px;
+    display: block;
+    width: 70px;
+    z-index: 50;
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    height: 37px;
+
+}
 .product-item_sale.new {
     background: #3bc33c;
 }
@@ -3436,7 +3450,7 @@ html .yith-wcbr-archive-header.term-description {
 .product-item_sale span {
     color: #fff;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 12px;
     width: 100%;
     text-align: center;
@@ -3444,7 +3458,17 @@ html .yith-wcbr-archive-header.term-description {
     margin-top: 20px;
     margin-bottom: 7px;
 }
-
+.product-item_sale_value span {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 17px;
+    line-height: 12px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 7px;
+}
 
 /* shopping cart */
 

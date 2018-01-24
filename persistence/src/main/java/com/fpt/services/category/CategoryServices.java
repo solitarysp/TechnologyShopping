@@ -13,5 +13,5 @@ public interface CategoryServices {
 
     void saveCategory(Category category);
 
-    void deleteCategory(Category category);
+    Category getCategoryById(Integer id);
 }
