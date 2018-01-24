@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class viewProductController {
     @Autowired
     ProductServices productServices;
+    private List<Product> productList;
 
     private Product product;
 
@@ -25,6 +27,9 @@ public class viewProductController {
             product = productServices.getProductById(id);
             System.out.println(product.getName());
             modelMap.addAttribute("product", product);
+
+            productList = productServices.getAll();
+            modelMap.addAttribute("productList", productList);
         }
         return "viewProduct";
     }

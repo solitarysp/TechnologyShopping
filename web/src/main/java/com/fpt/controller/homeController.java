@@ -11,16 +11,23 @@ import java.util.List;
 
 @Controller
 public class homeController {
+    private List<Product> productListSale;
     private List<Product> productList;
+    private List<Product> productListBestSellers;
 
     @Autowired
     ProductServices productServices;
 
     @RequestMapping(value = "/")
     public String viewHome(ModelMap modelMap) {
-        productList = productServices.getAllByCategoryID(1);
-        System.out.println(productList.size());
+        productListSale = productServices.getAllByCategoryID(1);
+        modelMap.addAttribute("productListSale", productListSale);
+
+        productList = productServices.getAll();
         modelMap.addAttribute("productList", productList);
+
+        productListBestSellers = productServices.getAllProductBestSellers();
+        modelMap.addAttribute("productListBestSellers", productListBestSellers);
         return "home";
     }
 }

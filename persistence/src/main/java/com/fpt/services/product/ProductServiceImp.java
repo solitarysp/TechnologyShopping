@@ -33,4 +33,9 @@ public class ProductServiceImp implements ProductServices {
     public Product getProductById(String id) {
         return productRepo.findOne(id);
     }
+
+    @Override
+    public List<Product> getAllProductBestSellers() {
+        return productRepo.getAllProductBestSellers();
+    }
 }

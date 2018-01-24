@@ -16,4 +16,5 @@ public interface ProductServices {
     void saveProduct(Product product);
 
     Product getProductById(String id);
+    List<Product> getAllProductBestSellers();
 }
