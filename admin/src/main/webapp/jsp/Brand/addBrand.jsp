@@ -43,8 +43,12 @@
                 }
             });
         }
+
+
     </script>
 </div>
+
 <jsp:include page="../Layout/layoutAdminBot.jsp"/>
+
 </body>
 </html>

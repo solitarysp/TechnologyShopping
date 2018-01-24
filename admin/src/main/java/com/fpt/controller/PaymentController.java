@@ -24,14 +24,14 @@ public class PaymentController {
     }
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
-    public String AddPayment(Payment payment, HttpServletResponse response) {
+    public void AddPayment(Payment payment, HttpServletResponse response) {
         try {
             paymentServices.savePayment(payment);
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Payment/addPayment";
+
     }
     @RequestMapping(value = "/editPayment", method = RequestMethod.PUT)
     public String EditPayment(Payment payment, HttpServletResponse response){

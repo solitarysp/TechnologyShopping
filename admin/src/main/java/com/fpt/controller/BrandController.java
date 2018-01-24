@@ -42,14 +42,13 @@ public class BrandController {
     }
 
     @RequestMapping(value = "/editBrand", method = RequestMethod.PUT)
-    public String EditBrand(Brand brand, HttpServletResponse response){
+    public void EditBrand(Brand brand, HttpServletResponse response){
         brandServices.saveBrand(brand);
         try {
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Brand/addBrand";
     }
 
     @RequestMapping(value = "/viewBrand",method = RequestMethod.GET)

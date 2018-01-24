@@ -420,7 +420,7 @@
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-desktop"></i>
                     <span class="menu-text">
-								UI &amp; Elements
+								Management
 							</span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -433,7 +433,7 @@
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-caret-right"></i>
 
-                            Layouts
+                            Brands
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
@@ -441,122 +441,129 @@
 
                         <ul class="submenu">
                             <li class="">
-                                <a href="top-menu.html">
+                                <a href="/admin/addBrand">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    Top Menu
+                                    New Brand
                                 </a>
 
                                 <b class="arrow"></b>
                             </li>
 
                             <li class="">
-                                <a href="two-menu-1.html">
+                                <a href="/admin/viewBrand">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    Two Menus 1
+                                   View Brand
                                 </a>
 
                                 <b class="arrow"></b>
                             </li>
 
-                            <li class="">
-                                <a href="two-menu-2.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Two Menus 2
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="mobile-menu-1.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Default Mobile Menu
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="mobile-menu-2.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Mobile Menu 2
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="mobile-menu-3.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Mobile Menu 3
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
                         </ul>
                     </li>
 
+
+                </ul>
+                <ul class="submenu">
                     <li class="">
-                        <a href="typography.html">
+                        <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Typography
+
+                            Categories
+                            <b class="arrow fa fa-angle-down"></b>
                         </a>
 
                         <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class="">
+                                <a href="/admin/addCategory">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    New Category
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="/admin/getAllCategory">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    View Categories
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                        </ul>
                     </li>
 
+
+                </ul>
+                <ul class="submenu">
                     <li class="">
-                        <a href="elements.html">
+                        <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Elements
+
+                            Payments
+                            <b class="arrow fa fa-angle-down"></b>
                         </a>
 
                         <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class="">
+                                <a href="/admin/addPayment">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    New Payment Type
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="/admin/getAllPayment">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    View Payment Types
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                        </ul>
                     </li>
 
+
+                </ul>
+                <ul class="submenu">
                     <li class="">
-                        <a href="buttons.html">
+                        <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Buttons &amp; Icons
+
+                            Product Types
+                            <b class="arrow fa fa-angle-down"></b>
                         </a>
 
                         <b class="arrow"></b>
-                    </li>
 
-                    <li class="">
-                        <a href="content-slider.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Content Sliders
-                        </a>
+                        <ul class="submenu">
+                            <li class="">
+                                <a href="/admin/addProductType">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    New Product Types
+                                </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                                <b class="arrow"></b>
+                            </li>
 
-                    <li class="">
-                        <a href="treeview.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Treeview
-                        </a>
+                            <li class="">
+                                <a href="/admin/getAllProductType">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    View Product Types
+                                </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                                <b class="arrow"></b>
+                            </li>
 
-                    <li class="">
-                        <a href="jquery-ui.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            jQuery UI
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="nestable-list.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Nestable Lists
-                        </a>
-
-                        <b class="arrow"></b>
+                        </ul>
                     </li>
 
                     <li class="">
@@ -612,6 +619,7 @@
                         </ul>
                     </li>
                 </ul>
+
             </li>
 
             <li class="">

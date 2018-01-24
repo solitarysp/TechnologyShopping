@@ -24,14 +24,14 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
-    public String AddCategory(Category category, HttpServletResponse response) {
+    public void AddCategory(Category category, HttpServletResponse response) {
         try {
             categoryServices.saveCategory(category);
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Category/addCategory";
+
     }
     @RequestMapping(value = "/editCategory", method = RequestMethod.PUT)
     public String EditCategory(Category category, HttpServletResponse response){

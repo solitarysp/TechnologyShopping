@@ -24,14 +24,14 @@ public class ProductTypeController {
     }
 
     @RequestMapping(value = "/addProductType", method = RequestMethod.POST)
-    public String AddProductType(ProductType productType, HttpServletResponse response) {
+    public void AddProductType(ProductType productType, HttpServletResponse response) {
         try {
             productTypeServices.saveProductType(productType);
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "ProductType/addProductType";
+
     }
     @RequestMapping(value = "/editProductType", method = RequestMethod.PUT)
     public String EditProductType(ProductType productType, HttpServletResponse response){
