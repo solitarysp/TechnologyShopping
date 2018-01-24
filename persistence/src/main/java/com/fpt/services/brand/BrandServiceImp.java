@@ -25,4 +25,12 @@ public class BrandServiceImp implements BrandServices {
     public void saveBrand(Brand brand) {
         brandRepo.save(brand);
     }
+
+    @Transactional
+    @Override
+    public void deleteBrand(Integer id) {
+        brandRepo.delete(id);
+    }
+
+
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 public class PaymentController {
@@ -19,7 +20,7 @@ public class PaymentController {
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.GET)
     public String getPageJSPAddPayment() {
-        return "addPayment";
+        return "Payment/addPayment";
     }
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
@@ -30,5 +31,28 @@ public class PaymentController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+    @RequestMapping(value = "/editPayment", method = RequestMethod.PUT)
+    public String EditPayment(Payment payment, HttpServletResponse response){
+        paymentServices.savePayment(payment);
+        try {
+            response.getWriter().println("update success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "Payment/addPayment";
+    }
+
+    @RequestMapping(value = "/getAllPayment",method = RequestMethod.GET)
+    public ArrayList<Payment> getAllPayment(){
+        ArrayList<Payment> listPayments = (ArrayList<Payment>) paymentServices.getAll();
+        return listPayments;
+    }
+
+    @RequestMapping(value = "/removePayment",method = RequestMethod.DELETE)
+    public String DeleteBrand(Payment payment){
+        paymentServices.deletePayment(payment);
+        return "Payment/addPayment";
     }
 }

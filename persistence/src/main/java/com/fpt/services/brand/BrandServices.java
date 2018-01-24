@@ -12,4 +12,7 @@ public interface BrandServices {
     List<Brand> getAllBrand();
 
     void saveBrand(Brand brand);
+
+    void deleteBrand(Integer id);
+
 }

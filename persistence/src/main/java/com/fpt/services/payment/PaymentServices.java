@@ -12,4 +12,6 @@ public interface PaymentServices {
     List<Payment> getAll();
 
     void savePayment(Payment payment);
+
+    void deletePayment(Payment payment);
 }
