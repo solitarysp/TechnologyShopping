@@ -70,7 +70,6 @@ CREATE TABLE product(
   _id VARCHAR(30) PRIMARY KEY  NOT NULL,
   _name NVARCHAR(200) NOT NULL,
   _IMG NVARCHAR(250) NOT NULL,
-  _saled_price DECIMAL CHECK(_saled_price >=0), /*Giá đã giảm*/
   _price FLOAT  NOT NULL CHECK (_price >=0), /*Giá gốc*/
   _repository INTEGER NOT NULL DEFAULT 0,
   _weight FLOAT NULL,
