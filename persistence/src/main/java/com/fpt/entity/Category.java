@@ -12,6 +12,7 @@ public class Category {
     private Integer id;
     private String name;
     private String description;
+    private Integer value;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,5 +52,14 @@ public class Category {
 
     public void setProduct(Set<Product> product) {
         this.product = product;
+    }
+
+    @Column(name = "value")
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
     }
 }

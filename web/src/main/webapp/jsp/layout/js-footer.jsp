@@ -57,7 +57,9 @@
 </script>
 <script type='text/javascript' src='http://wpsparrow.com/wordpress/ismiler/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.js?ver=2.1.2'></script>
 <script type='text/javascript' src='http://wpsparrow.com/wordpress/ismiler/wp-content/themes/ismiler/js/quickview.js?ver=1.11.2'></script>
+<%--
 <script type='text/javascript' src='http://wpsparrow.com/wordpress/ismiler/wp-content/themes/ismiler/assets/isotope/jquery.isotope.min.js?ver=1.11.2'></script>
+--%>
 <script type='text/javascript' src='http://wpsparrow.com/wordpress/ismiler/wp-content/themes/ismiler/assets/fancybox/jquery.fancybox.pack.js?ver=1.11.2'></script>
 <script type='text/javascript' src='http://wpsparrow.com/wordpress/ismiler/wp-content/themes/ismiler/assets/owl-carousel/owl.carousel.min.js?ver=1.11.2'></script>
 <script type='text/javascript' src='http://wpsparrow.com/wordpress/ismiler/wp-content/themes/ismiler/assets/letters/jquery.shuffleLetters.js?ver=1.11.2'></script>

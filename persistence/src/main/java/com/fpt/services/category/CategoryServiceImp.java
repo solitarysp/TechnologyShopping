@@ -23,4 +23,9 @@ public class CategoryServiceImp implements CategoryServices {
     public void saveCategory(Category category) {
         categoryRepo.save(category);
     }
+
+    @Override
+    public Category getCategoryById(Integer id) {
+        return categoryRepo.findOne(id);
+    }
 }
