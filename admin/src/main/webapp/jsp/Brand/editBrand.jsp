@@ -15,7 +15,9 @@
 <jsp:include page="../Layout/layoutAdminTop.jsp"/>
 <div>
     <h1>Sửa Brand</h1>
-
+    <form id="form" action="/editBrand">
+        <input type="text"/>
+    </form>
 </div>
 <jsp:include page="../Layout/layoutAdminBot.jsp"/>
 </html>

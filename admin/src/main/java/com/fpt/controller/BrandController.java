@@ -6,6 +6,7 @@ import com.fpt.entity.Brand;
 import com.fpt.services.brand.BrandServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,6 +24,12 @@ public class BrandController {
         return "Brand/addBrand";
     }
 
+//    @RequestMapping(value = "/viewBrand", method = RequestMethod.GET)
+//    public String getPageJSPViewBrand() {
+//
+//        return "Brand/viewAllBrand";
+//    }
+
     @RequestMapping(value = "/addBrand", method = RequestMethod.POST)
     public String AddBrand(Brand brand, HttpServletResponse response) {
         try {
@@ -38,22 +45,29 @@ public class BrandController {
     public String EditBrand(Brand brand, HttpServletResponse response){
         brandServices.saveBrand(brand);
         try {
-            response.getWriter().println("update success");
+            response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "Brand/addBrand";
     }
 
-    @RequestMapping(value = "/getALLBrand",method = RequestMethod.GET)
-    public ArrayList<Brand> GetAllBrand(){
+    @RequestMapping(value = "/viewBrand",method = RequestMethod.GET)
+    public String GetAllBrand(ModelMap modelMap){
         ArrayList<Brand> listBrands = (ArrayList<Brand>) brandServices.getAllBrand();
-        return listBrands;
+        modelMap.addAttribute("listBrands",listBrands);
+        return "Brand/viewAllBrand";
     }
 
-    @RequestMapping(value = "/removeBrand",method = RequestMethod.DELETE)
-    public String DeleteBrand(Brand brand){
-        brandServices.deleteBrand(brand);
-        return "Brand/addBrand";
+    @RequestMapping(value = "/removeBrand",method = RequestMethod.POST)
+    public void DeleteBrand(Integer id,HttpServletResponse response){
+        brandServices.deleteBrand(id);
+        try {
+            response.getWriter().println("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(id);
+
     }
 }

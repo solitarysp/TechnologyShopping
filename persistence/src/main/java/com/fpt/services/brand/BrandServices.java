@@ -13,6 +13,6 @@ public interface BrandServices {
 
     void saveBrand(Brand brand);
 
-    void deleteBrand(Brand brand);
+    void deleteBrand(Integer id);
 
 }

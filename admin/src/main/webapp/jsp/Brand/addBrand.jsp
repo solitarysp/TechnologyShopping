@@ -39,7 +39,7 @@
                     if (xhr.status == 403) {
                         $('#result').html("Bạn không có quyền xem");
                         $('#stt').html("Bạn không có quyền xem");
-                    }
+                }
                 }
             });
         }

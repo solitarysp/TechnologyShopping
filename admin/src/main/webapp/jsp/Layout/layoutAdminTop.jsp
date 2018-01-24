@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="css/bootstrap.min.css"/>
 <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@6.10.2/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@6.10.2/dist/sweetalert2.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- page specific plugin styles -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- text fonts -->
 <link rel="stylesheet" href="css/fonts.googleapis.com.css"/>
 
@@ -63,7 +63,7 @@
         </div>
 
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
+            <ul class="nav ace-nav" style="height: 0px;">
                 <li class="grey dropdown-modal">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="ace-icon fa fa-tasks"></i>

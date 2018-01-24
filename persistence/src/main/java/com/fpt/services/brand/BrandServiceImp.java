@@ -28,8 +28,8 @@ public class BrandServiceImp implements BrandServices {
 
     @Transactional
     @Override
-    public void deleteBrand(Brand brand) {
-        brandRepo.delete(brand);
+    public void deleteBrand(Integer id) {
+        brandRepo.delete(id);
     }
 
 
