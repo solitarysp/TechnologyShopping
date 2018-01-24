@@ -21,6 +21,13 @@
 <div class="sp-body">
     <div class="b-page">
         <jsp:include page="/jsp/layout/nav-header.jsp"/>
+
+        <c:set var="itemSale" value="${productListSale}"/>
+        <c:set var="itemAll" value="${productList}"/>
+        <c:set var="itemProductListBestSeller"
+               value="${productListBestSellers}"/>
+
+
         <div class="home-template">
             <div class="container">
                 <div class="vc_row_anchor js_stretch_anchor"></div>
@@ -387,15 +394,15 @@
                 <div class="vc_row_anchor js_stretch_anchor"></div>
                 <div data-vc-full-width="true" data-vc-full-width-init="false"
                      class="vc_row wpb_row vc_row-fluid vc_row-padding-both carousel-type-Disabled carousel-in-row-disabled vc_custom_1502188102648">
-                    <div class="wpb_column vc_column_container vc_col-sm-8">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
                         <div class="vc_column-inner ">
                             <div class="wpb_wrapper">
                                 <div class="clearfix">
-                                    <h3 class="heading-line-long">Phones SaLe</h3>
+                                    <h3 class="heading-line-long">PHONES SALE</h3>
                                 </div>
 
 
-                                <div class="woocommerce columns-3 ">
+                                <div class="woocommerce columns-4 ">
 
                                     <div class="custom-nav-mod">
                                         <div class="slider-nav">
@@ -410,7 +417,7 @@
                                     <div class="b-related bestseller-home wow fadeInUp enable-owl-carousel-ul"
                                          data-loop="true" data-auto-width="false" data-dots="false" data-nav="false"
                                          data-margin="30" data-responsive-class="true"
-                                         data-responsive='{"0":{"items":1},"479":{"items":2},"768":{"items":3},"1199":{"items":3}}'
+                                         data-responsive='{"0":{"items":1},"479":{"items":2},"768":{"items":3},"1199":{"items":4}}'
                                          data-slider-next=".best_selling_products-next"
                                          data-slider-prev=".best_selling_products-prev">
 
@@ -418,72 +425,82 @@
                                         <div class="  clearfix b-grid row ">
                                             <ul class="products-grid ">
 
-                                                <c:set var="itemSale" value="${productListSale}"/>
-                                                <c:set var="itemAll" value="${productList}"/>
-                                                <c:set var="itemProductListBestSeller"
-                                                       value="${productListBestSellers}"/>
+                                                <c:forEach var="itemProduct" items="${productListSale}">
 
-                                                <c:forEach var="imtem" items="${itemSale}" begin="0" end="5">
-                                                    <li class="col-sm-4 col-xs-6">
-                                                        <div class="first item-grid b-item-card post-2034 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nexus product_tag-nokia product_tag-premium product_tag-samsung product_tag-smart product_tag-unlocked yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7  instock sale featured shipping-taxable purchasable product-type-simple">
+                                                    <li class="isotope-item col-sm-4 accessories cases exclusive-phones unlocked-phones ">
+                                                        <div class="item-grid b-item-card post-2977 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-carrier-phones product_cat-cases product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7 last instock featured shipping-taxable purchasable product-type-simple">
                                                             <div class="image">
 
 
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">
+                                                                <a href="/viewProduct.html?id=${itemProduct.id}">
 
-                                                                    <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>sale</span></span>
+                                                                    <c:forEach var="cate" items="${itemProduct.category}">
+                                                                        <c:if test="${cate.id==1}">
+                                                                            <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                                            <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                                        </c:if>
 
-
+                                                                    </c:forEach>
                                                                     <img width="470" height="450"
-                                                                         src="${imtem.IMG}"
+                                                                         src="${itemProduct.IMG}"
                                                                          class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                                          alt=""/> </a>
 
 
-                                                                    <%-- <a class="slider_img"
-                                                                        href="/viewProduct.html?id=${imtem.id}"><img
-                                                                             width="470" height="450"
-                                                                             src="${imtem.IMG}"
-                                                                             class="attachment-shop_catalog size-shop_catalog"
-                                                                             alt=""/></a>--%></div>
+                                                                    <%--<a class="slider_img"
+                                                                       href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"><img
+                                                                            width="470" height="450"
+                                                                            src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-470x450.jpg"
+                                                                            class="attachment-shop_catalog size-shop_catalog"
+                                                                            alt=""/></a>--%>
+
+                                                            </div>
                                                             <div class="card-info">
                                                                 <div class="caption">
                                                                     <div class="name-item">
                                                                         <a class="product-name"
-                                                                           href="/viewProduct.html?id=${imtem.id}">${imtem.name}</a>
+                                                                           href="/viewProduct.html?id=${itemProduct.id}">${itemProduct.name}</a>
                                                                     </div>
                                                                     <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>${imtem.price}</span></del> <ins><span
+	<span class="price">
+
+
+
+          <c:set var="test" value="1"/>
+    <c:forEach var="cate" items="${itemProduct.category}">
+        <c:if test="${cate.id==1}">
+    <del><span class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;</span>${itemProduct.price}</span></del> <ins><span
             class="woocommerce-Price-amount amount"><span
             class="woocommerce-Price-currencySymbol">&pound;
-
-
-
-    <c:forEach var="cate" items="${imtem.category}">
-        <c:if test="${cate.id==1}">
-                </span>${imtem.price - (imtem.price /100 * cate.value)}</span>
-
+                </span>${itemProduct.price - (itemProduct.price /100 * cate.value)}</span>
+         <c:set var="test"/>
         </c:if>
-
     </c:forEach>
+<c:if test="${not empty test}">
+    <span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${itemProduct.price}</span>
+</c:if>
+
+          <c:set var="test" value="1"/>
 
 
 
-
-    </ins></span>
+    </span>
 				</span>
                                                                     <div class="rating">
 
                                                                         <div class="star-rating"><span
-                                                                                style="width:40680%">Rated <strong
-                                                                                class="rating">2034</strong> out of 5</span>
+                                                                                style="width:59540%">Rated <strong
+                                                                                class="rating">2977</strong> out of 5</span>
                                                                         </div>
                                                                         <div class="add-review">
-                                                                            <span><span class="review-counter">2</span>Review(s)</span>
-                                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/#comments">Add
+                                                                            <span><span class="review-counter">0</span>Review(s)</span>
+                                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/#comments">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
@@ -503,32 +520,32 @@
                                                                 <div class="add-buttons">
 
 
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/"
+                                                                    <a href="/viewProduct.html?id=${itemProduct.id}"
                                                                        class="btn btn-add btn-add-quickview">
                                                                         <i class="fa fa-eye"></i>
                                                                     </a>
 
 
-                                                   <%--                 <a class="btn btn-add btn-add-compare"><i
-                                                                            class="fa fa-refresh"></i></a>
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/?add_to_wishlist=2034"
-                                                                       class="btn btn-add btn-add-wish">
-                                                                        <i class="fa fa-heart-o"></i>
-                                                                    </a>--%>
+                                                                        <%--                         <a class="btn btn-add btn-add-compare"><i
+                                                                                                         class="fa fa-refresh"></i></a>
+                                                                                                 <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
+                                                                                                    class="btn btn-add btn-add-wish">
+                                                                                                     <i class="fa fa-heart-o"></i>
+                                                                                                 </a>--%>
 
 
-                                                                    <a href="/wordpress/ismiler/?add-to-cart=2034"
-                                                                       rel="nofollow" data-product_id="2034"
-                                                                       data-product_sku="3445" data-quantity="1"
+                                                                    <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                       rel="nofollow" data-product_id="2977"
+                                                                       data-product_sku="" data-quantity="1"
                                                                        class="btn btn-add btn-add-cart"> <i
                                                                             class="fa fa-shopping-bag"></i>
                                                                     </a>
 
                                                                     <div class="cart-add-buttons">
 
-                                                                        <a href="/wordpress/ismiler/?add-to-cart=2034"
-                                                                           rel="nofollow" data-product_id="2034"
-                                                                           data-product_sku="3445" data-quantity="1"
+                                                                        <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                           rel="nofollow" data-product_id="2977"
+                                                                           data-product_sku="" data-quantity="1"
                                                                            class="btn "> <i
                                                                                 class="fa fa-shopping-cart"></i>
                                                                             add to cart</a>
@@ -538,7 +555,11 @@
                                                             </div>
                                                         </div>
                                                     </li>
+
+
                                                 </c:forEach>
+
+
                                             </ul>
                                         </div>
                                     </div>
@@ -617,6 +638,10 @@
                     <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
                          data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
                 </div>
+
+
+
+
                 <div class="vc_row-full-width"></div>
                 <div class="kswr-row-element-back" data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
                 <div class="vc_row_anchor js_stretch_anchor"></div>
@@ -703,7 +728,7 @@
                                                 class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">SaLe</a>
                                         </li>
                                         <li class="cat-item cat-item-149"><a onclick="clickGetSaleCATEGORIES(2,13)"
-                                                                             class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">New
+                                                                             class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Hot
                                             </a>
                                         </li>
                                         <%--    <li class="cat-item cat-item-152"><a href="#"
@@ -760,7 +785,39 @@
                                                                 <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>${item.price}</span></span>
+	<span class="price">
+   <c:set var="test" value="1"/>
+
+    <c:forEach var="cate" items="${item.category}">
+        <c:if test="${cate.id==1}">
+    <del><span class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;</span>${item.price}</span></del> <ins><span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${item.price - (item.price /100 * cate.value)}</span>
+         <c:set var="test"/>
+        </c:if>
+    </c:forEach>
+<c:if test="${not empty test}">
+    <span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${item.price}</span>
+</c:if>
+
+          <c:set var="test" value="1"/>
+
+
+    </ins>
+
+
+    </span>
+
+
+
+
+
+    </span>
 				</span>
                                                                 <div class="rating">
 
@@ -793,18 +850,18 @@
                                                             <div class="add-buttons">
 
 
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"
+                                                                <a href="/viewProduct.html?id=${item.id}"
                                                                    class="btn btn-add btn-add-quickview">
                                                                     <i class="fa fa-eye"></i>
                                                                 </a>
 
 
-                                                                <a class="btn btn-add btn-add-compare"><i
+                                           <%--                     <a class="btn btn-add btn-add-compare"><i
                                                                         class="fa fa-refresh"></i></a>
                                                                 <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
                                                                    class="btn btn-add btn-add-wish">
                                                                     <i class="fa fa-heart-o"></i>
-                                                                </a>
+                                                                </a>--%>
 
 
                                                                 <a href="/wordpress/ismiler/?add-to-cart=2977"
@@ -887,9 +944,15 @@
                                                                 <div class="image">
 
 
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/">
+                                                                    <a href="/viewProduct.html?id=${itemProduct.id}">
 
+                                                                        <c:forEach var="cate" items="${itemProduct.category}">
+                                                                            <c:if test="${cate.id==1}">
+                                                                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                                                <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                                            </c:if>
 
+                                                                        </c:forEach>
                                                                         <img width="470" height="450"
                                                                              src="${itemProduct.IMG}"
                                                                              class="attachment-shop_catalog size-shop_catalog wp-post-image"
@@ -913,7 +976,33 @@
                                                                         <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>${itemProduct.price}</span></span>
+	<span class="price">
+
+
+
+          <c:set var="test" value="1"/>
+    <c:forEach var="cate" items="${itemProduct.category}">
+        <c:if test="${cate.id==1}">
+    <del><span class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;</span>${itemProduct.price}</span></del> <ins><span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${itemProduct.price - (itemProduct.price /100 * cate.value)}</span>
+         <c:set var="test"/>
+        </c:if>
+    </c:forEach>
+<c:if test="${not empty test}">
+    <span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${itemProduct.price}</span>
+</c:if>
+
+          <c:set var="test" value="1"/>
+
+
+
+    </span>
 				</span>
                                                                         <div class="rating">
 
@@ -943,7 +1032,7 @@
                                                                     <div class="add-buttons">
 
 
-                                                                        <a href="/viewProduct.html?id=${imtem.id}"
+                                                                        <a href="/viewProduct.html?id=${itemProduct.id}"
                                                                            class="btn btn-add btn-add-quickview">
                                                                             <i class="fa fa-eye"></i>
                                                                         </a>
@@ -1005,7 +1094,8 @@
                         </a>
                     </div>
                 </div>
-                <div id="posts-reviews" data-vc-full-width="true" data-vc-full-width-init="false"
+
+             <%--   <div id="posts-reviews" data-vc-full-width="true" data-vc-full-width-init="false"
                      class="vc_row wpb_row vc_row-fluid vc_row-padding-both carousel-type-None carousel-in-row-enabled reveral-scroll scroll-animate vc_custom_1479384823419">
                     <div class="wpb_column vc_column_container vc_col-sm-12">
                         <div class="vc_column-inner ">
@@ -1172,6 +1262,7 @@
                     <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
                          data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
                 </div>
+                --%>
                 <div class="vc_row-full-width"></div>
                 <div class="kswr-row-element-back" data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
                 <div class="vc_row_anchor js_stretch_anchor"></div>

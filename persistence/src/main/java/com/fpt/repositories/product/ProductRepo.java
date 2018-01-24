@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepo extends PagingAndSortingRepository<Product, String> {
-    @Query(value = "select P from Product as P", nativeQuery = false)
+    @Query(value = "select P from Product as P order by P.id desc ", nativeQuery = false)
     List<Product> getAll();
 
     @Query(value = "SELECT * FROM product AS p JOIN category_product ON p._id = category_product._id_product WHERE category_product._id_category=:_id_category", nativeQuery = true)
