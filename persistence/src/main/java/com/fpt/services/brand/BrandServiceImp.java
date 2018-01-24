@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,6 +32,16 @@ public class BrandServiceImp implements BrandServices {
     public void deleteBrand(Integer id) {
         brandRepo.delete(id);
     }
+
+    @Override
+    public Brand findByID(Integer id) {
+        return brandRepo.findOne(id);
+    }
+
+//    @Override
+//    public List<Brand> GetTotalBrand(Integer number) {
+//        return brandRepo.getTotalBrand(number);
+//    }
 
 
 }

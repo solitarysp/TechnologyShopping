@@ -6,8 +6,10 @@ import com.fpt.entity.Category;
 import com.fpt.services.category.CategoryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -33,26 +35,37 @@ public class CategoryController {
         }
 
     }
-    @RequestMapping(value = "/editCategory", method = RequestMethod.PUT)
-    public String EditCategory(Category category, HttpServletResponse response){
+    @RequestMapping(value = "/editCategory", method = RequestMethod.POST)
+    public void EditCategory(Category category, HttpServletResponse response){
         categoryServices.saveCategory(category);
         try {
-            response.getWriter().println("update success");
+            response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Category/addCategory";
+
     }
 
     @RequestMapping(value = "/getAllCategory",method = RequestMethod.GET)
-    public ArrayList<Category> GetAllCategory(){
+    public String GetAllCategory(ModelMap modelMap){
         ArrayList<Category> listCategories = (ArrayList<Category>) categoryServices.getAllCategory();
-        return listCategories;
+        modelMap.addAttribute("listCategories",listCategories);
+        return "Category/viewAllCategory";
     }
 
-    @RequestMapping(value = "/removeCategory",method = RequestMethod.DELETE)
-    public String DeleteBrand(Category category){
-        categoryServices.deleteCategory(category);
-        return "Category/addCategory";
+    @RequestMapping(value = "/removeCategory",method = RequestMethod.POST)
+    public void DeleteBrand(Category category,HttpServletResponse response){
+        try {
+            categoryServices.deleteCategory(category);
+            response.getWriter().println("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @RequestMapping(value = "/findCategoryByID", method = RequestMethod.GET)
+    public String FindBrandByID(@RequestParam("id")Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("category", categoryServices.findByID(id));
+        return "Category/viewAndEditCategory";
     }
 }

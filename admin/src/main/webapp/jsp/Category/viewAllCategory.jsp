@@ -52,16 +52,16 @@
             </label>
         </th>
         <th>ID</th>
-        <th>Brand name</th>
+        <th>Category name</th>
         <th class="hidden-480">Description</th>
-
+        <th>Sale Up To</th>
         <th></th>
     </tr>
     </thead>
 
     <tbody>
 
-    <c:forEach items="${listBrands}" var="b" varStatus="loop">
+    <c:forEach items="${listCategories}" var="c">
         <tr>
             <td class="center">
                 <label class="pos-rel">
@@ -71,14 +71,14 @@
             </td>
 
             <td>
-                <a href="#">${b.id}</a>
+                <a href="#">${c.id}</a>
             </td>
-            <td>${b.name}</td>
-            <td class="hidden-480">${b.description}</td>
-
+            <td>${c.name}</td>
+            <td class="hidden-480">${c.description}</td>
+            <td>${c.value}</td>
             <td>
                 <div class="hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="/admin/findBrandByID?id=${b.id}">
+                    <a class="blue" href="/admin/findCategoryByID?id=${c.id}">
                         <i class="ace-icon fa fa-search-plus bigger-130"></i>
                     </a>
 
@@ -86,7 +86,7 @@
                         <i class="ace-icon fa fa-pencil bigger-130"></i>
                     </a>
 
-                    <a class="red" onclick="removeBrand('${b.id}',this)" href="#">
+                    <a class="red" onclick="removeCategory('${c.id}',this)" href="#">
                         <i class="ace-icon fa fa-trash-o bigger-130"></i>
                     </a>
                 </div>
@@ -134,7 +134,7 @@
     </tbody>
 </table>
 <script type="application/javascript">
-    function removeBrand(id, row) {
+    function removeCategory(id, row) {
         var data = {'id': id};
 
         console.log(data.id)
@@ -148,7 +148,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: "removeBrand?${_csrf.parameterName}=${_csrf.token}",
+                        url: "removeCategory?${_csrf.parameterName}=${_csrf.token}",
                         type: "post",
                         dataType: "text",
                         data: data,
