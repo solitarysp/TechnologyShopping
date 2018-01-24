@@ -13,4 +13,6 @@ import java.util.List;
 public interface BrandRepo extends PagingAndSortingRepository<Brand, Integer>, BrandRepoCustom {
     @Query(value = "select B from Brand as B", nativeQuery = false)
     List<Brand> getAllBrand();
+
+
 }

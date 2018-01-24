@@ -33,4 +33,9 @@ public class CategoryServiceImp implements CategoryServices {
     public void deleteCategory(Category category) {
         categoryRepo.delete(category);
     }
+
+    @Override
+    public Category findByID(Integer id) {
+        return categoryRepo.findOne(id);
+    }
 }
