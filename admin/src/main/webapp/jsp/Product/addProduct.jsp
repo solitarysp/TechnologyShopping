@@ -9,17 +9,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Add Product Type</title>
+    <title>Add Product</title>
 </head>
 <body>
-<jsp:include page="/jsp/Layout/layoutAdminTop.jsp"/>
+<jsp:include page="../Layout/layoutAdminTop.jsp"/>
 <div>
     <div class="page-header">
         <h1>
             Form Elements
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
-                Add new your Product Type
+                Add new your Product
             </small>
         </h1>
     </div><!-- /.page-header -->
@@ -29,7 +29,7 @@
 
         <form class="form-horizontal" id="form" method="post" role="form">
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="name"> Name of Product Type </label>
+                <label class="col-sm-3 control-label no-padding-right" for="name"> Product Name </label>
 
                 <div class="col-sm-9">
                     <input type="text" id="name" name="name" placeholder="name" class="col-xs-10 col-sm-5"/>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="description"> Product Type Description </label>
+                <label class="col-sm-3 control-label no-padding-right" for="description"> Product Description </label>
 
                 <div class="col-sm-9">
                     <input type="text" id="description" name="description" placeholder="description"
@@ -45,8 +45,17 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="value"> Sale up to </label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="value" name="value" placeholder="Sale up to"
+                           class="col-xs-10 col-sm-5"/>
+                </div>
+            </div>
+
             <div class="col-md-offset-3 col-md-9">
-                <button onclick="addProductType()" class="btn btn-info" type="button">
+                <button onclick="addCategory()" class="btn btn-info" type="button">
                     <i class="ace-icon fa fa-check bigger-110"></i>
                     Submit
                 </button>
@@ -62,10 +71,10 @@
 
 
     <script type="text/javascript">
-        function addProductType() {
+        function addCategory() {
             var data = $("form").serialize();
             $.ajax({
-                url: "addProductType?${_csrf.parameterName}=${_csrf.token}",
+                url: "addCategory?${_csrf.parameterName}=${_csrf.token}",
                 type: "post",
                 dataType: "text",
                 data: data,
@@ -74,7 +83,7 @@
                     if (result.trim() == 'success') {
                         $('form')[0].reset();
                         swal("Thành công!", "Thêm thành công!", "success");
-                        window.location.replace("/admin/getAllProductType");
+                        window.location.replace("/admin/getAllCategory");
                     }
                 },
                 complete: function (xhr, textStatus) {
@@ -89,6 +98,6 @@
         }
     </script>
 </div>
-<jsp:include page="/jsp/Layout/layoutAdminBot.jsp"/>
+<jsp:include page="../Layout/layoutAdminBot.jsp"/>
 </body>
 </html>

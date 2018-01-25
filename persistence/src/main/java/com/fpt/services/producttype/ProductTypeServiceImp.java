@@ -31,4 +31,9 @@ public class ProductTypeServiceImp implements ProductTypeServices {
     public void deleteProductType(ProductType productType) {
         productTypeRepo.delete(productType);
     }
+
+    @Override
+    public ProductType findByID(Integer id) {
+        return productTypeRepo.findOne(id);
+    }
 }

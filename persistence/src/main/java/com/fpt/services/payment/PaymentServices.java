@@ -14,4 +14,6 @@ public interface PaymentServices {
     void savePayment(Payment payment);
 
     void deletePayment(Payment payment);
+
+    Payment findByID(Integer id);
 }

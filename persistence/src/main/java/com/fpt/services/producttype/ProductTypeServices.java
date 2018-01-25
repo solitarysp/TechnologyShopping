@@ -14,4 +14,6 @@ public interface ProductTypeServices {
     void saveProductType(ProductType productType);
 
     void deleteProductType(ProductType productType);
+
+    ProductType findByID(Integer id);
 }
