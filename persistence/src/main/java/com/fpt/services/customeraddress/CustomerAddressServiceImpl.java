@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerAddressServiceImp implements CustomerAddressServices {
+public class CustomerAddressServiceImpl implements CustomerAddressServices {
     @Autowired
     CustomerAddressRepo customerAddressRepo;
 

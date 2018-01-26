@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RefProductOrderServiceImp implements RefProductOrderServices {
+public class RefProductOrderServiceImpl implements RefProductOrderServices {
     @Autowired
     RefProductOrderRepo refProductOrderRepo;
 

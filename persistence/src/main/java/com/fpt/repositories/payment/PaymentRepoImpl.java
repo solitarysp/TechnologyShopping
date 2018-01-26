@@ -5,7 +5,7 @@ package com.fpt.repositories.payment;/*
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class PaymentRepoImp implements PaymentRepoCustom {
+public class PaymentRepoImpl implements PaymentRepoCustom {
     @PersistenceContext
     private EntityManager em;
 }

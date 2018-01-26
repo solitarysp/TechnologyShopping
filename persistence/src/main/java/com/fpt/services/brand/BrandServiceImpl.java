@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class BrandServiceImp implements BrandServices {
+public class BrandServiceImpl implements BrandServices {
     @Autowired
     BrandRepo brandRepo;
 

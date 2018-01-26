@@ -5,7 +5,7 @@ package com.fpt.repositories.customeraddress;/*
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class CustomerAddressRepoImp implements CustomerAddressRepoCustom {
+public class CustomerAddressRepoImpl implements CustomerAddressRepoCustom {
     @PersistenceContext
     private EntityManager em;
 }

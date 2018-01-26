@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class PaymentServiceImp implements PaymentServices {
+public class PaymentServiceImpl implements PaymentServices {
     @Autowired
     PaymentRepo paymentRepo;
 

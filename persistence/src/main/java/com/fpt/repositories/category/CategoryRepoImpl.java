@@ -5,7 +5,7 @@ package com.fpt.repositories.category;/*
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class CategoryRepoImp implements CategoryRepoCustom {
+public class CategoryRepoImpl implements CategoryRepoCustom {
     @PersistenceContext
     private EntityManager em;
 }

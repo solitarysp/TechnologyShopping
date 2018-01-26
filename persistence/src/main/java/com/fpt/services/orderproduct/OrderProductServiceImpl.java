@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrderProductServiceImp implements OrderProductServices {
+public class OrderProductServiceImpl implements OrderProductServices {
     @Autowired
     OrderProductRepo orderProductRepo;
 

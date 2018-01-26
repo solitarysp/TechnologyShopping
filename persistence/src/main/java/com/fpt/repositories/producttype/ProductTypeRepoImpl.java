@@ -1,11 +1,11 @@
-package com.fpt.repositories.brand;/*
-  By Chi Can Em  19-01-2018
+package com.fpt.repositories.producttype;/*
+  By Chi Can Em  20-01-2018
  */
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class BrandRepoImp implements BrandRepoCustom {
+public class ProductTypeRepoImpl implements ProductTypeCustom {
     @PersistenceContext
     private EntityManager em;
 }

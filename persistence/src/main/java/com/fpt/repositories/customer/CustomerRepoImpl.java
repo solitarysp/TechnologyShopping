@@ -1,12 +1,11 @@
-package com.fpt.repositories.logadmin;/*
-  By Chi Can Em  20-01-2018
+package com.fpt.repositories.customer;/*
+  By Chi Can Em  19-01-2018
  */
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class LogAdminRepoImp implements LogAdminRepoCustom {
+public class CustomerRepoImpl implements CustomerRepoCustom {
     @PersistenceContext
     private EntityManager em;
-
 }

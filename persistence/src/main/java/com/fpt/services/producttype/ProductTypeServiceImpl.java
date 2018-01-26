@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class ProductTypeServiceImp implements ProductTypeServices {
+public class ProductTypeServiceImpl implements ProductTypeServices {
     @Autowired
     ProductTypeRepo productTypeRepo;
 

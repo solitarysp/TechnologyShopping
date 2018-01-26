@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LogAdminServiceImp implements LogAdminServices {
+public class LogAdminServiceImpl implements LogAdminServices {
     @Autowired
     LogAdminRepo logAdminRepo;
 

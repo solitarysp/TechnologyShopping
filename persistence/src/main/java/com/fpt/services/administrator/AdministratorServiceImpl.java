@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class AdministratorServiceImp implements AdministratorServices {
+public class AdministratorServiceImpl implements AdministratorServices {
     @Autowired
     AdministratorRepo administratorRepo;
 

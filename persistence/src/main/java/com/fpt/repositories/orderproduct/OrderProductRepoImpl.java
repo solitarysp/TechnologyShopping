@@ -5,7 +5,7 @@ package com.fpt.repositories.orderproduct;/*
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class OrderProductRepoImp implements OrderProductRepoCustom {
+public class OrderProductRepoImpl implements OrderProductRepoCustom {
     @PersistenceContext
     private EntityManager em;
 }
