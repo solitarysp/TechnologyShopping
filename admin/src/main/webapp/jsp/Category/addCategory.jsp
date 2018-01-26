@@ -46,10 +46,10 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="value"> Category Description </label>
+                <label class="col-sm-3 control-label no-padding-right" for="value"> Sale up to </label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="value" name="value" placeholder="description"
+                    <input type="text" id="value" name="value" placeholder="Sale up to"
                            class="col-xs-10 col-sm-5"/>
                 </div>
             </div>

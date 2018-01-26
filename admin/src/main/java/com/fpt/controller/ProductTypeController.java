@@ -6,12 +6,15 @@ import com.fpt.entity.ProductType;
 import com.fpt.services.producttype.ProductTypeServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ProductTypeController {
@@ -33,27 +36,37 @@ public class ProductTypeController {
         }
 
     }
-    @RequestMapping(value = "/editProductType", method = RequestMethod.PUT)
-    public String EditProductType(ProductType productType, HttpServletResponse response){
+    @RequestMapping(value = "/editProductType", method = RequestMethod.POST)
+    public void EditProductType(ProductType productType, HttpServletResponse response){
         productTypeServices.saveProductType(productType);
         try {
-            response.getWriter().println("update success");
+            response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "ProductType/addProductType";
     }
 
     @RequestMapping(value = "/getAllProductType",method = RequestMethod.GET)
-    public ArrayList<ProductType> getAllProductTypes(){
-        ArrayList<ProductType> listProductTypes = (ArrayList<ProductType>) productTypeServices.getAllProductType();
-        return listProductTypes;
+    public String getAllProductTypes(ModelMap modelMap){
+        List<ProductType> listProductTypes = productTypeServices.getAllProductType();
+        modelMap.addAttribute("listProductTypes",listProductTypes);
+        return "ProductType/viewAllProductType";
     }
 
 
-    @RequestMapping(value = "/removeProductType",method = RequestMethod.DELETE)
-    public String DeleteBrand(ProductType productType){
+    @RequestMapping(value = "/removeProductType",method = RequestMethod.POST)
+    public void DeleteProductType(ProductType productType,HttpServletResponse response){
         productTypeServices.deleteProductType(productType);
-        return "ProductType/addProductType";
+        try {
+            response.getWriter().println("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @RequestMapping(value = "/findProductTypeByID", method = RequestMethod.GET)
+    public String FindProductTypeByID(@RequestParam("id")Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("productType", productTypeServices.findByID(id));
+        return "ProductType/viewAndEditProductType";
     }
 }

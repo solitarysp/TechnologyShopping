@@ -31,4 +31,9 @@ public class PaymentServiceImp implements PaymentServices {
     public void deletePayment(Payment payment) {
 
     }
+
+    @Override
+    public Payment findByID(Integer id) {
+        return paymentRepo.findOne(id);
+    }
 }
