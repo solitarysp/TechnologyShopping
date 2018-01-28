@@ -43,4 +43,19 @@ public class ProductServiceImpl implements ProductServices {
     public List<Product> getProductByCategoriesHasLimit(Integer id, Integer limit) {
         return productRepo.getProductByCategoriesHasLimit(id, limit);
     }
+
+    @Override
+    public List<Product> getProductsPage(String name, Integer page, Integer limit) {
+        return productRepo.getProductsPage(name, page, limit);
+    }
+
+    @Override
+    public Long getCountProduct() {
+        return productRepo.count();
+    }
+
+    @Override
+    public Long getCountProductsPage(String name) {
+        return productRepo.getCountProductsPage(name);
+    }
 }

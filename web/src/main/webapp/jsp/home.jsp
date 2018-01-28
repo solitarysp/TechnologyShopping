@@ -434,7 +434,8 @@
 
                                                                 <a href="/viewProduct.html?id=${itemProduct.id}">
 
-                                                                    <c:forEach var="cate" items="${itemProduct.category}">
+                                                                    <c:forEach var="cate"
+                                                                               items="${itemProduct.category}">
                                                                         <c:if test="${cate.id==1}">
                                                                             <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
                                                                             <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
@@ -640,8 +641,6 @@
                 </div>
 
 
-
-
                 <div class="vc_row-full-width"></div>
                 <div class="kswr-row-element-back" data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
                 <div class="vc_row_anchor js_stretch_anchor"></div>
@@ -729,7 +728,7 @@
                                         </li>
                                         <li class="cat-item cat-item-149"><a onclick="clickGetSaleCATEGORIES(2,13)"
                                                                              class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Hot
-                                            </a>
+                                        </a>
                                         </li>
                                         <%--    <li class="cat-item cat-item-152"><a href="#"
                                                                              class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">Cases</a>
@@ -818,7 +817,7 @@
 
 
     </span>
-				</span>
+                                                                </span>
                                                                 <div class="rating">
 
                                                                     <div class="star-rating"><span
@@ -856,12 +855,12 @@
                                                                 </a>
 
 
-                                           <%--                     <a class="btn btn-add btn-add-compare"><i
-                                                                        class="fa fa-refresh"></i></a>
-                                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
-                                                                   class="btn btn-add btn-add-wish">
-                                                                    <i class="fa fa-heart-o"></i>
-                                                                </a>--%>
+                                                                    <%--                     <a class="btn btn-add btn-add-compare"><i
+                                                                                                 class="fa fa-refresh"></i></a>
+                                                                                         <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
+                                                                                            class="btn btn-add btn-add-wish">
+                                                                                             <i class="fa fa-heart-o"></i>
+                                                                                         </a>--%>
 
 
                                                                 <a href="/wordpress/ismiler/?add-to-cart=2977"
@@ -946,7 +945,8 @@
 
                                                                     <a href="/viewProduct.html?id=${itemProduct.id}">
 
-                                                                        <c:forEach var="cate" items="${itemProduct.category}">
+                                                                        <c:forEach var="cate"
+                                                                                   items="${itemProduct.category}">
                                                                             <c:if test="${cate.id==1}">
                                                                                 <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
                                                                                 <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
@@ -1011,18 +1011,21 @@
                                                                                     class="rating">2977</strong> out of 5</span>
                                                                             </div>
                                                                             <div class="add-review">
-                                                                                <span><span class="review-counter">0</span>Review(s)</span>
+                                                                                <span><span
+                                                                                        class="review-counter">0</span>Review(s)</span>
                                                                                 <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/#comments">Add
                                                                                     Your Review</a>
                                                                             </div>
                                                                         </div>
 
                                                                         <div class="product-description">
-                                                                            <p>Ut enim ad minim veniam quis nostrud exercita
+                                                                            <p>Ut enim ad minim veniam quis nostrud
+                                                                                exercita
                                                                                 tion ullamco laboris nisi aliquip exa
                                                                                 commodo
                                                                                 consequat. Duis aute irure dolor in
-                                                                                reprehenderit in voluptate velit esse cillum
+                                                                                reprehenderit in voluptate velit esse
+                                                                                cillum
                                                                                 dolore eu fugiat nulla pariatur</p>
                                                                         </div>
 
@@ -1095,174 +1098,174 @@
                     </div>
                 </div>
 
-             <%--   <div id="posts-reviews" data-vc-full-width="true" data-vc-full-width-init="false"
-                     class="vc_row wpb_row vc_row-fluid vc_row-padding-both carousel-type-None carousel-in-row-enabled reveral-scroll scroll-animate vc_custom_1479384823419">
-                    <div class="wpb_column vc_column_container vc_col-sm-12">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div class="clearfix">
-                                    <h3 class="heading-line-long">Smartphone Blog</h3>
-                                </div>
+                <%--   <div id="posts-reviews" data-vc-full-width="true" data-vc-full-width-init="false"
+                        class="vc_row wpb_row vc_row-fluid vc_row-padding-both carousel-type-None carousel-in-row-enabled reveral-scroll scroll-animate vc_custom_1479384823419">
+                       <div class="wpb_column vc_column_container vc_col-sm-12">
+                           <div class="vc_column-inner ">
+                               <div class="wpb_wrapper">
+                                   <div class="clearfix">
+                                       <h3 class="heading-line-long">Smartphone Blog</h3>
+                                   </div>
 
 
-                                <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                                    <div class="wpb_column vc_column_container vc_col-sm-12">
-                                        <div class="vc_column-inner ">
-                                            <div class="wpb_wrapper">
+                                   <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                       <div class="wpb_column vc_column_container vc_col-sm-12">
+                                           <div class="vc_column-inner ">
+                                               <div class="wpb_wrapper">
 
 
-                                                <div class="b-posts-holder row clearfix">
+                                                   <div class="b-posts-holder row clearfix">
 
 
-                                                    <div class="b-post-preview col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix wow fadeInLeft"
-                                                         style="visibility: visible; animation-name: fadeInLeft;">
-                                                        <div class="post-image">
-                                                            <div class="post-img-holder">
-                                                                <div>
+                                                       <div class="b-post-preview col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix wow fadeInLeft"
+                                                            style="visibility: visible; animation-name: fadeInLeft;">
+                                                           <div class="post-image">
+                                                               <div class="post-img-holder">
+                                                                   <div>
 
-                                                                    <img width="320" height="181"
-                                                                         src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg"
-                                                                         class="img-responsive center-block wp-post-image"
-                                                                         alt=""
-                                                                         srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg 620w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-300x169.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-106x60.jpg 106w"
-                                                                         sizes="(max-width: 320px) 100vw, 320px"/>
+                                                                       <img width="320" height="181"
+                                                                            src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg"
+                                                                            class="img-responsive center-block wp-post-image"
+                                                                            alt=""
+                                                                            srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg 620w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-300x169.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-106x60.jpg 106w"
+                                                                            sizes="(max-width: 320px) 100vw, 320px"/>
 
-                                                                    <div class="image-add">
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/2016/01/27/void-beast-moving-wherein-also-replenish/"
-                                                                           class="btn btn-default-color1 btn-sm">view
-                                                                            more</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-data">
-                                                                <span>27 Jan 2016</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="post-caption">
-                                                            <div class="post-author">
-                                                                <span><i class="fa fa-comment-o"></i>4 comment(s)</span>
-                                                            </div>
-                                                            <div class="caption">
-                                                                <h5 class="heading-line">Multiply letre Leser</h5>
-                                                                <div class="post-description">
-                                                                    <p>
-                                                                        Proin est elentesque risus magna vulputate vitae
-                                                                        sodales uam morbi non sem lacus porta mollis.
-                                                                        Nunc condime ntum metus eud In molestie sed
-                                                                        consecte lorem&hellip; </p>
-                                                                </div>
-                                                            </div>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/2016/01/27/void-beast-moving-wherein-also-replenish/">read
-                                                                more</a>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="b-post-preview col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix wow fadeInLeft"
-                                                         style="visibility: visible; animation-name: fadeInLeft;">
-                                                        <div class="post-image">
-                                                            <div class="post-img-holder">
-                                                                <div>
-
-                                                                    <img width="320" height="184"
-                                                                         src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950.jpg"
-                                                                         class="img-responsive center-block wp-post-image"
-                                                                         alt=""
-                                                                         srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950.jpg 740w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950-300x173.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950-104x60.jpg 104w"
-                                                                         sizes="(max-width: 320px) 100vw, 320px"/>
-
-                                                                    <div class="image-add">
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/minim-veniam-quis-nostrud-exercita-tion-ullamco-laboris/"
-                                                                           class="btn btn-default-color1 btn-sm">view
-                                                                            more</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-data">
-                                                                <span>10 Dec 2015</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="post-caption">
-                                                            <div class="post-author">
-                                                                <span><i class="fa fa-comment-o"></i>2 comment(s)</span>
-                                                            </div>
-                                                            <div class="caption">
-                                                                <h5 class="heading-line">Sixth replenish one rule</h5>
-                                                                <div class="post-description">
-                                                                    <p>
-                                                                        Proin est elentesque risus magna vulputate vitae
-                                                                        sodales uam morbi non sem lacus porta mollis.
-                                                                        Nunc condime ntum metus eud In molestie sed
-                                                                        consecte lorem&hellip; </p>
-                                                                </div>
-                                                            </div>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/minim-veniam-quis-nostrud-exercita-tion-ullamco-laboris/">read
-                                                                more</a>
-                                                        </div>
-                                                    </div>
+                                                                       <div class="image-add">
+                                                                           <a href="http://wpsparrow.com/wordpress/ismiler/2016/01/27/void-beast-moving-wherein-also-replenish/"
+                                                                              class="btn btn-default-color1 btn-sm">view
+                                                                               more</a>
+                                                                       </div>
+                                                                   </div>
+                                                               </div>
+                                                               <div class="post-data">
+                                                                   <span>27 Jan 2016</span>
+                                                               </div>
+                                                           </div>
+                                                           <div class="post-caption">
+                                                               <div class="post-author">
+                                                                   <span><i class="fa fa-comment-o"></i>4 comment(s)</span>
+                                                               </div>
+                                                               <div class="caption">
+                                                                   <h5 class="heading-line">Multiply letre Leser</h5>
+                                                                   <div class="post-description">
+                                                                       <p>
+                                                                           Proin est elentesque risus magna vulputate vitae
+                                                                           sodales uam morbi non sem lacus porta mollis.
+                                                                           Nunc condime ntum metus eud In molestie sed
+                                                                           consecte lorem&hellip; </p>
+                                                                   </div>
+                                                               </div>
+                                                               <a href="http://wpsparrow.com/wordpress/ismiler/2016/01/27/void-beast-moving-wherein-also-replenish/">read
+                                                                   more</a>
+                                                           </div>
+                                                       </div>
 
 
-                                                    <div class="b-post-preview col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix wow fadeInLeft"
-                                                         style="visibility: visible; animation-name: fadeInLeft;">
-                                                        <div class="post-image">
-                                                            <div class="post-img-holder">
-                                                                <div>
+                                                       <div class="b-post-preview col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix wow fadeInLeft"
+                                                            style="visibility: visible; animation-name: fadeInLeft;">
+                                                           <div class="post-image">
+                                                               <div class="post-img-holder">
+                                                                   <div>
 
-                                                                    <img width="320" height="181"
-                                                                         src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg"
-                                                                         class="img-responsive center-block wp-post-image"
-                                                                         alt=""
-                                                                         srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg 620w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-300x169.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-106x60.jpg 106w"
-                                                                         sizes="(max-width: 320px) 100vw, 320px"/>
+                                                                       <img width="320" height="184"
+                                                                            src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950.jpg"
+                                                                            class="img-responsive center-block wp-post-image"
+                                                                            alt=""
+                                                                            srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950.jpg 740w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950-300x173.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/486082-microsoft-lumia-950-104x60.jpg 104w"
+                                                                            sizes="(max-width: 320px) 100vw, 320px"/>
 
-                                                                    <div class="image-add">
-                                                                        <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/likeness-good/"
-                                                                           class="btn btn-default-color1 btn-sm">view
-                                                                            more</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-data">
-                                                                <span>10 Dec 2015</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="post-caption">
-                                                            <div class="post-author">
-                                                                <span><i class="fa fa-comment-o"></i>2 comment(s)</span>
-                                                            </div>
-                                                            <div class="caption">
-                                                                <h5 class="heading-line">Likeness good</h5>
-                                                                <div class="post-description">
-                                                                    <p>
-                                                                        Proin est elentesque risus magna vulputate vitae
-                                                                        sodales uam morbi non sem lacus porta mollis.
-                                                                        Nunc condime ntum metus eud In molestie sed
-                                                                        consecte lorem&hellip; </p>
-                                                                </div>
-                                                            </div>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/likeness-good/">read
-                                                                more</a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
+                                                                       <div class="image-add">
+                                                                           <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/minim-veniam-quis-nostrud-exercita-tion-ullamco-laboris/"
+                                                                              class="btn btn-default-color1 btn-sm">view
+                                                                               more</a>
+                                                                       </div>
+                                                                   </div>
+                                                               </div>
+                                                               <div class="post-data">
+                                                                   <span>10 Dec 2015</span>
+                                                               </div>
+                                                           </div>
+                                                           <div class="post-caption">
+                                                               <div class="post-author">
+                                                                   <span><i class="fa fa-comment-o"></i>2 comment(s)</span>
+                                                               </div>
+                                                               <div class="caption">
+                                                                   <h5 class="heading-line">Sixth replenish one rule</h5>
+                                                                   <div class="post-description">
+                                                                       <p>
+                                                                           Proin est elentesque risus magna vulputate vitae
+                                                                           sodales uam morbi non sem lacus porta mollis.
+                                                                           Nunc condime ntum metus eud In molestie sed
+                                                                           consecte lorem&hellip; </p>
+                                                                   </div>
+                                                               </div>
+                                                               <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/minim-veniam-quis-nostrud-exercita-tion-ullamco-laboris/">read
+                                                                   more</a>
+                                                           </div>
+                                                       </div>
 
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
-                                         data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
-                                </div>
-                                <div class="kswr-row-element-back"
-                                     data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
-                         data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
-                </div>
-                --%>
+                                                       <div class="b-post-preview col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix wow fadeInLeft"
+                                                            style="visibility: visible; animation-name: fadeInLeft;">
+                                                           <div class="post-image">
+                                                               <div class="post-img-holder">
+                                                                   <div>
+
+                                                                       <img width="320" height="181"
+                                                                            src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg"
+                                                                            class="img-responsive center-block wp-post-image"
+                                                                            alt=""
+                                                                            srcset="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3.jpg 620w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-300x169.jpg 300w, http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/lumia-950-3-106x60.jpg 106w"
+                                                                            sizes="(max-width: 320px) 100vw, 320px"/>
+
+                                                                       <div class="image-add">
+                                                                           <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/likeness-good/"
+                                                                              class="btn btn-default-color1 btn-sm">view
+                                                                               more</a>
+                                                                       </div>
+                                                                   </div>
+                                                               </div>
+                                                               <div class="post-data">
+                                                                   <span>10 Dec 2015</span>
+                                                               </div>
+                                                           </div>
+                                                           <div class="post-caption">
+                                                               <div class="post-author">
+                                                                   <span><i class="fa fa-comment-o"></i>2 comment(s)</span>
+                                                               </div>
+                                                               <div class="caption">
+                                                                   <h5 class="heading-line">Likeness good</h5>
+                                                                   <div class="post-description">
+                                                                       <p>
+                                                                           Proin est elentesque risus magna vulputate vitae
+                                                                           sodales uam morbi non sem lacus porta mollis.
+                                                                           Nunc condime ntum metus eud In molestie sed
+                                                                           consecte lorem&hellip; </p>
+                                                                   </div>
+                                                               </div>
+                                                               <a href="http://wpsparrow.com/wordpress/ismiler/2015/12/10/likeness-good/">read
+                                                                   more</a>
+                                                           </div>
+                                                       </div>
+
+                                                   </div>
+
+
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
+                                            data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
+                                   </div>
+                                   <div class="kswr-row-element-back"
+                                        data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="kswr-column-settings" data-minheight="0px" data-isminheight="off"
+                            data-theclasses="kswr_pnone kswr_mnone kswr_bnone"></div>
+                   </div>
+                   --%>
                 <div class="vc_row-full-width"></div>
                 <div class="kswr-row-element-back" data-classes="kswr_pnone kswr_mnone kswr_bnone"></div>
                 <div class="vc_row_anchor js_stretch_anchor"></div>

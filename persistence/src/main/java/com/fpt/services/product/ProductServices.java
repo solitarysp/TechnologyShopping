@@ -18,5 +18,7 @@ public interface ProductServices {
     Product getProductById(String id);
     List<Product> getAllProductBestSellers();
     List<Product> getProductByCategoriesHasLimit( Integer id,Integer limit);
-
+    List<Product> getProductsPage(String name, Integer page, Integer limit);
+    Long getCountProduct();
+    Long getCountProductsPage(String name);
 }

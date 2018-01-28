@@ -354,11 +354,12 @@
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
                                         <div class="navbar-search">
-                                            <form action="http://wpsparrow.com/wordpress/ismiler" method="get"
+                                            <form action="/search" method="get"
                                                   id="search-global-form" class="search-global">
                                                 <input type="text" placeholder="Type to search" autocomplete="off"
-                                                       name="s" value="" id="searchQuery" class="search-global__input">
-                                                <input type="hidden" name="post_type" value="product"/>
+                                                       name="name" value="" id="name" class="search-global__input">
+                                                <input hidden="hidden" type="text" placeholder="Type to search" autocomplete="off"
+                                                       name="page" value="1" id="page" class="search-global__input">
                                                 <button class="search-global__btn"><i class="fa fa-search"></i></button>
                                                 <div class="search-global__note">Begin typing your search above and
                                                     press return to search.

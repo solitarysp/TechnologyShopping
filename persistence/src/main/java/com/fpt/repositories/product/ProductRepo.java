@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepo extends PagingAndSortingRepository<Product, String> {
+public interface ProductRepo extends PagingAndSortingRepository<Product, String>,ProductRepoCustom {
     @Query(value = "select P from Product as P order by P.id desc ", nativeQuery = false)
     List<Product> getAll();
 
