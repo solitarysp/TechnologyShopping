@@ -156,13 +156,13 @@
                         <c:choose>
                             <c:when test="${loop.count==param.page}">
                                 <li><a class="page-numbers  current"
-                                       honclick="clickGetSaleCATEGORIES(1,12,${loop.count})">${loop.count}</a>
+                                     href="#iphoneByCATEGORIESBank"  onclick="clickGetSaleCATEGORIES(null,12,${loop.count})">${loop.count}</a>
                                 </li>
 
                             </c:when>
                             <c:otherwise>
                                 <li><a class="page-numbers"
-                                       onclick="clickGetSaleCATEGORIES(1,12,${loop.count})">${loop.count}</a>
+                                       href="#iphoneByCATEGORIESBank"   onclick="clickGetSaleCATEGORIES(null,12,${loop.count})">${loop.count}</a>
                                 </li>
                             </c:otherwise>
                         </c:choose>

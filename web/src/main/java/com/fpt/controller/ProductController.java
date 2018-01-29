@@ -22,22 +22,32 @@ public class ProductController {
     CategoryServices categoryServices;
 
     @RequestMapping(value = "/getCategories", method = RequestMethod.POST)
-    public String getProductByCategoriesHasLimit(ModelMap modelMap, Integer id, Integer limit) {
+    public String getProductByCategoriesHasLimit(ModelMap modelMap, Integer id, Integer limit, Integer page) {
         if (limit == null) {
             limit = 12;
+        }
+        if (page == null) {
+            page = 0;
         }
         if (id != null) {
             Category type = categoryServices.getCategoryById(id);
             if (type != null) {
-                List<Product> products = productServices.getProductByCategoriesHasLimit(id, limit);
+                List<Product> products = productServices.getProductByCategoriesHasLimit(id, page-1, limit);
+                Double value = Double.valueOf(productServices.getCountProductByCategoriesHasLimit(id)) / 12;
+                Double count = Math.ceil(value);
                 modelMap.addAttribute("products", products);
+                modelMap.addAttribute("count", count);
+                return "product/ProductByCategoriesHasLimit";
             }
         } else {
-            List<Product> products = productServices.getAll();
+            Double value = Double.valueOf(productServices.getCountProduct()) / 12;
+            Double count = Math.ceil(value);
+            List<Product> products = productServices.getProductHasL21imit(page-1,limit);
             modelMap.addAttribute("products", products);
+            modelMap.addAttribute("count", count);
+            return "product/ProductHasLimit";
         }
-
-        return "product/ProductByCategoriesHasLimit";
+        return null;
 
     }
 }
