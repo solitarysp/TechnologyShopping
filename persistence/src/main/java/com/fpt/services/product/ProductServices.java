@@ -23,4 +23,6 @@ public interface ProductServices {
     Long getCountProductsPage(String name);
     Long getCountProductByCategoriesHasLimit(Integer id);
     List<Product> getProductHasL21imit(Integer page, Integer limit);
+
+    void deleteProduct(String id);
 }

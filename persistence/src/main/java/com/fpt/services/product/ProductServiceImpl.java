@@ -6,6 +6,7 @@ import com.fpt.entity.Product;
 import com.fpt.repositories.product.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class ProductServiceImpl implements ProductServices {
         return productRepo.getAllByCategoryID(idCategory);
     }
 
+    @Transactional
     @Override
     public void saveProduct(Product product) {
         productRepo.save(product);
@@ -67,5 +69,12 @@ public class ProductServiceImpl implements ProductServices {
     @Override
     public List<Product> getProductHasL21imit(Integer page, Integer limit) {
         return productRepo.getProductHasL21imit(page,limit);
+    }
+
+    @Transactional
+    @Override
+    public void deleteProduct(String id) {
+        Product product=productRepo.findOne(id);
+        productRepo.delete(product);
     }
 }

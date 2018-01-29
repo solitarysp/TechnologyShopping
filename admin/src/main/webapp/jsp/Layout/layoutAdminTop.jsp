@@ -433,6 +433,42 @@
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-caret-right"></i>
 
+                            Product
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class="">
+                                <a href="/admin/addProduct">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    New Product
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="/admin/viewProduct">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    View Product
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-caret-right"></i>
+
                             Brands
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
@@ -463,6 +499,9 @@
 
 
                 </ul>
+
+
+
                 <ul class="submenu">
                     <li class="">
                         <a href="#" class="dropdown-toggle">
@@ -498,6 +537,9 @@
 
 
                 </ul>
+
+
+
                 <ul class="submenu">
                     <li class="">
                         <a href="#" class="dropdown-toggle">

@@ -54,9 +54,9 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/removeCategory",method = RequestMethod.POST)
-    public void DeleteBrand(Category category,HttpServletResponse response){
+    public void DeleteCategory(Integer id,HttpServletResponse response){
         try {
-            categoryServices.deleteCategory(category);
+            categoryServices.deleteCategory(id);
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();

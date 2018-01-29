@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Add Product</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <jsp:include page="../Layout/layoutAdminTop.jsp"/>
@@ -24,38 +25,120 @@
         </h1>
     </div><!-- /.page-header -->
 
-
     <div class="col-xs-12">
+        <form class="form-horizontal" action="addProduct?${_csrf.parameterName}=${_csrf.token}" id="form" method="post" role="form" enctype="multipart/form-data">
 
-        <form class="form-horizontal" id="form" method="post" role="form">
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="name"> Product Name </label>
+                <label class="col-sm-3 control-label no-padding-right" for="id"> Product ID </label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="name" name="name" placeholder="name" class="col-xs-10 col-sm-5"/>
+                    <input readonly type="text" id="id" name="id" placeholder="Product ID" class="col-xs-10 col-sm-5"/>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="description"> Product Description </label>
+                <label class="col-sm-3 control-label no-padding-right" for="name"> Name </label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="description" name="description" placeholder="description"
+                    <input type="text" id="name" name="name" placeholder="Name" class="col-xs-10 col-sm-5"/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="brandTemp">Brand</label>
+
+                <div class="col-xs-12 col-sm-9">
+                    <select id="brandTemp" name="brandTemp" class="">
+                        <option selected value="${listBrand.get(0).id}">${listBrand.get(0).name}</option>
+                        <c:forEach items="${listBrand}" var="b" begin="1">
+                            <option value="${b.id}">${b.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ProductType">Product Type</label>
+
+                <div class="col-xs-12 col-sm-9">
+                    <select id="ProductType" name="productTypeTemp" class="" onchange="generateID()">
+                        <c:forEach items="${listProductType}" var="pt">
+                            <option selected value="${pt.name}-${pt.id}">${pt.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="category">Category</label>
+
+                <div class="col-xs-12 col-sm-9">
+                    <select style="float: left;" name="categoryTemp" id="category" class="">
+
+                        <c:forEach items="${listCategory}" var="c">
+                            <option selected value="${c.id}">${c.name}</option>
+                        </c:forEach>
+                    </select>
+                    <input style="float: left; height: 30px; width: 50px; margin-left: 10px;text-align: center;"
+                           id="sale" readonly type="text"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="file">Image</label>
+                <div class="col-sm-9">
+                    <input type="file" id="file" name="file" class="form-select-button"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="price"> Price (VNĐ) </label>
+
+                <div class="col-sm-9">
+                    <input type="number" id="price" name="price" placeholder="Price"
                            class="col-xs-10 col-sm-5"/>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="value"> Sale up to </label>
+                <label class="col-sm-3 control-label no-padding-right" for="repository"> Repository </label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="value" name="value" placeholder="Sale up to"
+                    <input type="number" id="repository" name="repository" placeholder="repository"
+                           class="col-xs-10 col-sm-5"/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="weight"> Weight (Kg)</label>
+                <div class="col-sm-9">
+                    <input type="number" id="weight" name="weight" placeholder="Weight"
+                           class="col-xs-10 col-sm-5"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="content"> Description </label>
+
+                <div class="col-sm-9">
+                    <%--<input type="text" id="content" name="content" placeholder="Description"--%>
+                    <%--class="col-xs-10 col-sm-5"/>--%>
+                    <textarea name="content" placeholder="Description" id="content" cols="56" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="yearOfCreation"> Year Of Creation </label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="yearOfCreation" name="yearOfCreation" placeholder="Year Of Creation"
                            class="col-xs-10 col-sm-5"/>
                 </div>
             </div>
 
             <div class="col-md-offset-3 col-md-9">
-                <button onclick="addCategory()" class="btn btn-info" type="button">
+                <button class="btn btn-info" type="submit">
                     <i class="ace-icon fa fa-check bigger-110"></i>
                     Submit
                 </button>
@@ -66,37 +149,39 @@
                     Reset
                 </button>
             </div>
+
         </form>
     </div>
+</div>
 
+<script type="text/javascript">
 
-    <script type="text/javascript">
-        function addCategory() {
-            var data = $("form").serialize();
-            $.ajax({
-                url: "addCategory?${_csrf.parameterName}=${_csrf.token}",
-                type: "post",
-                dataType: "text",
-                data: data,
-                success: function (result) {
-                    console.log(result == 'success');
-                    if (result.trim() == 'success') {
-                        $('form')[0].reset();
-                        swal("Thành công!", "Thêm thành công!", "success");
-                        window.location.replace("/admin/getAllCategory");
-                    }
-                },
-                complete: function (xhr, textStatus) {
-                    if (xhr.status == 403) {
-                        $('#result').html("Bạn không có quyền xem");
-                        $('#stt').html("Bạn không có quyền xem");
-                    }
-                }
-            });
+    window.onload = function () {
+        document.getElementById("sale").value = ${listCategory.get(0).value}+"%";
+        var x = document.getElementById("ProductType").value;
+        var d = new Date();
+        var n = d.getTime();
+        console.log(x + n);
+        document.getElementById("id").value = x + n;
+    }
 
+    function generateID() {
+        var x = document.getElementById("ProductType").value;
+        var d = new Date();
+        var n = d.getTime();
+        console.log(x + n);
+        document.getElementById("id").value = x + n;
+    }
 
+    $('#category').on('change', function () {
+        var value = $(this).val();
+        console.log(value);
+        if (value != null) {
+
+            document.getElementById("sale").value = value + "%";
         }
-    </script>
+    });
+</script>
 </div>
 <jsp:include page="../Layout/layoutAdminBot.jsp"/>
 </body>

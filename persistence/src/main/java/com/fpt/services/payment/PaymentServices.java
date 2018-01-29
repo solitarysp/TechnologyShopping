@@ -13,7 +13,7 @@ public interface PaymentServices {
 
     void savePayment(Payment payment);
 
-    void deletePayment(Payment payment);
+    void deletePayment(Integer id);
 
     Payment findByID(Integer id);
 }

@@ -6,6 +6,7 @@ import com.fpt.entity.Category;
 import com.fpt.repositories.category.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class CategoryServiceImpl implements CategoryServices {
         return categoryRepo.getAllCategory();
     }
 
+    @Transactional
     @Override
     public void saveCategory(Category category) {
         categoryRepo.save(category);
@@ -29,9 +31,10 @@ public class CategoryServiceImpl implements CategoryServices {
         return categoryRepo.findOne(id);
     }
 
+    @Transactional
     @Override
-    public void deleteCategory(Category category) {
-        categoryRepo.delete(category);
+    public void deleteCategory(Integer id) {
+        categoryRepo.delete(id);
     }
 
     @Override
