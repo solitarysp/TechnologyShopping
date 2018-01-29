@@ -23,8 +23,12 @@ public class homeController {
         productListSale = productServices.getAllByCategoryID(1);
         modelMap.addAttribute("productListSale", productListSale);
 
-        productList = productServices.getAll();
-        modelMap.addAttribute("productList", productList);
+        Double value = Double.valueOf(productServices.getCountProduct()) / 12;
+        Double count = Math.ceil(value);
+        List<Product> products = productServices.getProductHasL21imit(0, 12);
+        modelMap.addAttribute("productList", products);
+        modelMap.addAttribute("count", count);
+
 
         productListBestSellers = productServices.getAllProductBestSellers();
         modelMap.addAttribute("productListBestSellers", productListBestSellers);

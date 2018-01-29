@@ -40,8 +40,8 @@ public class ProductServiceImpl implements ProductServices {
     }
 
     @Override
-    public List<Product> getProductByCategoriesHasLimit(Integer id, Integer limit) {
-        return productRepo.getProductByCategoriesHasLimit(id, limit);
+    public List<Product> getProductByCategoriesHasLimit(Integer id, Integer page, Integer limit) {
+        return productRepo.getProductByCategoriesHasLimit(id, page, limit);
     }
 
     @Override
@@ -57,5 +57,15 @@ public class ProductServiceImpl implements ProductServices {
     @Override
     public Long getCountProductsPage(String name) {
         return productRepo.getCountProductsPage(name);
+    }
+
+    @Override
+    public Long getCountProductByCategoriesHasLimit(Integer id) {
+        return productRepo.getCountProductByCategoriesHasLimit(id);
+    }
+
+    @Override
+    public List<Product> getProductHasL21imit(Integer page, Integer limit) {
+        return productRepo.getProductHasL21imit(page,limit);
     }
 }
