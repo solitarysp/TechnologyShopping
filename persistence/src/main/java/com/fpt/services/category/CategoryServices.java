@@ -12,4 +12,9 @@ public interface CategoryServices {
     List<Category> getAllCategory();
 
     void saveCategory(Category category);
+
+    Category getCategoryById(Integer id);
+     void deleteCategory(Integer id);
+
+    Category findByID(Integer id);
 }

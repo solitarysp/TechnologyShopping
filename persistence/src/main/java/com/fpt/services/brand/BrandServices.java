@@ -5,6 +5,7 @@ package com.fpt.services.brand;/*
 import com.fpt.entity.Brand;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -12,4 +13,10 @@ public interface BrandServices {
     List<Brand> getAllBrand();
 
     void saveBrand(Brand brand);
+
+    void deleteBrand(Integer id);
+
+    Brand findByID(Integer id);
+
+//    List<Brand> GetTotalBrand(Integer number);
 }

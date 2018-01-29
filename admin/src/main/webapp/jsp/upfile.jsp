@@ -7,11 +7,11 @@
 <body>
 
 
-<jsp:include page="layoutAdminTop.jsp"/>
+<jsp:include page="Layout/layoutAdminTop.jsp"/>
 <form method="POST" action="uploadFile?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
     Select File: <input type="file" name="file"/>
     <input type="submit" value="Upload File"/>
 </form>
-<jsp:include page="layoutAdminBot.jsp"/>
+<jsp:include page="Layout/layoutAdminBot.jsp"/>
 </body>
 </html>

@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class test {
     @RequestMapping(value = "/layout.html")
     public  String viewLayout(){
-        return "layoutAdminTop";
+        return "Layout/layoutAdminTop";
     }
 }

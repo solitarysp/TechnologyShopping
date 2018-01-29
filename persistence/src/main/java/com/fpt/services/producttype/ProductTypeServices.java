@@ -12,4 +12,8 @@ public interface ProductTypeServices {
     List<ProductType> getAllProductType();
 
     void saveProductType(ProductType productType);
+
+    void deleteProductType(ProductType productType);
+
+    ProductType findByID(Integer id);
 }

@@ -3,7 +3,6 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,13 +13,12 @@ public class Product {
     private String id;
     private String name;
     private String IMG;
-    private BigDecimal salePrice;
     private Float price;
     private Integer repository;
     private Float weight;
     private String content;
     private Timestamp date;
-    private Integer _yearOfCreation;
+    private Integer yearOfCreation;
 
     @Id
     @Column(name = "_id")
@@ -48,15 +46,6 @@ public class Product {
 
     public void setIMG(String IMG) {
         this.IMG = IMG;
-    }
-
-    @Column(name = "_saled_price")
-    public BigDecimal getSalePrice() {
-        return salePrice;
-    }
-
-    public void setSalePrice(BigDecimal salePrice) {
-        this.salePrice = salePrice;
     }
 
     @Column(name = "_price")
@@ -105,12 +94,12 @@ public class Product {
     }
 
     @Column(name = "_year_of_creation")
-    public Integer get_yearOfCreation() {
-        return _yearOfCreation;
+    public Integer getYearOfCreation() {
+        return yearOfCreation;
     }
 
-    public void set_yearOfCreation(Integer _yearOfCreation) {
-        this._yearOfCreation = _yearOfCreation;
+    public void setYearOfCreation(Integer yearOfCreation) {
+        this.yearOfCreation = yearOfCreation;
     }
 
     private Brand brand;
