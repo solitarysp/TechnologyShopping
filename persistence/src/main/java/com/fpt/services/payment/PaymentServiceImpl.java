@@ -28,8 +28,8 @@ public class PaymentServiceImpl implements PaymentServices {
 
     @Transactional
     @Override
-    public void deletePayment(Payment payment) {
-
+    public void deletePayment(Integer id) {
+        paymentRepo.delete(id);
     }
 
     @Override

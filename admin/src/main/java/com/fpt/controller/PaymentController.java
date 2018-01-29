@@ -54,8 +54,8 @@ public class PaymentController {
     }
 
     @RequestMapping(value = "/removePayment",method = RequestMethod.POST)
-    public void DeleteBrand(Payment payment, HttpServletResponse response){
-        paymentServices.deletePayment(payment);
+    public void DeletePayment(Integer id, HttpServletResponse response){
+        paymentServices.deletePayment(id);
         try {
             response.getWriter().println("success");
         } catch (IOException e) {
