@@ -18,7 +18,7 @@ public class Product {
     private Float weight;
     private String content;
     private Timestamp date;
-    private Integer _yearOfCreation;
+    private Integer yearOfCreation;
 
     @Id
     @Column(name = "_id")
@@ -94,12 +94,12 @@ public class Product {
     }
 
     @Column(name = "_year_of_creation")
-    public Integer get_yearOfCreation() {
-        return _yearOfCreation;
+    public Integer getYearOfCreation() {
+        return yearOfCreation;
     }
 
-    public void set_yearOfCreation(Integer _yearOfCreation) {
-        this._yearOfCreation = _yearOfCreation;
+    public void setYearOfCreation(Integer yearOfCreation) {
+        this.yearOfCreation = yearOfCreation;
     }
 
     private Brand brand;
