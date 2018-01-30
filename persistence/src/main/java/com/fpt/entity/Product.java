@@ -104,7 +104,7 @@ public class Product {
 
     private Brand brand;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "_id_brand")
     public Brand getBrand() {
         return brand;
@@ -116,7 +116,7 @@ public class Product {
 
     private ProductType productType;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "_type")
     public ProductType getProductType() {
         return productType;
@@ -128,7 +128,7 @@ public class Product {
 
     private Set<Category> category = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "category_product", joinColumns = {@JoinColumn(name = "_id_product")}, inverseJoinColumns = {@JoinColumn(name = "_id_category")})
     public Set<Category> getCategory() {
         return category;
@@ -147,5 +147,15 @@ public class Product {
 
     public void setReview(Set<Review> review) {
         this.review = review;
+    }
+
+    private Set<RefProductOrder> refProductOrders;
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    public Set<RefProductOrder> getRefProductOrders() {
+        return refProductOrders;
+    }
+
+    public void setRefProductOrders(Set<RefProductOrder> refProductOrders) {
+        this.refProductOrders = refProductOrders;
     }
 }

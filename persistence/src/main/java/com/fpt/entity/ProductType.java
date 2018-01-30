@@ -43,7 +43,7 @@ public class ProductType {
 
     private Set<Product> product;
 
-    @OneToMany(mappedBy = "productType", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productType")
     public Set<Product> getProduct() {
         return product;
     }
