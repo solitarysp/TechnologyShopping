@@ -67,18 +67,18 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                         class="heading-line title-accordion-menu-item">Search Product</span><span
                                                         class="accordion-icon"></span></h3>
                                                     <form role="search" method="get" class="woocommerce-product-search"
-                                                          action="http://wpsparrow.com/wordpress/ismiler/">
-                                                        <label class="screen-reader-text"
-                                                               for="woocommerce-product-search-field-0">Search
+                                                          action="/search">
+                                                        <label class="screen-reader-text" for="woocommerce-product-search-field-0">Search
                                                             for:</label>
-                                                        <input type="search" id="woocommerce-product-search-field-0"
-                                                               class="search-field"
-                                                               placeholder="Search products&hellip;" value="" name="s"/>
-                                                        <input type="submit" value="Search"/>
-                                                        <input type="hidden" name="post_type" value="product"/>
+                                                        <input type="search" id="woocommerce-product-search-field-0" class="search-field"
+                                                               placeholder="Search products…" value="${param.name}" name="name">
+                                                        <input hidden="hidden" type="text" placeholder="Type to search" autocomplete="off"
+                                                               name="page" value="1" id="page" class="search-global__input">
+                                                        <input type="submit" value="Search">
+
                                                     </form>
                                                 </div>
-                                                <div id="woocommerce_product_categories-2"
+                                               <%-- <div id="woocommerce_product_categories-2"
                                                      class="woocommerce widget_product_categories accordion-l-box wow fadeInUp enable-accordion"
                                                      data-active="0" data-collapsible="true"
                                                      data-height-style="content"><h3 class="accordion-header-mod"><span
@@ -101,7 +101,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                 href="http://wpsparrow.com/wordpress/ismiler/product-category/unlocked-phones/">Unlocked
                                                             Phones</a></li>
                                                     </ul>
-                                                </div>
+                                                </div>--%>
                                                 <div id="woocommerce_top_rated_products-2"
                                                      class="woocommerce widget_top_rated_products accordion-l-box wow fadeInUp enable-accordion"
                                                      data-active="0" data-collapsible="true"
@@ -284,10 +284,35 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                 <div itemprop="offers" class="card-price-block clearfix"
                                                                      itemscope itemtype="http://schema.org/Offer">
                                                                     <span class="price-title">Our price</span>
-                                                                    <p class="product-price"><span
+                                                                    <span  style="font-size: 20px;" class="price">
+
+
+
+          <c:set var="test" value="1"/>
+    <c:forEach var="cate" items="${product.category}">
+        <c:if test="${cate.id==1}">
+    <del><span class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;</span>${product.price}</span></del> <ins><span style="color: red;margin-left: 5px;"
                                                                             class="woocommerce-Price-amount amount"><span
-                                                                            class="woocommerce-Price-currencySymbol">&pound;</span>${product.price}</span>
-                                                                    </p>
+                                                                            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${product.price - (product.price /100 * cate.value)}</span>
+         <c:set var="test"/>
+        </c:if>
+    </c:forEach>
+<c:if test="${not empty test}">
+    <span
+            style="color: red;"
+            class="woocommerce-Price-amount amount"><span
+
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${product.price}</span>
+</c:if>
+
+          <c:set var="test" value="1"/>
+
+
+
+    </span>
 
                                                                     <meta itemprop="price" content="875"/>
                                                                     <meta itemprop="priceCurrency" content="GBP"/>
@@ -591,7 +616,16 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
                                                 <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/">
 
-
+                                                    <c:forEach var="cate" begin="0" end="1" items="${items.category}">
+                                                        <%--    <c:if test="${cate.id==1}">
+                                                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                                <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                            </c:if>--%>
+                                                        <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                        <c:if test="${cate.value!=0}">
+                                                            <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                        </c:if>
+                                                    </c:forEach>
                                                     <img width="470" height="450"
                                                          src="${items.IMG}"
                                                          class="attachment-shop_catalog size-shop_catalog wp-post-image"
@@ -613,8 +647,33 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                     <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>${items.price}</span></span>
-				</span>
+	<span class="price">
+
+
+
+          <c:set var="test" value="1"/>
+    <c:forEach var="cate" items="${items.category}">
+        <c:if test="${cate.id==1}">
+    <del><span class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;</span>${items.price}</span></del> <ins><span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${items.price - (items.price /100 * cate.value)}</span>
+         <c:set var="test"/>
+        </c:if>
+    </c:forEach>
+<c:if test="${not empty test}">
+    <span
+            class="woocommerce-Price-amount amount"><span
+            class="woocommerce-Price-currencySymbol">&pound;
+                </span>${items.price}</span>
+</c:if>
+
+          <c:set var="test" value="1"/>
+
+
+
+    </span>
                                                     <div class="rating">
 
                                                         <div class="star-rating"><span

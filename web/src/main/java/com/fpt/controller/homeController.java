@@ -1,6 +1,8 @@
 package com.fpt.controller;
 
+import com.fpt.entity.Category;
 import com.fpt.entity.Product;
+import com.fpt.services.category.CategoryServices;
 import com.fpt.services.product.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,8 @@ public class homeController {
 
     @Autowired
     ProductServices productServices;
+    @Autowired
+    CategoryServices categoryServices;
 
     @RequestMapping(value = "/")
     public String viewHome(ModelMap modelMap) {
@@ -32,6 +36,10 @@ public class homeController {
 
         productListBestSellers = productServices.getAllProductBestSellers();
         modelMap.addAttribute("productListBestSellers", productListBestSellers);
+
+        List<Category> categories = categoryServices.getAllCategory();
+        modelMap.addAttribute("categories", categories);
+
         return "home";
     }
 }
