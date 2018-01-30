@@ -51,4 +51,16 @@ public class RefProductOrder {
     public void setOrderProduct(OrderProduct orderProduct) {
         this.orderProduct = orderProduct;
     }
+
+    private Product product;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "_id_product")
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }
