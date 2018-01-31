@@ -15,15 +15,15 @@
                     <a href="/viewProduct.html?id=${item.id}">
 
 
-                        <c:forEach var="cate" items="${item.category}">
-                            <c:if test="${cate.id==1}">
-                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                        <c:forEach var="cate" begin="0" end="0" items="${item.category}">
+                            <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                            <c:if test="${cate.value!=0}">
                                 <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
                             </c:if>
 
                         </c:forEach>
                         <img width="470" height="450"
-                             src="${item.IMG}"
+                             src="admin/images/${item.IMG}"
                              class="attachment-shop_catalog size-shop_catalog wp-post-image"
                              alt=""/> </a>
 

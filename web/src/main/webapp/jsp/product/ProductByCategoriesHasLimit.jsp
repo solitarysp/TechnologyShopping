@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <c:set var="itemAll" value="${products}"/>
@@ -15,15 +16,17 @@
                     <a href="/viewProduct.html?id=${item.id}">
 
 
-                        <c:forEach var="cate" items="${item.category}">
-                            <c:if test="${cate.id==1}">
+                        <c:forEach var="cate"  items="${item.category}">
+                            <c:if test="${param.id==cate.id}">
                                 <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
-                                <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                <c:if test="${cate.value!=0}">
+                                    <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                </c:if>
                             </c:if>
 
                         </c:forEach>
                         <img width="470" height="450"
-                             src="${item.IMG}"
+                             src="admin/images/${item.IMG}"
                              class="attachment-shop_catalog size-shop_catalog wp-post-image"
                              alt=""/> </a>
 

@@ -55,6 +55,7 @@
                                                 </c:when>
                                                 <c:otherwise>
                                                     <a href="/login.html">Login</a>
+                                                    <a style="margin-left: 10px;" href="/registration">Registration</a>
                                                 </c:otherwise>
                                             </c:choose>
 
