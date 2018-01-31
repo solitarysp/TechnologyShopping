@@ -30,8 +30,8 @@ public class homeController {
         modelMap.addAttribute("count", count);
 
 
-        productListBestSellers = productServices.getAllProductBestSellers();
+        /*productListBestSellers = productServices.getAllProductBestSellers();
         modelMap.addAttribute("productListBestSellers", productListBestSellers);
-        return "home";
+        */return "home";
     }
 }

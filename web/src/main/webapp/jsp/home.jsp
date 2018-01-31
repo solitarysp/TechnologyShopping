@@ -862,7 +862,7 @@
                                                                                         </a>--%>
 
 
-                                                                        <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                        <a href="/addCartItem?id=${item.id}"
                                                                            rel="nofollow"
                                                                            data-product_id="2977" data-product_sku=""
                                                                            data-quantity="1"
@@ -872,7 +872,7 @@
 
                                                                         <div class="cart-add-buttons">
 
-                                                                            <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                            <a href="/addCartItem?id=${item.id}"
                                                                                rel="nofollow" data-product_id="2977"
                                                                                data-product_sku=""
                                                                                data-quantity="1" class="btn "> <i
@@ -1095,7 +1095,7 @@
                                                                                                      </a>--%>
 
 
-                                                                        <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                        <a href="/addCartItem?id=${itemProduct.id}"
                                                                            rel="nofollow" data-product_id="2977"
                                                                            data-product_sku="" data-quantity="1"
                                                                            class="btn btn-add btn-add-cart"> <i
@@ -1104,7 +1104,7 @@
 
                                                                         <div class="cart-add-buttons">
 
-                                                                            <a href="/wordpress/ismiler/?add-to-cart=2977"
+                                                                            <a href="/addCartItem?id=${itemProduct.id}"
                                                                                rel="nofollow" data-product_id="2977"
                                                                                data-product_sku="" data-quantity="1"
                                                                                class="btn "> <i
