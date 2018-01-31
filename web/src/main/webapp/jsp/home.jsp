@@ -443,7 +443,7 @@
 
                                                                     </c:forEach>
                                                                     <img width="470" height="450"
-                                                                         src="${itemProduct.IMG}"
+                                                                         src="admin/images/${itemProduct.IMG}"
                                                                          class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                                          alt=""/> </a>
 
@@ -779,7 +779,7 @@
                                                                         </c:if>
                                                                     </c:forEach>
                                                                     <img width="470" height="450"
-                                                                         src="${item.IMG}"
+                                                                         src="admin/images/${item.IMG}"
                                                                          class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                                          alt=""/> </a>
 
@@ -1014,7 +1014,7 @@
                                                                             </c:if>
                                                                         </c:forEach>
                                                                         <img width="470" height="450"
-                                                                             src="${itemProduct.IMG}"
+                                                                             src="admin/images/${itemProduct.IMG}"
                                                                              class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                                              alt=""/> </a>
 

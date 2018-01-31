@@ -88,7 +88,7 @@
                                                         <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
                                                     </c:if>
                                                 </c:forEach>
-                                                <img width="470" height="450" src="${item.IMG}"
+                                                <img width="470" height="450" src="admin/images/${item.IMG}"
                                                      class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                      alt=""> </a>
 

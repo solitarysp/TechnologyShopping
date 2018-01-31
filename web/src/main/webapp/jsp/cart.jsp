@@ -99,7 +99,7 @@
                                                             <td class="product-thumbnail">
                                                                 <a href="/viewProduct.html?id=<%=id%>"><img
                                                                         width="170" height="150"
-                                                                        src="<%=img%>"
+                                                                        src="admin/images/<%=img%>"
                                                                         class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
                                                                         alt="<%=name%>"/></a></td>
 

@@ -248,7 +248,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
                                                                 <li><a data-lighter href="#"><img width="470"
                                                                                                   height="450"
-                                                                                                  src="${product.IMG}"
+                                                                                                  src="admin/images/${product.IMG}"
                                                                                                   class="attachment-shop_single size-shop_single wp-post-image"
                                                                                                   alt=""
                                                                                                   title="81lZPI2hmoL._SX522_"/></a>
@@ -627,7 +627,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                         </c:if>
                                                     </c:forEach>
                                                     <img width="470" height="450"
-                                                         src="${items.IMG}"
+                                                         src="admin/images/${items.IMG}"
                                                          class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                          alt=""/> </a>
 
@@ -693,7 +693,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                             eu fugiat nulla pariatur</p>
                                                     </div>
 
-                                                </div>
+                                                    </span>
 
 
                                                 <div class="add-buttons">
@@ -728,6 +728,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
                                     </li>
 
