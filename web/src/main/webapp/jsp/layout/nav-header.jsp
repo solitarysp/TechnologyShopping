@@ -1,4 +1,5 @@
-
+<%@ page import="com.fpt.entity.Product" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
     <div class="b-top-line ">
@@ -378,15 +379,31 @@
 
 
                 </div>
+                <%
+                    int totalCart = 0;
+                    float totalPrice = 0;
+                %>
+                <c:if test="${not empty sessionScope['listCart']}">
+                    <%
+                        ArrayList<Product> listCart = (ArrayList<Product>) session.getAttribute("listCart");
+                        totalCart = listCart.size();
+                        for (Product p : listCart) {
+                            float price = p.getPrice();
+                            int quantity = p.getRepository();
+                            float total = price * quantity;
+                            totalPrice =+ total;
+                        }
 
+                    %>
 
+                </c:if>
                 <div id="cart-wrapper" class="col-xs-6 col-sm-12 col-md-2 col-lg-2">
                     <div class="b-cart pull-right">
                         <button id="cart" class="btn btn-default-color1 btn-sm">
                             <span class="price"><i class="fa fa-shopping-bag"></i><span
                                     class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span></span>
-                            <span class="counter-wrapper"><span class="counter">1</span></span>
+                                    class="woocommerce-Price-currencySymbol"></span><%=totalPrice%></span> VND</span>
+                            <span class="counter-wrapper"><span class="counter"><%=totalCart%></span></span>
                         </button>
 
 
