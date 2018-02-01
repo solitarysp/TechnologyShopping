@@ -1,6 +1,7 @@
 <%@ page import="com.fpt.entity.Product" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <header>
     <div class="b-top-line ">
         <div class="container">
@@ -47,7 +48,7 @@
                                                                         Policy</a></li>
                                                                 <li id="menu-item-3218"
                                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3218">
-                                                                    <a href="javascript:formSubmit()" >LogOut</a></li>
+                                                                    <a href="javascript:formSubmit()">LogOut</a></li>
 
                                                             </ul>
                                                         </div>
@@ -360,7 +361,8 @@
                                                   id="search-global-form" class="search-global">
                                                 <input type="text" placeholder="Type to search" autocomplete="off"
                                                        name="name" value="" id="name" class="search-global__input">
-                                                <input hidden="hidden" type="text" placeholder="Type to search" autocomplete="off"
+                                                <input hidden="hidden" type="text" placeholder="Type to search"
+                                                       autocomplete="off"
                                                        name="page" value="1" id="page" class="search-global__input">
                                                 <button class="search-global__btn"><i class="fa fa-search"></i></button>
                                                 <div class="search-global__note">Begin typing your search above and
@@ -392,19 +394,26 @@
                             float price = p.getPrice();
                             int quantity = p.getRepository();
                             float total = price * quantity;
-                            totalPrice =+ total;
+                            totalPrice = +total;
                         }
-
                     %>
-
                 </c:if>
+                <c:set var="totol" value="0"/>
+                <c:set var="totalCartFull" value="0"/>
+                <c:forEach var="item" items="${sessionScope.listCart}">
+                    <c:set var="totol" value="${totol+ item.price * item.repository}"/>
+                    <c:set var="totalCartFull" value="${totalCartFull+1}"/>
+                </c:forEach>
+                <fmt:formatNumber var="totol1" type = "number"
+                                  maxFractionDigits = "0"       value = "${totol}" />
                 <div id="cart-wrapper" class="col-xs-6 col-sm-12 col-md-2 col-lg-2">
                     <div class="b-cart pull-right">
                         <button id="cart" class="btn btn-default-color1 btn-sm">
                             <span class="price"><i class="fa fa-shopping-bag"></i><span
                                     class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol"></span><%=totalPrice%></span> VND</span>
-                            <span class="counter-wrapper"><span class="counter"><%=totalCart%></span></span>
+                                    class="woocommerce-Price-currencySymbol"></span>${totol1}</span> VND</span>
+                            <span class="counter-wrapper"><span class="counter">${totalCartFull}</span></span>
+
                         </button>
 
 
@@ -415,41 +424,45 @@
                                 <ul class="products-list list-unstyled">
 
                                     <li>
-                                        <div class="b-cart-table ">
-                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/"
-                                               class="image">
-                                                <img width="170" height="150"
-                                                     src="//wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/81lZPI2hmoL._SX522_-170x150.jpg"
-                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                     alt=""/> </a>
+                                        <c:forEach var="item" items="${sessionScope.listCart}">
 
-                                            <div class="caption">
-                                                <a class="product-name"
-                                                   href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/">BLU
-                                                    VIVO 5 Smartphone</a>
-                                                <span class="product-price">1 x <span
-                                                        class="woocommerce-Price-amount amount"><span
-                                                        class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span></span>
 
+                                            <div class="b-cart-table ">
+                                                <a href="/viewProduct.html?id=${item.id}"
+                                                   class="image">
+                                                    <img width="170" height="150"
+                                                         src="admin/images/${item.IMG}"
+                                                         class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
+                                                         alt=""/> </a>
+
+                                                <div class="caption">
+                                                    <a class="product-name"
+                                                       href="/viewProduct.html?id=${item.id}">${item.name}</a>
+                                                    <span class="product-price">${item.repository} x <span
+                                                            class="woocommerce-Price-amount amount"><span
+                                                            class="woocommerce-Price-currencySymbol"> </span>${item.price}</span></span>
+
+                                                </div>
+                                                <a href="/delCartItem?id=${item.id}"
+                                                   class="btn btn-remove" title="Remove this item"><i
+                                                        class="fa fa-trash fa-lg"></i></a>
                                             </div>
-                                            <a href="http://wpsparrow.com/wordpress/ismiler/cart/?remove_item=2bd2e3373dce441c6c3bfadd1daa953e&#038;_wpnonce=dded64d263"
-                                               class="btn btn-remove" title="Remove this item"><i
-                                                    class="fa fa-trash fa-lg"></i></a>
-                                        </div>
+
+
+                                        </c:forEach>
+
                                     </li>
 
                                     <li>
                                         <div class="products-subtotal text-right">
                                             Subtotal <span class="subtotal-price"><span
                                                 class="woocommerce-Price-amount amount"><span
-                                                class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span></span>
+                                                class="woocommerce-Price-currencySymbol"></span>${totol1} $</span></span>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="products-buttons text-center">
-                                    <a href="<br />
-<b>Notice</b>:  WC_Cart::get_cart_url is <strong>deprecated</strong> since version 2.5! Use wc_get_cart_url instead. in <b>/var/www/zaymund/data/www/wpsparrow.com/wordpress/ismiler/wp-includes/functions.php</b> on line <b>3832</b><br />
-http://wpsparrow.com/wordpress/ismiler/cart/" class="btn btn-default-color1 btn-sm">view cart</a>
+                                    <a href="/cart.html" class="btn btn-default-color1 btn-sm">view cart</a>
                                     <a href="<br />
 <b>Notice</b>:  WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in <b>/var/www/zaymund/data/www/wpsparrow.com/wordpress/ismiler/wp-includes/functions.php</b> on line <b>3832</b><br />
 http://wpsparrow.com/wordpress/ismiler/checkout/" class="btn btn-primary-color2 btn-sm">Checkout</a>
