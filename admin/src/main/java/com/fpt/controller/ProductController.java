@@ -22,10 +22,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class ProductController {
@@ -50,14 +47,17 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-    public ModelAndView addProduct(Product product, Integer categoryTemp, String productTypeTemp, Integer brandTemp,
-                           HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file
+    public ModelAndView addProduct(Product product, Integer[] categoryTemp, String productTypeTemp, Integer brandTemp,
+                                   HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file
     ) {
-        Category category = categoryServices.findByID(categoryTemp);
-        Set<Category> categories=new HashSet<Category>();
-        categories.add(category);
-        product.setCategory(categories);
+        Category category = null;
+        Set<Category> categories = new HashSet<Category>();
 
+        for(int i = 0; i < categoryTemp.length; i++){
+            category = categoryServices.findByID(categoryTemp[i]);
+            categories.add(category);
+        }
+        product.setCategory(categories);
         String[] productTypeSplit = productTypeTemp.split("-");
         ProductType productType = productTypeServices.findByID(Integer.parseInt(productTypeSplit[1]));
         product.setProductType(productType);
@@ -65,24 +65,27 @@ public class ProductController {
         Brand brand = brandServices.findByID(brandTemp);
         product.setBrand(brand);
 
-        product.setDate(new Timestamp(System.currentTimeMillis()));
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        product.setDate(now);
 
-        System.out.println(upFile(file,request));
-        product.setIMG(file.getOriginalFilename());
+        long imgagename = System.currentTimeMillis();
+        System.out.println(upFile(file, request, imgagename + ".jpg"));
+
+        product.setIMG(imgagename + ".jpg");
 
         productServices.saveProduct(product);
 
-        return new ModelAndView("redirect:"+"/viewProduct");
+        return new ModelAndView("redirect:" + "/viewProduct");
     }
 
-    @RequestMapping(value = "/viewProduct",method = RequestMethod.GET)
-    public String ViewAllProduct(ModelMap modelMap){
-        modelMap.addAttribute("listAllProduct",productServices.getAll());
+    @RequestMapping(value = "/viewProduct", method = RequestMethod.GET)
+    public String ViewAllProduct(ModelMap modelMap) {
+        modelMap.addAttribute("listAllProduct", productServices.getAll());
         return "Product/viewAllProduct";
     }
 
-    @RequestMapping(value = "/removeProduct",method = RequestMethod.POST)
-    public void DeleteProduct(String id, HttpServletResponse response){
+    @RequestMapping(value = "/removeProduct", method = RequestMethod.POST)
+    public void DeleteProduct(String id, HttpServletResponse response) {
         productServices.deleteProduct(id);
         try {
             response.getWriter().println("success");
@@ -90,18 +93,40 @@ public class ProductController {
             e.printStackTrace();
         }
     }
+
+    @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
+    public ModelAndView editProduct(Product product, Integer[] categoryTemp, HttpServletRequest
+            request, HttpServletResponse response, @RequestParam("file") MultipartFile file, Integer brandTemp
+            , Integer productTypeTemp) {
+        Set<Category> categoryList = new HashSet<Category>();
+        for (int i = 0; i < categoryTemp.length; i++) {
+            Category category = categoryServices.findByID(categoryTemp[i]);
+            categoryList.add(category);
+        }
+        product.setCategory(categoryList);
+        product.setBrand(brandServices.findByID(brandTemp));
+        product.setProductType(productTypeServices.findByID(productTypeTemp));
+        String img = productServices.getProductById(product.getId()).getIMG();
+        product.setIMG(img);
+        productServices.saveProduct(product);
+        System.out.println(upFile(file, request, img));
+        return new ModelAndView("redirect:" + "/viewProduct");
+    }
+
+
     @RequestMapping(value = "/findProductByID", method = RequestMethod.GET)
-    public String FindPaymentByID(@RequestParam("id")String id, ModelMap modelMap) {
+    public String FindPaymentByID(@RequestParam("id") String id, ModelMap modelMap) {
         modelMap.addAttribute("product", productServices.getProductById(id));
+        modelMap.addAttribute("listCategory", categoryServices.getAllCategory());
         return "Product/viewAndEditProduct";
     }
 
-    public String upFile(MultipartFile file, HttpServletRequest request) {
+    public String upFile(MultipartFile file, HttpServletRequest request, String filename) {
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 String path = request.getSession().getServletContext().getRealPath("/resources/images/");
-                String filename = file.getOriginalFilename();
+                Timestamp now = new Timestamp(System.currentTimeMillis());
                 // Creating the directory to store file
                 BufferedOutputStream bout = new BufferedOutputStream(
                         new FileOutputStream(path + "/" + filename));

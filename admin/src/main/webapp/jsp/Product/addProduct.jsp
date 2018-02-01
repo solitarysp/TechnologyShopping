@@ -50,9 +50,8 @@
 
                 <div class="col-xs-12 col-sm-9">
                     <select id="brandTemp" name="brandTemp" class="">
-                        <option selected value="${listBrand.get(0).id}">${listBrand.get(0).name}</option>
-                        <c:forEach items="${listBrand}" var="b" begin="1">
-                            <option value="${b.id}">${b.name}</option>
+                        <c:forEach items="${listBrand}" var="b">
+                            <option selected value="${b.id}">${b.name}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -74,14 +73,13 @@
                 <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="category">Category</label>
 
                 <div class="col-xs-12 col-sm-9">
-                    <select style="float: left;" name="categoryTemp" id="category" class="">
-
+                    <select multiple style="float: left;" name="categoryTemp" id="category" class="">
                         <c:forEach items="${listCategory}" var="c">
-                            <option selected value="${c.id}">${c.name}</option>
+                            <option value="${c.id}">${c.name}(${c.value}%)</option>
                         </c:forEach>
                     </select>
-                    <input style="float: left; height: 30px; width: 50px; margin-left: 10px;text-align: center;"
-                           id="sale" readonly type="text"/>
+                    <%--<input style="float: left; height: 30px; width: 50px; margin-left: 10px;text-align: center;"--%>
+                           <%--id="sale" readonly type="text"/>--%>
                 </div>
             </div>
 
