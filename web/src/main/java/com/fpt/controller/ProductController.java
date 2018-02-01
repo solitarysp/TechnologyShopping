@@ -16,6 +16,7 @@ import java.util.List;
 
 @Controller
 public class ProductController {
+
     @Autowired
     ProductServices productServices;
     @Autowired
@@ -48,6 +49,5 @@ public class ProductController {
             return "product/ProductHasLimit";
         }
         return null;
-
     }
 }
