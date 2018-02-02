@@ -68,40 +68,45 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                         class="accordion-icon"></span></h3>
                                                     <form role="search" method="get" class="woocommerce-product-search"
                                                           action="/search">
-                                                        <label class="screen-reader-text" for="woocommerce-product-search-field-0">Search
+                                                        <label class="screen-reader-text"
+                                                               for="woocommerce-product-search-field-0">Search
                                                             for:</label>
-                                                        <input type="search" id="woocommerce-product-search-field-0" class="search-field"
-                                                               placeholder="Search products…" value="${param.name}" name="name">
-                                                        <input hidden="hidden" type="text" placeholder="Type to search" autocomplete="off"
-                                                               name="page" value="1" id="page" class="search-global__input">
+                                                        <input type="search" id="woocommerce-product-search-field-0"
+                                                               class="search-field"
+                                                               placeholder="Search products…" value="${param.name}"
+                                                               name="name">
+                                                        <input hidden="hidden" type="text" placeholder="Type to search"
+                                                               autocomplete="off"
+                                                               name="page" value="1" id="page"
+                                                               class="search-global__input">
                                                         <input type="submit" value="Search">
 
                                                     </form>
                                                 </div>
-                                               <%-- <div id="woocommerce_product_categories-2"
-                                                     class="woocommerce widget_product_categories accordion-l-box wow fadeInUp enable-accordion"
-                                                     data-active="0" data-collapsible="true"
-                                                     data-height-style="content"><h3 class="accordion-header-mod"><span
-                                                        class="heading-line title-accordion-menu-item">Product Categories</span><span
-                                                        class="accordion-icon"></span></h3>
-                                                    <ul class="product-categories">
-                                                        <li class="cat-item cat-item-151 current-cat"><a
-                                                                href="http://wpsparrow.com/wordpress/ismiler/product-category/accessories/">Accessories</a>
-                                                        </li>
-                                                        <li class="cat-item cat-item-149"><a
-                                                                href="http://wpsparrow.com/wordpress/ismiler/product-category/carrier-phones/">Carrier
-                                                            Phones</a></li>
-                                                        <li class="cat-item cat-item-152"><a
-                                                                href="http://wpsparrow.com/wordpress/ismiler/product-category/cases/">Cases</a>
-                                                        </li>
-                                                        <li class="cat-item cat-item-150"><a
-                                                                href="http://wpsparrow.com/wordpress/ismiler/product-category/exclusive-phones/">Exclusive
-                                                            Phones</a></li>
-                                                        <li class="cat-item cat-item-153"><a
-                                                                href="http://wpsparrow.com/wordpress/ismiler/product-category/unlocked-phones/">Unlocked
-                                                            Phones</a></li>
-                                                    </ul>
-                                                </div>--%>
+                                                <%-- <div id="woocommerce_product_categories-2"
+                                                      class="woocommerce widget_product_categories accordion-l-box wow fadeInUp enable-accordion"
+                                                      data-active="0" data-collapsible="true"
+                                                      data-height-style="content"><h3 class="accordion-header-mod"><span
+                                                         class="heading-line title-accordion-menu-item">Product Categories</span><span
+                                                         class="accordion-icon"></span></h3>
+                                                     <ul class="product-categories">
+                                                         <li class="cat-item cat-item-151 current-cat"><a
+                                                                 href="http://wpsparrow.com/wordpress/ismiler/product-category/accessories/">Accessories</a>
+                                                         </li>
+                                                         <li class="cat-item cat-item-149"><a
+                                                                 href="http://wpsparrow.com/wordpress/ismiler/product-category/carrier-phones/">Carrier
+                                                             Phones</a></li>
+                                                         <li class="cat-item cat-item-152"><a
+                                                                 href="http://wpsparrow.com/wordpress/ismiler/product-category/cases/">Cases</a>
+                                                         </li>
+                                                         <li class="cat-item cat-item-150"><a
+                                                                 href="http://wpsparrow.com/wordpress/ismiler/product-category/exclusive-phones/">Exclusive
+                                                             Phones</a></li>
+                                                         <li class="cat-item cat-item-153"><a
+                                                                 href="http://wpsparrow.com/wordpress/ismiler/product-category/unlocked-phones/">Unlocked
+                                                             Phones</a></li>
+                                                     </ul>
+                                                 </div>--%>
                                                 <div id="woocommerce_top_rated_products-2"
                                                      class="woocommerce widget_top_rated_products accordion-l-box wow fadeInUp enable-accordion"
                                                      data-active="0" data-collapsible="true"
@@ -284,7 +289,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                 <div itemprop="offers" class="card-price-block clearfix"
                                                                      itemscope itemtype="http://schema.org/Offer">
                                                                     <span class="price-title">Our price</span>
-                                                                    <span  style="font-size: 20px;" class="price">
+                                                                    <span style="font-size: 20px;" class="price">
 
 
 
@@ -292,7 +297,8 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
     <c:forEach var="cate" items="${product.category}">
         <c:if test="${cate.id==1}">
     <del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>${product.price}</span></del> <ins><span style="color: red;margin-left: 5px;"
+            class="woocommerce-Price-currencySymbol">&pound;</span>${product.price}</span></del> <ins><span
+                                                                            style="color: red;margin-left: 5px;"
                                                                             class="woocommerce-Price-amount amount"><span
                                                                             class="woocommerce-Price-currencySymbol">&pound;
                 </span>${product.price - (product.price /100 * cate.value)}</span>
@@ -336,7 +342,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                         <div class="">
 
                                                             <div class="product-options_row">
-                                                                <form class="cart" method="post"
+                                                                <form action="/addCartItem" class="cart" method="get"
                                                                       enctype='multipart/form-data'>
 
                                                                     <div class="detail-qty-color">
@@ -360,12 +366,10 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
-                                                                    <input type="hidden" name="add-to-cart"
-                                                                           value="2977"/>
-
+                                                                    <input hidden="hidden" name="id"
+                                                                           value="${product.id}"/>
                                                                     <div class="detail-buttons clearfix">
-                                                                        <div class="add-buttons">
+                                                                      <%--  <div class="add-buttons">
                                                                             <a type="button"
                                                                                class="btn btn-add btn-add-compare"><i
                                                                                     class="fa fa-refresh"></i></a>
@@ -374,7 +378,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                                type="button"
                                                                                class="btn btn-add btn-add-wish"><i
                                                                                     class="fa fa-heart-o"></i></a>
-                                                                        </div>
+                                                                        </div>--%>
                                                                         <div class="cart-add-buttons">
                                                                             <button type="submit"
                                                                                     class="btn btn-cart-color2">Add to
@@ -382,7 +386,6 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                             </button>
                                                                         </div>
                                                                     </div>
-
 
                                                                 </form>
                                                             </div>
@@ -607,44 +610,45 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                     data-responsive='{"0":{"items":1},"479":{"items":2},"768":{"items":3},"1199":{"items":4}}'
                                     data-slider-next=".slider-next" data-slider-prev=".slider-prev">
                                     <c:set var="itemSale" value="${productList}"/>
-                                <c:forEach var="items" items="${itemSale}">
+                                    <c:forEach var="items" items="${itemSale}">
 
-                                    <li class="col-sm-3 col-xs-6">
-                                        <div class="first item-grid b-item-card post-2975 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7  instock featured shipping-taxable purchasable product-type-simple">
-                                            <div class="image">
+                                        <li class="col-sm-3 col-xs-6">
+                                            <div class="first item-grid b-item-card post-2975 product type-product status-publish has-post-thumbnail product_cat-accessories product_cat-cases product_cat-exclusive-phones product_cat-unlocked-phones product_tag-accessories product_tag-android product_tag-apple product_tag-cases product_tag-iphone product_tag-nokia product_tag-premium product_tag-smart product_tag-unlocked yith_product_brand-brand1 yith_product_brand-brand2 yith_product_brand-brand4 yith_product_brand-brand5 yith_product_brand-brand6 yith_product_brand-brand7  instock featured shipping-taxable purchasable product-type-simple">
+                                                <div class="image">
 
 
-                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/">
+                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/">
 
-                                                    <c:forEach var="cate" begin="0" end="1" items="${items.category}">
-                                                        <%--    <c:if test="${cate.id==1}">
-                                                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                        <c:forEach var="cate" begin="0" end="1"
+                                                                   items="${items.category}">
+                                                            <%--    <c:if test="${cate.id==1}">
+                                                                    <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                                    <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                                </c:if>--%>
+                                                            <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                            <c:if test="${cate.value!=0}">
                                                                 <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
-                                                            </c:if>--%>
-                                                        <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
-                                                        <c:if test="${cate.value!=0}">
-                                                            <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
-                                                        </c:if>
-                                                    </c:forEach>
-                                                    <img width="470" height="450"
-                                                         src="admin/images/${items.IMG}"
-                                                         class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                         alt=""/> </a>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <img width="470" height="450"
+                                                             src="admin/images/${items.IMG}"
+                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
+                                                             alt=""/> </a>
 
 
-                                        <%--        <a class="slider_img"
-                                                   href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/"><img
-                                                        width="470" height="450"
-                                                        src="${items.IMG}"
-                                                        class="attachment-shop_catalog size-shop_catalog" alt=""/></a>--%>
-                                            </div>
-                                            <div class="card-info">
-                                                <div class="caption">
-                                                    <div class="name-item">
-                                                        <a class="product-name"
-                                                           href="/viewProduct.html?id=${items.id}">${items.name}</a>
-                                                    </div>
-                                                    <span class="product-price card-price-block">
+                                                        <%--        <a class="slider_img"
+                                                                   href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/"><img
+                                                                        width="470" height="450"
+                                                                        src="${items.IMG}"
+                                                                        class="attachment-shop_catalog size-shop_catalog" alt=""/></a>--%>
+                                                </div>
+                                                <div class="card-info">
+                                                    <div class="caption">
+                                                        <div class="name-item">
+                                                            <a class="product-name"
+                                                               href="/viewProduct.html?id=${items.id}">${items.name}</a>
+                                                        </div>
+                                                        <span class="product-price card-price-block">
 					<span class="price-title">Price</span>
 
 	<span class="price">
@@ -696,49 +700,45 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                     </span>
 
 
-                                                <div class="add-buttons">
+                                                        <div class="add-buttons">
 
 
-                                                    <a href="/viewProduct.html?id=${items.id}"
-                                                       class="btn btn-add btn-add-quickview">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
+                                                            <a href="/viewProduct.html?id=${items.id}"
+                                                               class="btn btn-add btn-add-quickview">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
 
 
-                                  <%--                  <a class="btn btn-add btn-add-compare"><i class="fa fa-refresh"></i></a>
-                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/?add_to_wishlist=2975"
-                                                       class="btn btn-add btn-add-wish">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </a>--%>
+                                                                <%--                  <a class="btn btn-add btn-add-compare"><i class="fa fa-refresh"></i></a>
+                                                                                  <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/?add_to_wishlist=2975"
+                                                                                     class="btn btn-add btn-add-wish">
+                                                                                      <i class="fa fa-heart-o"></i>
+                                                                                  </a>--%>
 
 
-                                                    <a href="/wordpress/ismiler/product/blu-vivo-5-smartphone/?add-to-cart=2975"
-                                                       rel="nofollow" data-product_id="2975" data-product_sku=""
-                                                       data-quantity="1" class="btn btn-add btn-add-cart"> <i
-                                                            class="fa fa-shopping-bag"></i>
-                                                    </a>
+                                                            <a href="/wordpress/ismiler/product/blu-vivo-5-smartphone/?add-to-cart=2975"
+                                                               rel="nofollow" data-product_id="2975" data-product_sku=""
+                                                               data-quantity="1" class="btn btn-add btn-add-cart"> <i
+                                                                    class="fa fa-shopping-bag"></i>
+                                                            </a>
 
-                                                    <div class="cart-add-buttons">
+                                                            <div class="cart-add-buttons">
 
-                                                        <a href="/wordpress/ismiler/product/blu-vivo-5-smartphone/?add-to-cart=2975"
-                                                           rel="nofollow" data-product_id="2975" data-product_sku=""
-                                                           data-quantity="1" class="btn "> <i
-                                                                class="fa fa-shopping-cart"></i> add to cart</a>
+                                                                <a href="/wordpress/ismiler/product/blu-vivo-5-smartphone/?add-to-cart=2975"
+                                                                   rel="nofollow" data-product_id="2975"
+                                                                   data-product_sku=""
+                                                                   data-quantity="1" class="btn "> <i
+                                                                        class="fa fa-shopping-cart"></i> add to cart</a>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
-
                                                 </div>
                                             </div>
-                                        </div>
-                                        </div>
-                                    </li>
+                                        </li>
 
 
-
-                                </c:forEach>
-
-
-
-
+                                    </c:forEach>
 
 
                                 </ul>
@@ -756,7 +756,12 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
             </div>
 
         </main>
+        <script type="text/javascript">
+            function addCartItem() {
 
+            }
+
+        </script>
 
         <jsp:include page="/jsp/layout/footer.jsp"/>
     </div>

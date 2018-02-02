@@ -19,9 +19,20 @@ public class CustomerServiceImpl implements CustomerServices {
     public List<Customer> getAll() {
         return customerRepo.getAll();
     }
+
     @Transactional
     @Override
     public void saveCustomer(Customer customer) {
         customerRepo.save(customer);
+    }
+
+    @Override
+    public boolean isCustomerEmail(String email) {
+        return customerRepo.isCustomerEmail(email);
+    }
+
+    @Override
+    public boolean isCustomerUser(String User) {
+        return customerRepo.isCustomerUser(User);
     }
 }

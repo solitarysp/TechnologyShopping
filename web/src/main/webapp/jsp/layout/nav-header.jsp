@@ -404,8 +404,8 @@
                     <c:set var="totol" value="${totol+ item.price * item.repository}"/>
                     <c:set var="totalCartFull" value="${totalCartFull+1}"/>
                 </c:forEach>
-                <fmt:formatNumber var="totol1" type = "number"
-                                  maxFractionDigits = "0"       value = "${totol}" />
+                <fmt:formatNumber var="totol1" type="number"
+                                  maxFractionDigits="0" value="${totol}"/>
                 <div id="cart-wrapper" class="col-xs-6 col-sm-12 col-md-2 col-lg-2">
                     <div class="b-cart pull-right">
                         <button id="cart" class="btn btn-default-color1 btn-sm">
@@ -463,9 +463,7 @@
                                 </ul>
                                 <div class="products-buttons text-center">
                                     <a href="/cart.html" class="btn btn-default-color1 btn-sm">view cart</a>
-                                    <a href="<br />
-<b>Notice</b>:  WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in <b>/var/www/zaymund/data/www/wpsparrow.com/wordpress/ismiler/wp-includes/functions.php</b> on line <b>3832</b><br />
-http://wpsparrow.com/wordpress/ismiler/checkout/" class="btn btn-primary-color2 btn-sm">Checkout</a>
+                                    <a href="/checkout.html" class="btn btn-primary-color2 btn-sm">Checkout</a>
                                 </div>
                             </div>
                         </div>

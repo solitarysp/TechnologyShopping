@@ -3,4 +3,7 @@ package com.fpt.repositories.customer;/*
  */
 
 public interface CustomerRepoCustom {
+    boolean isCustomerEmail(String email);
+    boolean isCustomerUser(String User);
+
 }

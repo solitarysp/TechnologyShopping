@@ -68,10 +68,14 @@
                     var pass1 = document.getElementsByName('password1')[0].value;
                     var email = document.getElementsByName('email')[0].value;
 
-                    var exp =/(\w(=?@)\w+\.{1}[a-zA-Z]{2,})/i
-                    if (exp.test(email) ==true) {
+                    var exp = /(\w(=?@)\w+\.{1}[a-zA-Z]{2,})/i
+                    if (exp.test(email) == true) {
                         if (pass == pass1) {
-                            Registration();
+                            if (pass == "") {
+                                swal("Mật khẩu không được để chống", "ERROR!", "error");
+                            } else {
+                                Registration();
+                            }
                         } else {
                             swal("2 mật khẩu nhập phải giống nhau!", "ERROR!", "error");
                         }
@@ -83,9 +87,6 @@
                 }
 
 
-
-
-
                 function Registration() {
                     var data = $("#form").serialize();
                     $.ajax({
@@ -94,7 +95,15 @@
                         dataType: "text",
                         data: data,
                         success: function (result) {
-
+                            if (result.trim() == 'erroeEmail') {
+                                swal("Email đã tồn tại", "ERROR!", "error");
+                            }
+                            if (result.trim() == 'success') {
+                                swal("Tạo tài khoản thành công!.")
+                                    .then((value) => {
+                                        window.location = "/login.html";
+                                    });
+                            }
                         },
                         complete: function (xhr, textStatus) {
                             if (xhr.status == 403) {

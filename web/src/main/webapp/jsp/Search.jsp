@@ -159,7 +159,7 @@
 
 
                                                 <a class="btn btn-add btn-add-compare"><i class="fa fa-refresh"></i></a>
-                                                <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
+                                                <a href="/addCartItem?id=${item.id}"
                                                    class="btn btn-add btn-add-wish">
                                                     <i class="fa fa-shopping-cart"></i>
                                                 </a>
