@@ -38,38 +38,63 @@ public class cartController {
         HttpSession httpSession = request.getSession();
         listProduct = (ArrayList<Product>) httpSession.getAttribute("listCart");
         if (listProduct == null) {
-//        httpSession.setAttribute("listCart", listProduct);
-//        try {
-//            response.getWriter().println("add to cart success");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
             listProduct = new ArrayList<Product>();
             Product p = productServices.getProductById(id);
+            p.setRepository(0);
             for (Category category : p.getCategory()
                     ) {
                 if (category.getValue() != 0) {
                     p.setPrice(p.getPrice() - (p.getPrice() / 100 * category.getValue()));
                 }
             }
-            p.setRepository(1);
+            String srtQuantity = request.getParameter("quantity");
+            Integer quantity = null;
+            if (srtQuantity != null) {
+                quantity = Integer.parseInt(srtQuantity);
+            }
+            if (quantity != null) {
+                p.setRepository(quantity);
+            } else {
+                p.setRepository(1);
+            }
             listProduct.add(p);
 
         } else {
             if (checkExist(id) == null) {
                 Product p = productServices.getProductById(id);
+                p.setRepository(0);
                 for (Category category : p.getCategory()
                         ) {
                     if (category.getValue() != 0) {
                         p.setPrice(p.getPrice() - (p.getPrice() / 100 * category.getValue()));
                     }
                 }
-                p.setRepository(1);
+                String srtQuantity = request.getParameter("quantity");
+                Integer quantity = null;
+                if (srtQuantity != null) {
+                    quantity = Integer.parseInt(srtQuantity);
+                }
+                if (quantity != null) {
+                    p.setRepository(p.getRepository() + quantity);
+                } else {
+                    p.setRepository(p.getRepository() + 1);
+                }
                 listProduct.add(p);
             } else {
                 Product p = checkExist(id);
                 listProduct.remove(p);
-                p.setRepository(p.getRepository() + 1);
+
+                String srtQuantity = request.getParameter("quantity");
+                Integer quantity = null;
+                if (srtQuantity != null) {
+                    quantity = Integer.parseInt(srtQuantity);
+                }
+                if (quantity != null) {
+                    p.setRepository(p.getRepository() + quantity);
+                } else {
+                    p.setRepository(p.getRepository() + 1);
+                }
                 listProduct.add(p);
             }
         }
