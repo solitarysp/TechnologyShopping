@@ -23,4 +23,9 @@ public class OrderProductServiceImpl implements OrderProductServices {
     public void saveOrderProduct(OrderProduct orderProduct) {
         orderProductRepo.save(orderProduct);
     }
+
+    @Override
+    public Integer getNewOrderByDate(Integer day) {
+        return orderProductRepo.getNewOrderByDate(day);
+    }
 }

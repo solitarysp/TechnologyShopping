@@ -5,6 +5,7 @@ package com.fpt.repositories.orderproduct;/*
 import com.fpt.entity.OrderProduct;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,4 +14,8 @@ import java.util.List;
 public interface OrderProductRepo extends PagingAndSortingRepository<OrderProduct, Integer>, OrderProductRepoCustom {
     @Query(value = "select o from OrderProduct  as o")
     public List<OrderProduct> getAll();
+
+    @Query(value = "SELECT count(*)  FROM order_product where DATE(`_date`)= CURDATE() - INTERVAL :day DAY",nativeQuery = true)
+    public Integer getNewOrderByDate(@Param("day")Integer day);
+
 }

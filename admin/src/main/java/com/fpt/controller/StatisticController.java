@@ -1,9 +1,9 @@
 package com.fpt.controller;
 
-import com.fpt.entity.Product;
 import com.fpt.entity.ProductType;
 import com.fpt.entity.RefProductOrder;
 import com.fpt.services.customer.CustomerServices;
+import com.fpt.services.orderproduct.OrderProductServices;
 import com.fpt.services.product.ProductServices;
 import com.fpt.services.producttype.ProductTypeServices;
 import com.fpt.services.refproductorder.RefProductOrderServices;
@@ -26,9 +26,8 @@ public class StatisticController {
     ProductServices productServices;
     @Autowired
     CustomerServices customerServices;
-
-
-    /* tesst*/
+    @Autowired
+    OrderProductServices orderProductServices;
     @Autowired
     RefProductOrderServices refProductOrderServices;
 
@@ -49,7 +48,15 @@ public class StatisticController {
         List<RefProductOrder> refProductOrders = refProductOrderServices.getBestSellerProductForStatistic();
         //count customer
         long countCustomer = customerServices.countCustomer();
+        //order today and last day
+        int ordernow = orderProductServices.getNewOrderByDate(0);
+        int orderbefore = orderProductServices.getNewOrderByDate(1);
 
+        HashMap<String, Integer> order = new HashMap<String, Integer>();
+        order.put("ordernow", ordernow);
+        order.put("orderbefore", orderbefore);
+
+        modelMap.addAttribute("order", order);
         modelMap.addAttribute("countCustomer", countCustomer);
         modelMap.addAttribute("totalProductType", totalMap);
         modelMap.addAttribute("totalAll", totalAll);

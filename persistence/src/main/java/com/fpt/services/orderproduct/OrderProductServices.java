@@ -12,4 +12,6 @@ public interface OrderProductServices {
     public List<OrderProduct> getAll();
 
     void saveOrderProduct(OrderProduct orderProduct);
+
+    public Integer getNewOrderByDate(Integer day);
 }
