@@ -18,4 +18,8 @@ public interface OrderProductRepo extends PagingAndSortingRepository<OrderProduc
     @Query(value = "SELECT count(*)  FROM order_product where DATE(`_date`)= CURDATE() - INTERVAL :day DAY",nativeQuery = true)
     public Integer getNewOrderByDate(@Param("day")Integer day);
 
+    @Query(value = "SELECT COUNT(*) FROM order_product",nativeQuery = true)
+    public Integer totalOrder();
+
+
 }

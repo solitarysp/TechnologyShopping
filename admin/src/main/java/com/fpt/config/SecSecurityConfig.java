@@ -27,7 +27,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login.html")
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/statistic", true)
                 .failureUrl("/login.html?error=true")
                 .and()
                 .logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/login.html");

@@ -130,7 +130,7 @@ public class OrderProduct {
 
     private Set<RefProductOrder> refProductOrder;
 
-    @OneToMany(mappedBy = "orderProduct", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "orderProduct", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<RefProductOrder> getRefProductOrder() {
         return refProductOrder;
     }
