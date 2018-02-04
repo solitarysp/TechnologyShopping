@@ -154,6 +154,16 @@ public class cartController {
     public String addCartAjax(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) {
         HttpSession httpSession = request.getSession();
         listProduct = (ArrayList<Product>) httpSession.getAttribute("listCart");
+        Product product = productServices.getProductById(id);
+        if (product.getRepository() == 0) {
+            try {
+                response.getWriter().println("hethang");
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         if (listProduct == null) {
             listProduct = new ArrayList<Product>();
             Product p = productServices.getProductById(id);

@@ -7,6 +7,7 @@ import com.fpt.entity.Product;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepoImpl implements ProductRepoCustom {
@@ -82,5 +83,18 @@ public class ProductRepoImpl implements ProductRepoCustom {
         Integer first = page * limit;
         Query query = em.createQuery("SELECT p FROM Product AS p").setFirstResult(first).setMaxResults(limit);
         return query.getResultList();
+    }
+
+    @Override
+    public List<Product> getAllProductBestSellers() {
+        Query query = em.createQuery("select p, sum(rp.quantity) as totol from Product as p join p.refProductOrders as rp  group by p.name ORDER BY totol DESC ").setMaxResults(15);
+        List<Object[]> list = query.getResultList();
+        List<Product> products = new ArrayList<>();
+        for (Object[] o : list
+                ) {
+            Product product = (Product) o[0];
+            products.add(product);
+        }
+        return products;
     }
 }

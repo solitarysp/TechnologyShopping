@@ -37,10 +37,11 @@
 
                                                                         <c:when test="${pageContext.request.userPrincipal.name !=null}">
                                                                             <a href="/account/ShowListAddressChoose"
-                                                                              >Checkout</a>
+                                                                            >Checkout</a>
                                                                         </c:when>
                                                                         <c:otherwise>
-                                                                            <a href="/checkout.html" class="btn btn-primary-color2 btn-sm">Checkout</a>
+                                                                            <a href="/checkout.html"
+                                                                               class="btn btn-primary-color2 btn-sm">Checkout</a>
                                                                         </c:otherwise>
                                                                     </c:choose>
 
@@ -497,8 +498,14 @@
                 dataType: "text",
                 data: data,
                 success: function (result) {
-                    $('#carshow').html(result);
-                    swal("Thành công!", "Thêm giỏ hàng thành công!", "success");
+                    if (result.trim() == 'hethang') {
+                        swal("Mặt hàng này đang cháy, chúng tôi đang hết hàng, xin thử lại sau!", "ERROR!", "error");
+
+                    } else {
+                        $('#carshow').html(result);
+                        swal("Thành công!", "Thêm giỏ hàng thành công!", "success");
+                    }
+
                 },
             });
         }

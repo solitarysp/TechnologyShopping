@@ -6,6 +6,7 @@ import com.fpt.entity.*;
 import com.fpt.services.customer.CustomerServices;
 import com.fpt.services.orderproduct.OrderProductServices;
 import com.fpt.services.payment.PaymentServices;
+import com.fpt.services.product.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,6 +32,8 @@ public class ConfirmCartController {
     PaymentServices paymentServices;
     @Autowired
     OrderProductServices orderProductServices;
+    @Autowired
+    ProductServices productServices;
 
     @RequestMapping(value = "/account/showConfirmCart")
     public String showConfirmCart(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
@@ -53,7 +56,7 @@ public class ConfirmCartController {
         }
 
         CustomerAddress customerAddress = doCustomerAddress(idAddress);
-        if(customerAddress==null){
+        if (customerAddress == null) {
             return "redirect:/hacker";
         }
         List<Payment> payment = paymentServices.getAll();
@@ -144,6 +147,17 @@ public class ConfirmCartController {
         orderProductServices.saveOrderProduct(orderProduct);
         HttpSession httpSession1 = request.getSession();
         httpSession.setAttribute("listCart", null);
+        for (Product product : listProduct
+                ) {
+            Product product1 = productServices.getProductById(product.getId());
+            if (product1.getRepository() <= product.getRepository()) {
+                product1.setRepository(0);
+            } else {
+                product1.setRepository(product1.getRepository() - product.getRepository());
+
+            }
+            productServices.saveProduct(product1);
+        }
         return "/";
     }
 
