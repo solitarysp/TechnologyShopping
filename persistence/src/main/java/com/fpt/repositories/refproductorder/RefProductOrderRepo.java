@@ -3,9 +3,13 @@ package com.fpt.repositories.refproductorder;/*
  */
 
 import com.fpt.entity.RefProductOrder;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface RefProductOrderRepo extends PagingAndSortingRepository<RefProductOrder, Integer>,RefProductOrderRepoCustom {
+public interface RefProductOrderRepo extends PagingAndSortingRepository<RefProductOrder, Integer>, RefProductOrderRepoCustom {
+
 }

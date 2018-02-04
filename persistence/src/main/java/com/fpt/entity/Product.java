@@ -140,7 +140,7 @@ public class Product {
 
     private Set<Review> review;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Set<Review> getReview() {
         return review;
     }
@@ -150,7 +150,7 @@ public class Product {
     }
 
     private Set<RefProductOrder> refProductOrders;
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     public Set<RefProductOrder> getRefProductOrders() {
         return refProductOrders;
     }

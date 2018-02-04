@@ -41,6 +41,40 @@
 <script src="js/respond.min.js"></script>
 
 <![endif]-->
+
+
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script src="js/jquery-2.1.4.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<script src="js/jquery-ui.custom.min.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script src="js/jquery.easypiechart.min.js"></script>
+<script src="js/jquery.sparkline.index.min.js"></script>
+<script src="js/jquery.flot.min.js"></script>
+<script src="js/jquery.flot.pie.min.js"></script>
+<script src="js/jquery.flot.resize.min.js"></script>
+
+<!-- ace scripts -->
+<script src="js/ace-elements.min.js"></script>
+<script src="js/ace.min.js"></script>
 <div id="navbar" class="navbar navbar-default ace-save-state" style="max-height: 45px">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -941,4 +975,4 @@
 
     <div class="main-content" style="padding: 10px">
 
-
+        
