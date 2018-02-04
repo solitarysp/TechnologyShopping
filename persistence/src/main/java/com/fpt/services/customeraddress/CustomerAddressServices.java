@@ -12,4 +12,6 @@ public interface CustomerAddressServices {
     List<CustomerAddress> getAll();
 
     void saveCustomerAddress(CustomerAddress customerAddress);
+    public List<CustomerAddress> getAddressByIDCustomer(Integer id);
+    public void deleteCustomerAddressById(Integer id);
 }

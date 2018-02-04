@@ -14,7 +14,7 @@
                                     <div class="btn-group">
                                         <ul id="menu-top-navigation-menu"
                                             class="nav navbar-nav navbar-main list-inline">
-                                            <form action="j_spring_security_logout" method="post" id="logoutForm">
+                                            <form action="/j_spring_security_logout" method="post" id="logoutForm">
                                                 <input type="hidden" name="${_csrf.parameterName}"
                                                        value="${_csrf.token}"/>
                                             </form>
@@ -28,7 +28,7 @@
                                                             <ul class="list-unstyled">
                                                                 <li id="menu-item-3219"
                                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3219">
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/my-account/">Account</a>
+                                                                    <a href="/account/listAddress">List Address</a>
                                                                 </li>
                                                                 <li id="menu-item-2860"
                                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2860">
@@ -431,7 +431,7 @@
                                                 <a href="/viewProduct.html?id=${item.id}"
                                                    class="image">
                                                     <img width="170" height="150"
-                                                         src="admin/images/${item.IMG}"
+                                                         src="/admin/images/${item.IMG}"
                                                          class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
                                                          alt=""/> </a>
 
@@ -463,7 +463,17 @@
                                 </ul>
                                 <div class="products-buttons text-center">
                                     <a href="/cart.html" class="btn btn-default-color1 btn-sm">view cart</a>
-                                    <a href="/checkout.html" class="btn btn-primary-color2 btn-sm">Checkout</a>
+
+                                    <c:choose>
+
+                                        <c:when test="${pageContext.request.userPrincipal.name !=null}">
+                                            <a href="/account/ShowListAddressChoose"
+                                               class="btn btn-primary-color2 btn-sm">Checkout</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="/checkout.html" class="btn btn-primary-color2 btn-sm">Checkout</a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>

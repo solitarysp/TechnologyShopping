@@ -23,4 +23,14 @@ public class CustomerAddressServiceImpl implements CustomerAddressServices {
     public void saveCustomerAddress(CustomerAddress customerAddress) {
         customerAddressRepo.save(customerAddress);
     }
+
+    @Override
+    public List<CustomerAddress> getAddressByIDCustomer(Integer id) {
+        return customerAddressRepo.getAddressByIDCustomer(id);
+    }
+
+    @Override
+    public void deleteCustomerAddressById(Integer id) {
+        customerAddressRepo.delete(id);
+    }
 }

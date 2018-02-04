@@ -40,4 +40,15 @@ public class CustomerServiceImpl implements CustomerServices {
     public long countCustomer() {
         return customerRepo.count();
     }
+
+    @Override
+    public Customer getCustomerByEmail(String email) {
+        return customerRepo.getCustomerByEmail(email);
+    }
+
+    @Override
+    public Customer getCustomerByUser(String user) {
+        return customerRepo.getCustomerByUser(user);
+    }
+
 }

@@ -92,7 +92,7 @@ public class Customer extends Person {
 
     private Set<CustomerAddress> customerAddress;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<CustomerAddress> getCustomerAddress() {
         return customerAddress;
     }

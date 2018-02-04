@@ -63,7 +63,7 @@ public class Review {
 
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch =FetchType.EAGER)
     @JoinColumn(name = "_id_Product")
     public Product getProduct() {
         return product;

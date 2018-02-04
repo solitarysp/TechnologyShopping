@@ -113,7 +113,7 @@ public class CustomerAddress {
 
     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "_id_customer")
     public Customer getCustomer() {
         return customer;
@@ -125,7 +125,7 @@ public class CustomerAddress {
 
     private Set<OrderProduct> orderProduct;
 
-    @OneToMany(mappedBy = "customerAddress", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customerAddress", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<OrderProduct> getOrderProduct() {
         return orderProduct;
     }
