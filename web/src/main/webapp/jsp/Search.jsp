@@ -159,7 +159,8 @@
 
 
                                                 <a class="btn btn-add btn-add-compare"><i class="fa fa-refresh"></i></a>
-                                                <a href="/addCartItem?id=${item.id}"
+                                                <a
+                                                   onclick="addCartByIdWithAjax('${item.id}')"
                                                    class="btn btn-add btn-add-wish">
                                                     <i class="fa fa-shopping-cart"></i>
                                                 </a>

@@ -535,7 +535,8 @@
                                                                                                  </a>--%>
 
 
-                                                                    <a href="/addCartItem?id=${itemProduct.id}"
+                                                                    <a <%--href="/addCartItem?id=${itemProduct.id}"--%>
+                                                                            onclick="addCartByIdWithAjax('${itemProduct.id}')"
                                                                        rel="nofollow" data-product_id="2977"
                                                                        data-product_sku="" data-quantity="1"
                                                                        class="btn btn-add btn-add-cart"> <i
@@ -544,7 +545,7 @@
 
                                                                     <div class="cart-add-buttons">
 
-                                                                        <a href="/addCartItem?id=${itemProduct.id}"
+                                                                        <a onclick="addCartByIdWithAjax('${itemProduct.id}')"
                                                                            rel="nofollow" data-product_id="2977"
                                                                            data-product_sku="" data-quantity="1"
                                                                            class="btn "> <i
@@ -768,14 +769,15 @@
                                                                 <a href="/viewProduct.html?id=${item.id}">
 
 
-                                                                    <c:forEach var="cate" begin="0" end="1" items="${item.category}">
-                                                                    <%--    <c:if test="${cate.id==1}">
-                                                                            <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
-                                                                            <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
-                                                                        </c:if>--%>
+                                                                    <c:forEach var="cate" begin="0" end="1"
+                                                                               items="${item.category}">
+                                                                        <%--    <c:if test="${cate.id==1}">
+                                                                                <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
+                                                                                <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                                            </c:if>--%>
                                                                         <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
                                                                         <c:if test="${cate.value!=0}">
-                                                                        <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
+                                                                            <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
                                                                         </c:if>
                                                                     </c:forEach>
                                                                     <img width="470" height="450"
@@ -873,7 +875,7 @@
                                                                                     </a>--%>
 
 
-                                                                    <a href="/addCartItem?id=${item.id}"
+                                                                    <a onclick="addCartByIdWithAjax('${item.id}')"
                                                                        rel="nofollow"
                                                                        data-product_id="2977" data-product_sku=""
                                                                        data-quantity="1"
@@ -883,7 +885,7 @@
 
                                                                     <div class="cart-add-buttons">
 
-                                                                        <a href="/addCartItem?id=${item.id}"
+                                                                        <a onclick="addCartByIdWithAjax('${item.id}')"
                                                                            rel="nofollow" data-product_id="2977"
                                                                            data-product_sku=""
                                                                            data-quantity="1" class="btn "> <i
@@ -1003,7 +1005,8 @@
 
                                                                     <a href="/viewProduct.html?id=${itemProduct.id}">
 
-                                                                        <c:forEach var="cate" begin="0" end="1" items="${itemProduct.category}">
+                                                                        <c:forEach var="cate" begin="0" end="1"
+                                                                                   items="${itemProduct.category}">
                                                                             <%--    <c:if test="${cate.id==1}">
                                                                                     <span class="product-item_sale sale color-main font-additional customBgColor circle"><span>${cate.name}</span></span>
                                                                                     <span class="product-item_sale_value sale color-main font-additional customBgColor circle"><span>-${cate.value}%</span></span>
@@ -1109,7 +1112,7 @@
                                                                                                      </a>--%>
 
 
-                                                                        <a href="/addCartItem?id=${itemProduct.id}"
+                                                                        <a onclick="addCartByIdWithAjax('${itemProduct.id}')"
                                                                            rel="nofollow" data-product_id="2977"
                                                                            data-product_sku="" data-quantity="1"
                                                                            class="btn btn-add btn-add-cart"> <i
@@ -1118,7 +1121,7 @@
 
                                                                         <div class="cart-add-buttons">
 
-                                                                            <a href="/addCartItem?id=${itemProduct.id}"
+                                                                            <a onclick="addCartByIdWithAjax('${itemProduct.id}')"
                                                                                rel="nofollow" data-product_id="2977"
                                                                                data-product_sku="" data-quantity="1"
                                                                                class="btn "> <i
@@ -1436,6 +1439,10 @@
             }
         });
     }
+
+
 </script>
+
+
 </body>
 </html>
