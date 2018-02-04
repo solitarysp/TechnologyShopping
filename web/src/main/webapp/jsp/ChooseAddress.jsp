@@ -93,10 +93,9 @@
 
                                 <div class="coupon">
 
-                                    <button type="submit" class="button">Add Address</button>
+                                  <a  class="button" href="/checkout.html">New Address</a>
                                 </div>
 
-                                <input type="submit" class="button" name="update_cart" value="Update Cart">
                             </td>
                         </tr>
                         </tbody>

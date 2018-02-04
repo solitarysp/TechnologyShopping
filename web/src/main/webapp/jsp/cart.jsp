@@ -42,7 +42,6 @@
                                 <li class="font-additional font-weight-normal color-main text-uppercase">Cart</li>
                             </ul>
                         </div>
-                        yyyy
                     </div>
                 </div>
             </div>
@@ -224,9 +223,20 @@
 
                                                 <div class="wc-proceed-to-checkout">
 
-                                                    <a href="http://wpsparrow.com/wordpress/ismiler/checkout/"
-                                                       class="checkout-button button alt wc-forward">
-                                                        Proceed to checkout</a>
+
+                                                    <c:choose>
+
+                                                        <c:when test="${pageContext.request.userPrincipal.name !=null}">
+                                                            <a href="/account/ShowListAddressChoose"
+                                                               class="checkout-button button alt wc-forward">
+                                                                Proceed to checkout</a>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a href="/checkout.html" class="checkout-button button alt wc-forward">
+                                                                Proceed to checkout</a>
+                                                        </c:otherwise>
+                                                    </c:choose>
+
                                                 </div>
 
 

@@ -53,6 +53,9 @@ public class ConfirmCartController {
         }
 
         CustomerAddress customerAddress = doCustomerAddress(idAddress);
+        if(customerAddress==null){
+            return "redirect:/hacker";
+        }
         List<Payment> payment = paymentServices.getAll();
 
         modelMap.addAttribute("customerAddress", customerAddress);

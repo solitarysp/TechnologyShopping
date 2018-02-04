@@ -716,7 +716,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                                   </a>--%>
 
 
-                                                            <a href="/wordpress/ismiler/product/blu-vivo-5-smartphone/?add-to-cart=2975"
+                                                            <a href="/addCartItem?id=${items.id}"
                                                                rel="nofollow" data-product_id="2975" data-product_sku=""
                                                                data-quantity="1" class="btn btn-add btn-add-cart"> <i
                                                                     class="fa fa-shopping-bag"></i>
@@ -724,7 +724,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
                                                             <div class="cart-add-buttons">
 
-                                                                <a href="/wordpress/ismiler/product/blu-vivo-5-smartphone/?add-to-cart=2975"
+                                                                <a href="/addCartItem?id=${items.id}"
                                                                    rel="nofollow" data-product_id="2975"
                                                                    data-product_sku=""
                                                                    data-quantity="1" class="btn "> <i
