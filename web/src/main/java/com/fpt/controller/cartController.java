@@ -100,7 +100,7 @@ public class cartController {
         }
         httpSession.setAttribute("listCart", listProduct);
 
-        return "cart";
+        return "redirect:/cart.html";
     }
 
     @RequestMapping(value = "/delCartItem")
@@ -116,7 +116,7 @@ public class cartController {
 
         }
         httpSession.setAttribute("listCart", listProduct);
-        return "cart";
+        return "redirect:/cart.html";
     }
 
     @RequestMapping(value = "/updateCart")
@@ -138,7 +138,7 @@ public class cartController {
             listProduct.add(p);
         }
         httpSession.setAttribute("listCart", listProduct);
-        return "cart";
+        return "redirect:/cart.html";
     }
 
     private Product checkExist(String id) {

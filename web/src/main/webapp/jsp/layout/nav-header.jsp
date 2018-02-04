@@ -32,11 +32,21 @@
                                                                 </li>
                                                                 <li id="menu-item-2860"
                                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2860">
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/checkout/">Checkout</a>
+                                                                    <c:choose>
+
+                                                                        <c:when test="${pageContext.request.userPrincipal.name !=null}">
+                                                                            <a href="/account/ShowListAddressChoose"
+                                                                              >Checkout</a>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                            <a href="/checkout.html" class="btn btn-primary-color2 btn-sm">Checkout</a>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+
                                                                 </li>
                                                                 <li id="menu-item-2861"
                                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2861">
-                                                                    <a href="http://wpsparrow.com/wordpress/ismiler/cart/">Cart</a>
+                                                                    <a href="/cart.html">Cart</a>
                                                                 </li>
                                                                 <li id="menu-item-3220"
                                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3220">
@@ -105,22 +115,9 @@
 
                         <ul id="main-menu" class="nav navbar-nav navbar-main list-inline">
                             <li id="menu-item-2872"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2603 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-2872 dropdown">
-                                <a href="http://wpsparrow.com/wordpress/ismiler/">Home</a>
-                                <div class="b-all-homes">
-                                    <ul class="list-unstyled">
-                                        <li id="menu-item-2867"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2603 current_page_item menu-item-2867">
-                                            <a href="http://wpsparrow.com/wordpress/ismiler/">Home 1</a></li>
-                                        <li id="menu-item-2868"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2868">
-                                            <a href="http://wpsparrow.com/wordpress/ismiler/home-2/">Home 2</a></li>
-                                        <li id="menu-item-2881"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2881">
-                                            <a href="http://wpsparrow.com/wordpress/ismiler/home-3/">Home 3</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2874"><a
+                                    href="/">HOME</a></li>
+
                             <li id="menu-item-2873"
                                 class="full-width all-menu-open menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2873 dropdown">
                                 <a href="http://wpsparrow.com/wordpress/ismiler/shop/">shop</a>
