@@ -12,4 +12,10 @@ public interface CustomerServices {
     List<Customer> getAll();
 
     void saveCustomer(Customer customer);
+
+    boolean isCustomerEmail(String email);
+    boolean isCustomerUser(String User);
+
+    long countCustomer();
+
 }

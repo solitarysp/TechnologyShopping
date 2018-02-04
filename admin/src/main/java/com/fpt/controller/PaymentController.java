@@ -6,11 +6,15 @@ import com.fpt.entity.Payment;
 import com.fpt.services.payment.PaymentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PaymentController {
@@ -19,7 +23,7 @@ public class PaymentController {
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.GET)
     public String getPageJSPAddPayment() {
-        return "addPayment";
+        return "Payment/addPayment";
     }
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
@@ -30,5 +34,37 @@ public class PaymentController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+    @RequestMapping(value = "/editPayment", method = RequestMethod.POST)
+    public void EditPayment(Payment payment, HttpServletResponse response){
+        paymentServices.savePayment(payment);
+        try {
+            response.getWriter().println("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @RequestMapping(value = "/getAllPayment",method = RequestMethod.GET)
+    public String getAllPayment(ModelMap modelMap){
+        List<Payment> listPayments = paymentServices.getAll();
+        modelMap.addAttribute("listPayments",listPayments);
+        return "Payment/viewAllPayment";
+    }
+
+    @RequestMapping(value = "/removePayment",method = RequestMethod.POST)
+    public void DeletePayment(Integer id, HttpServletResponse response){
+        paymentServices.deletePayment(id);
+        try {
+            response.getWriter().println("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping(value = "/findPaymentByID", method = RequestMethod.GET)
+    public String FindPaymentByID(@RequestParam("id")Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("payment", paymentServices.findByID(id));
+        return "Payment/viewAndEditPayment";
     }
 }

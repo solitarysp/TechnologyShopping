@@ -3,7 +3,6 @@ package com.fpt.entity;/*
  */
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,13 +13,12 @@ public class Product {
     private String id;
     private String name;
     private String IMG;
-    private BigDecimal salePrice;
     private Float price;
     private Integer repository;
     private Float weight;
     private String content;
     private Timestamp date;
-    private Integer _yearOfCreation;
+    private Integer yearOfCreation;
 
     @Id
     @Column(name = "_id")
@@ -48,15 +46,6 @@ public class Product {
 
     public void setIMG(String IMG) {
         this.IMG = IMG;
-    }
-
-    @Column(name = "_saled_price")
-    public BigDecimal getSalePrice() {
-        return salePrice;
-    }
-
-    public void setSalePrice(BigDecimal salePrice) {
-        this.salePrice = salePrice;
     }
 
     @Column(name = "_price")
@@ -105,17 +94,17 @@ public class Product {
     }
 
     @Column(name = "_year_of_creation")
-    public Integer get_yearOfCreation() {
-        return _yearOfCreation;
+    public Integer getYearOfCreation() {
+        return yearOfCreation;
     }
 
-    public void set_yearOfCreation(Integer _yearOfCreation) {
-        this._yearOfCreation = _yearOfCreation;
+    public void setYearOfCreation(Integer yearOfCreation) {
+        this.yearOfCreation = yearOfCreation;
     }
 
     private Brand brand;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "_id_brand")
     public Brand getBrand() {
         return brand;
@@ -127,7 +116,7 @@ public class Product {
 
     private ProductType productType;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "_type")
     public ProductType getProductType() {
         return productType;
@@ -139,7 +128,7 @@ public class Product {
 
     private Set<Category> category = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "category_product", joinColumns = {@JoinColumn(name = "_id_product")}, inverseJoinColumns = {@JoinColumn(name = "_id_category")})
     public Set<Category> getCategory() {
         return category;
@@ -151,12 +140,22 @@ public class Product {
 
     private Set<Review> review;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Set<Review> getReview() {
         return review;
     }
 
     public void setReview(Set<Review> review) {
         this.review = review;
+    }
+
+    private Set<RefProductOrder> refProductOrders;
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    public Set<RefProductOrder> getRefProductOrders() {
+        return refProductOrders;
+    }
+
+    public void setRefProductOrders(Set<RefProductOrder> refProductOrders) {
+        this.refProductOrders = refProductOrders;
     }
 }

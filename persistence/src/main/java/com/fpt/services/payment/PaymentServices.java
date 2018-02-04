@@ -12,4 +12,8 @@ public interface PaymentServices {
     List<Payment> getAll();
 
     void savePayment(Payment payment);
+
+    void deletePayment(Integer id);
+
+    Payment findByID(Integer id);
 }

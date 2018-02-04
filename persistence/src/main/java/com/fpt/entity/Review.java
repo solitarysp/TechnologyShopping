@@ -12,7 +12,7 @@ public class Review {
     private Timestamp date;
     private String comment;
     private Integer rating;
-    private Integer title;
+    private String title;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,11 +53,11 @@ public class Review {
     }
 
     @Column(name = "_title")
-    public Integer getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(Integer title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

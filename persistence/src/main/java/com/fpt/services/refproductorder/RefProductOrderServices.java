@@ -5,7 +5,10 @@ package com.fpt.services.refproductorder;/*
 import com.fpt.entity.RefProductOrder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface RefProductOrderServices {
     void saveRefProductOrder(RefProductOrder refProductOrder);
+    public List<RefProductOrder> getBestSellerProductForStatistic();
 }

@@ -12,8 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:include page="layoutAdminTop.jsp"/>
+<jsp:include page="Layout/layoutAdminTop.jsp"/>
 
-<jsp:include page="layoutAdminBot.jsp"/>
+<jsp:include page="Layout/layoutAdminBot.jsp"/>
 </body>
 </html>
