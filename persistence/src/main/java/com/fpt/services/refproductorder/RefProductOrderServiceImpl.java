@@ -7,6 +7,8 @@ import com.fpt.repositories.refproductorder.RefProductOrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RefProductOrderServiceImpl implements RefProductOrderServices {
     @Autowired
@@ -16,4 +18,11 @@ public class RefProductOrderServiceImpl implements RefProductOrderServices {
     public void saveRefProductOrder(RefProductOrder refProductOrder) {
         refProductOrderRepo.save(refProductOrder);
     }
+
+    @Override
+    public List<RefProductOrder> getBestSellerProductForStatistic() {
+        return refProductOrderRepo.getBestSellerProductForStatistic();
+    }
+
+
 }

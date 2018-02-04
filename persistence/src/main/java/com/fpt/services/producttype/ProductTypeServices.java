@@ -16,4 +16,8 @@ public interface ProductTypeServices {
     void deleteProductType(ProductType productType);
 
     ProductType findByID(Integer id);
+
+    Double getTotalRevenueOfProductType(Integer idProductType);
+
+    Double getTotalRevenue();
 }

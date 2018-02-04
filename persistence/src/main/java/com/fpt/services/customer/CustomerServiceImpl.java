@@ -35,4 +35,9 @@ public class CustomerServiceImpl implements CustomerServices {
     public boolean isCustomerUser(String User) {
         return customerRepo.isCustomerUser(User);
     }
+
+    @Override
+    public long countCustomer() {
+        return customerRepo.count();
+    }
 }

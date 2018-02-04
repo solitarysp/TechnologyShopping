@@ -36,4 +36,14 @@ public class ProductTypeServiceImpl implements ProductTypeServices {
     public ProductType findByID(Integer id) {
         return productTypeRepo.findOne(id);
     }
+
+    @Override
+    public Double getTotalRevenueOfProductType(Integer idProductType) {
+        return productTypeRepo.getTotalRevenueOfProductType(idProductType);
+    }
+
+    @Override
+    public Double getTotalRevenue() {
+        return productTypeRepo.getTotalRevenue();
+    }
 }
