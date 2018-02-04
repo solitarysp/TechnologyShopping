@@ -42,7 +42,7 @@ public class RefProductOrder {
 
     private OrderProduct orderProduct;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "_id_order")
     public OrderProduct getOrderProduct() {
         return orderProduct;
@@ -54,7 +54,7 @@ public class RefProductOrder {
 
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "_id_product")
     public Product getProduct() {
         return product;

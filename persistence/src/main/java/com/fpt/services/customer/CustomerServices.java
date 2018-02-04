@@ -14,8 +14,14 @@ public interface CustomerServices {
     void saveCustomer(Customer customer);
 
     boolean isCustomerEmail(String email);
+
     boolean isCustomerUser(String User);
 
     long countCustomer();
+
+    Customer getCustomerByEmail(String email);
+
+    Customer getCustomerByUser(String user);
+
 
 }

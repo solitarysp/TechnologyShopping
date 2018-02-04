@@ -150,7 +150,7 @@ public class Product {
     }
 
     private Set<RefProductOrder> refProductOrders;
-    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
     public Set<RefProductOrder> getRefProductOrders() {
         return refProductOrders;
     }

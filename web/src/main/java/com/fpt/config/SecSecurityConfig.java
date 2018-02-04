@@ -21,6 +21,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/login*").anonymous()
+                .antMatchers("/account/*").authenticated()
                 .and()
                 .formLogin().loginPage("/login.html")
                 .defaultSuccessUrl("/", true)
