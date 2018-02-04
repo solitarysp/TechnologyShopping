@@ -326,10 +326,20 @@
             </div>
 
             <div class="infobox-data">
-                <span class="infobox-data-number">8</span>
+                <span class="infobox-data-number">${order.get("ordernow")}</span>
                 <div class="infobox-content">new orders</div>
             </div>
-            <div class="stat stat-important">4%</div>
+            <c:set var="percent" value="${(order.get('ordernow')-order.get('orderbefore'))/order.get('orderbefore')*100}"/>
+            <c:choose>
+                <c:when test="${percent>=0}">
+                    <div class="stat stat-success">${percent}%</div>
+                </c:when>
+                <c:otherwise>
+                    <div class="stat stat-important">${percent}%</div>
+                </c:otherwise>
+            </c:choose>
+            <%--(ordernow - orderbefore) / orderbefore * 100;--%>
+
         </div>
 
         <div class="infobox infobox-red">
