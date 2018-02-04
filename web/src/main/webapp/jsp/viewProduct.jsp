@@ -716,7 +716,8 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                                   </a>--%>
 
 
-                                                            <a href="/addCartItem?id=${items.id}"
+                                                            <a
+                                                               onclick="addCartByIdWithAjax('${items.id}')"
                                                                rel="nofollow" data-product_id="2975" data-product_sku=""
                                                                data-quantity="1" class="btn btn-add btn-add-cart"> <i
                                                                     class="fa fa-shopping-bag"></i>
@@ -724,7 +725,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
                                                             <div class="cart-add-buttons">
 
-                                                                <a href="/addCartItem?id=${items.id}"
+                                                                <a onclick="addCartByIdWithAjax('${items.id}')"
                                                                    rel="nofollow" data-product_id="2975"
                                                                    data-product_sku=""
                                                                    data-quantity="1" class="btn "> <i

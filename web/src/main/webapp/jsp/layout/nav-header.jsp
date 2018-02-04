@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
     <div class="b-top-line ">
         <div class="container">
@@ -404,7 +405,7 @@
                 <fmt:formatNumber var="totol1" type="number"
                                   maxFractionDigits="0" value="${totol}"/>
                 <div id="cart-wrapper" class="col-xs-6 col-sm-12 col-md-2 col-lg-2">
-                    <div class="b-cart pull-right">
+                    <div id="carshow" class="b-cart pull-right">
                         <button id="cart" class="btn btn-default-color1 btn-sm">
                             <span class="price"><i class="fa fa-shopping-bag"></i><span
                                     class="woocommerce-Price-amount amount"><span
@@ -486,6 +487,20 @@
     <script type="text/javascript">
         function formSubmit() {
             document.getElementById("logoutForm").submit();
+        }
+
+        function addCartByIdWithAjax(id) {
+            var data = {'id': id};
+            $.ajax({
+                url: "addCartItemAjax",
+                type: "GET",
+                dataType: "text",
+                data: data,
+                success: function (result) {
+                    $('#carshow').html(result);
+                    swal("Thành công!", "Thêm giỏ hàng thành công!", "success");
+                },
+            });
         }
     </script>
 </header>

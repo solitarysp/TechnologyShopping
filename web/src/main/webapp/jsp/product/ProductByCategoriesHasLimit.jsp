@@ -118,7 +118,7 @@
                                         </a>--%>
 
 
-                        <a href="/addCartItem?id=${item.id}"
+                        <a onclick="addCartByIdWithAjax('${item.id}')"
                            rel="nofollow"
                            data-product_id="2977" data-product_sku=""
                            data-quantity="1"
@@ -128,7 +128,7 @@
 
                         <div class="cart-add-buttons">
 
-                            <a href="/addCartItem?id=${item.id}"
+                            <a onclick="addCartByIdWithAjax('${item.id}')"
                                rel="nofollow" data-product_id="2977"
                                data-product_sku=""
                                data-quantity="1" class="btn "> <i

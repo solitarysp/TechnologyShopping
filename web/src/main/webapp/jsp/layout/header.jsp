@@ -2,6 +2,9 @@
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://wpsparrow.com/wordpress/ismiler/xmlrpc.php">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@6.10.2/dist/sweetalert2.min.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript">document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
 <title>Ismile &#8211; wordpress theme &#8211; Ismile &#8211; wordpress theme</title>

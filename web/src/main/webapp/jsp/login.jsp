@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: tungct
@@ -16,13 +17,18 @@
 <!-- Loader -->
 <div id="page-preloader"><span class="spinner"></span></div>
 <!-- Loader end -->
-<div  class="sp-body">
+<div class="sp-body">
     <div class="b-page">
         <jsp:include page="/jsp/layout/nav-header.jsp"/>
         <div style="margin-left: 30px;margin-right: 30px;" class="woocommerce">
 
 
             <h2 style="margin-left: 30px;">Login</h2>
+            <c:if test="${param.error!=null}">
+                <ul class="woocommerce-error">
+                    <li><strong>ERROR</strong>: Your account is incorrect. <%--<a href="http://wpsparrow.com/wordpress/ismiler/my-account/lost-password/">Lost your password?</a>--%></li>
+                </ul>
+            </c:if>
 
             <form class="woocommerce-form woocommerce-form-login login" name='f' action="login.html" method='POST'>
 
