@@ -111,86 +111,51 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                      class="woocommerce widget_top_rated_products accordion-l-box wow fadeInUp enable-accordion"
                                                      data-active="0" data-collapsible="true"
                                                      data-height-style="content"><h3 class="accordion-header-mod"><span
-                                                        class="heading-line title-accordion-menu-item">Top Rated Products</span><span
+                                                        class="heading-line title-accordion-menu-item">TOP BEST SELLERS</span><span
                                                         class="accordion-icon"></span></h3>
                                                     <ul class="product_list_widget">
-                                                        <li>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/ludum-mutavit/">
-                                                                <img width="170" height="150"
-                                                                     src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-1-170x150.jpg"
-                                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                     alt=""/> <span class="product-title">Apple iPhone 6s Plus</span>
-                                                            </a>
-                                                            <div class="star-rating"><span
-                                                                    style="width:90%">Rated <strong
-                                                                    class="rating">4.50</strong> out of 5</span></div>
-                                                            <del><span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>600.00</span>
-                                                            </del>
-                                                            <ins><span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>560.00</span>
+                                                        <c:forEach var="item" items="${productBestSellers}">
+                                                            <li>
+                                                                <a  href="/viewProduct.html?id=${item.id}">
+                                                                    <img width="170" height="150"
+                                                                         src="admin/images/${item.IMG}"
+                                                                         class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
+                                                                         alt=""/> <span class="product-title">${item.name}</span>
+                                                                </a><br>
+
+
+                                                                <c:set var="test" value="1"/>
+                                                                <c:forEach var="cate" items="${item.category}">
+                                                                <c:if test="${cate.id==1}">
+                                                                <del><span class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">&pound;</span>${item.price}</span></del> <ins><span
+                                                                    class="woocommerce-Price-amount amount"><span
+                                                                    class="woocommerce-Price-currencySymbol">&pound;
+                </span>${item.price - (item.price /100 * cate.value)}</span>
+                                                                <c:set var="test"/>
+                                                                </c:if>
+                                                                </c:forEach>
+                                                                <c:if test="${not empty test}">
+                                                      <span
+                                                            class="woocommerce-Price-amount amount"><span
+                                                            class="woocommerce-Price-currencySymbol">&pound;
+                                                                </span>${item.price}</span>
+                                                                </c:if>
+
+                                                                <c:set var="test" value="1"/>
+
+
                                                             </ins>
-                                                        </li>
 
-                                                        <li>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/samsung-galaxy-s5/">
-                                                                <img width="170" height="150"
-                                                                     src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_-170x150.jpg"
-                                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                     alt=""/> <span class="product-title">Samsung Galaxy S5</span>
-                                                            </a>
-                                                            <div class="star-rating"><span
-                                                                    style="width:90%">Rated <strong
-                                                                    class="rating">4.50</strong> out of 5</span></div>
-                                                            <span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>875.00</span>
-                                                        </li>
 
-                                                        <li>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/lg-optimus-zone/">
-                                                                <img width="170" height="150"
-                                                                     src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/815gN9Ip-mL._SX522_56-170x150.jpg"
-                                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                     alt=""/> <span class="product-title">LG Optimus Zone</span>
-                                                            </a>
-                                                            <span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>456.00</span>
-                                                        </li>
+                                                            </li>
 
-                                                        <li>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim/">
-                                                                <img width="170" height="150"
-                                                                     src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/revslider/home1/s3-3-170x150.png"
-                                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                     alt=""/> <span
-                                                                    class="product-title">ORBIC SLIM</span>
-                                                            </a>
-                                                            <del><span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>456.00</span>
-                                                            </del>
-                                                            <ins><span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>451.00</span>
-                                                            </ins>
-                                                        </li>
 
-                                                        <li>
-                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/orbic-slim-factory-unlocked-phone/">
-                                                                <img width="170" height="150"
-                                                                     src="http://wpsparrow.com/wordpress/ismiler/wp-content/uploads/2015/12/61i0BmiRATL._SX522_-170x150.jpg"
-                                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                     alt=""/> <span
-                                                                    class="product-title">Orbic Slim</span>
-                                                            </a>
-                                                            <del><span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>600.00</span>
-                                                            </del>
-                                                            <ins><span class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>456.00</span>
-                                                            </ins>
-                                                        </li>
+                                                        </c:forEach>
+
                                                     </ul>
                                                 </div>
-                                                <div id="woocommerce_product_tag_cloud-2"
+                                              <%--  <div id="woocommerce_product_tag_cloud-2"
                                                      class="woocommerce widget_product_tag_cloud accordion-l-box wow fadeInUp enable-accordion"
                                                      data-active="0" data-collapsible="true"
                                                      data-height-style="content"><h3 class="accordion-header-mod"><span
@@ -234,7 +199,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                            class="tag-cloud-link tag-link-166 tag-link-position-11"
                                                            style="font-size: 22pt;" aria-label="Unlocked (8 products)">Unlocked</a>
                                                     </div>
-                                                </div>
+                                                </div>--%>
                                             </aside>
                                         </div>
 
@@ -385,15 +350,17 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                                     <a onclick="function hethang() {
                                                                                      swal('Mặt hàng này đang cháy, chúng tôi đang hết hàng, xin thử lại sau!', 'ERROR!', 'error');
                                                                                     }
-                                                                                    hethang()" style="background-color: #dcdcdc;color: #0d0d0d"
-                                                                                            class="btn btn-cart">
+                                                                                    hethang()"
+                                                                                       style="background-color: #dcdcdc;color: #0d0d0d"
+                                                                                       class="btn btn-cart">
                                                                                         Add to
                                                                                         cart
                                                                                     </a>
                                                                                 </c:when>
                                                                                 <c:otherwise>
                                                                                     <button type="submit"
-                                                                                            class="btn btn-cart-color2">Add to
+                                                                                            class="btn btn-cart-color2">
+                                                                                        Add to
                                                                                         cart
                                                                                     </button>
                                                                                 </c:otherwise>
@@ -632,7 +599,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                 <div class="image">
 
 
-                                                    <a  href="/viewProduct.html?id=${items.id}">
+                                                    <a href="/viewProduct.html?id=${items.id}">
 
                                                         <c:forEach var="cate" begin="0" end="1"
                                                                    items="${items.category}">

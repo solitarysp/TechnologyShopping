@@ -30,6 +30,8 @@ public class viewProductController {
 
             productList = productServices.getAll();
             modelMap.addAttribute("productList", productList);
+            List<Product> ProductBestSellers = productServices.getAllProductBestSellers();
+            modelMap.addAttribute("productBestSellers", ProductBestSellers);
         }
         return "viewProduct";
     }
