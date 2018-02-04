@@ -51,11 +51,13 @@ public class StatisticController {
         //order today and last day
         int ordernow = orderProductServices.getNewOrderByDate(0);
         int orderbefore = orderProductServices.getNewOrderByDate(1);
-
         HashMap<String, Integer> order = new HashMap<String, Integer>();
         order.put("ordernow", ordernow);
         order.put("orderbefore", orderbefore);
+        //total order
+        int totalOrder = orderProductServices.totalOrder();
 
+        modelMap.addAttribute("totalOrder",totalOrder);
         modelMap.addAttribute("order", order);
         modelMap.addAttribute("countCustomer", countCustomer);
         modelMap.addAttribute("totalProductType", totalMap);

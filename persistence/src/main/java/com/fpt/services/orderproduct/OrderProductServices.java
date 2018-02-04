@@ -3,6 +3,7 @@ package com.fpt.services.orderproduct;/*
  */
 
 import com.fpt.entity.OrderProduct;
+import com.fpt.entity.RefProductOrder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,4 +15,8 @@ public interface OrderProductServices {
     void saveOrderProduct(OrderProduct orderProduct);
 
     public Integer getNewOrderByDate(Integer day);
+
+    public Integer totalOrder();
+
+     OrderProduct getOrderByID(Integer id);
 }
