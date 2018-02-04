@@ -369,21 +369,36 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                     <input hidden="hidden" name="id"
                                                                            value="${product.id}"/>
                                                                     <div class="detail-buttons clearfix">
-                                                                      <%--  <div class="add-buttons">
-                                                                            <a type="button"
-                                                                               class="btn btn-add btn-add-compare"><i
-                                                                                    class="fa fa-refresh"></i></a>
+                                                                        <%--  <div class="add-buttons">
+                                                                              <a type="button"
+                                                                                 class="btn btn-add btn-add-compare"><i
+                                                                                      class="fa fa-refresh"></i></a>
 
-                                                                            <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
-                                                                               type="button"
-                                                                               class="btn btn-add btn-add-wish"><i
-                                                                                    class="fa fa-heart-o"></i></a>
-                                                                        </div>--%>
+                                                                              <a href="http://wpsparrow.com/wordpress/ismiler/product/blu-vivo-5-smartphone/?add_to_wishlist=2977"
+                                                                                 type="button"
+                                                                                 class="btn btn-add btn-add-wish"><i
+                                                                                      class="fa fa-heart-o"></i></a>
+                                                                          </div>--%>
                                                                         <div class="cart-add-buttons">
-                                                                            <button type="submit"
-                                                                                    class="btn btn-cart-color2">Add to
-                                                                                cart
-                                                                            </button>
+                                                                            <c:choose>
+                                                                                <c:when test="${product.repository==0}">
+                                                                                    <a onclick="function hethang() {
+                                                                                     swal('Mặt hàng này đang cháy, chúng tôi đang hết hàng, xin thử lại sau!', 'ERROR!', 'error');
+                                                                                    }
+                                                                                    hethang()" style="background-color: #dcdcdc;color: #0d0d0d"
+                                                                                            class="btn btn-cart">
+                                                                                        Add to
+                                                                                        cart
+                                                                                    </a>
+                                                                                </c:when>
+                                                                                <c:otherwise>
+                                                                                    <button type="submit"
+                                                                                            class="btn btn-cart-color2">Add to
+                                                                                        cart
+                                                                                    </button>
+                                                                                </c:otherwise>
+                                                                            </c:choose>
+
                                                                         </div>
                                                                     </div>
 
@@ -617,7 +632,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                 <div class="image">
 
 
-                                                    <a href="http://wpsparrow.com/wordpress/ismiler/product/moto-g-plus-4th-gen/">
+                                                    <a  href="/viewProduct.html?id=${items.id}">
 
                                                         <c:forEach var="cate" begin="0" end="1"
                                                                    items="${items.category}">
@@ -717,10 +732,12 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
 
                                                             <a
-                                                               onclick="addCartByIdWithAjax('${items.id}')"
-                                                               rel="nofollow" data-product_id="2975" data-product_sku=""
-                                                               data-quantity="1" class="btn btn-add btn-add-cart"> <i
-                                                                    class="fa fa-shopping-bag"></i>
+                                                                    onclick="addCartByIdWithAjax('${items.id}')"
+                                                                    rel="nofollow" data-product_id="2975"
+                                                                    data-product_sku=""
+                                                                    data-quantity="1" class="btn btn-add btn-add-cart">
+                                                                <i
+                                                                        class="fa fa-shopping-bag"></i>
                                                             </a>
 
                                                             <div class="cart-add-buttons">
