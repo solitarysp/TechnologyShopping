@@ -16,10 +16,17 @@
 <jsp:include page="../Layout/layoutAdminTop.jsp"/>
 
 
-<h3 class="header smaller lighter blue">Brands</h3>
+<h3 class="header smaller lighter blue">Category</h3>
 
 <div class="table-header">
-    Results for "Brands"
+    <c:choose>
+        <c:when test="${param.name !=null && param.name !=''}">
+            Search Results for : <span style="color: white;font-weight: bold">${param.name}</span>
+        </c:when>
+        <c:otherwise>
+            Results for "Category"
+        </c:otherwise>
+    </c:choose>
 </div>
 
 
@@ -38,7 +45,12 @@
 </div>
 <div style="float: right;" class="col-xs-6">
     <div style="margin-top: 10px;float:right;">
-        <span style="line-height: 25px;">Search: &nbsp;&nbsp; </span> <input style="width: 200px;float: right;" type="search" class="form-control input-sm">
+        <span style="line-height: 25px;">Search: &nbsp;&nbsp; </span>
+
+        <form action="/admin/getAllCategory">
+            <input name="name" style="width: 200px;float: right;" type="search" class="form-control input-sm">
+        </form>
+
     </div>
 </div>
 

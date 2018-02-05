@@ -19,4 +19,5 @@ public interface BrandServices {
     Brand findByID(Integer id);
 
 //    List<Brand> GetTotalBrand(Integer number);
+List<Brand> getAllBrandByName(String name);
 }

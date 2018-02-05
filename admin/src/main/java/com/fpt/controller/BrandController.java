@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,9 +48,18 @@ public class BrandController {
     }
 
     @RequestMapping(value = "/viewBrand", method = RequestMethod.GET)
-    public String GetAllBrand(ModelMap modelMap) {
-        ArrayList<Brand> listBrands = (ArrayList<Brand>) brandServices.getAllBrand();
-        modelMap.addAttribute("listBrands", listBrands);
+    public String GetAllBrand(ModelMap modelMap, HttpServletRequest request) {
+        String value = request.getParameter("name");
+        if (value != null) {
+            ArrayList<Brand> listBrands = (ArrayList<Brand>) brandServices.getAllBrandByName(value);
+            modelMap.addAttribute("listBrands", listBrands);
+        } else {
+
+            ArrayList<Brand> listBrands = (ArrayList<Brand>) brandServices.getAllBrand();
+            modelMap.addAttribute("listBrands", listBrands);
+        }
+
+
         return "Brand/viewAllBrand";
     }
 
@@ -65,11 +75,10 @@ public class BrandController {
     }
 
     @RequestMapping(value = "/findBrandByID", method = RequestMethod.GET)
-    public String FindBrandByID(@RequestParam("id")Integer id, ModelMap modelMap) {
+    public String FindBrandByID(@RequestParam("id") Integer id, ModelMap modelMap) {
         modelMap.addAttribute("brand", brandServices.findByID(id));
         return "Brand/viewAndEditBrand";
     }
-
 
 
 }

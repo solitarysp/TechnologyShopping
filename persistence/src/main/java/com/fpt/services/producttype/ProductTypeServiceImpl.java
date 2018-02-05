@@ -46,4 +46,9 @@ public class ProductTypeServiceImpl implements ProductTypeServices {
     public Double getTotalRevenue() {
         return productTypeRepo.getTotalRevenue();
     }
+
+    @Override
+    public List<ProductType> getAllProductTypeByName(String name) {
+        return productTypeRepo.getAllProductTypeByName(name);
+    }
 }
