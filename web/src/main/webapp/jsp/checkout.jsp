@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: tungct
@@ -392,7 +393,6 @@
                                         <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
                                             <label for="billing_country" class="">Payment <abbr class="required" title="required">*</abbr></label>
                                             <select name="payment" id="billing_country" class="country_to_state country_select " autocomplete="country">
-                                                <option>Select a payment&hellip;</option>
                                                 <c:forEach var="p" items="${payment}" >
                                                     <option value="${p.id}">${p.content}</option>
                                                 </c:forEach>
@@ -447,7 +447,7 @@
                                                 <td class="product-name">
                                                    ${p.name} <strong class="product-quantity">x ${p.repository}</strong></td>
                                                 <td class="product-total">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>${p.price * p.repository} VND</span>						</td>
+                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${p.price * p.repository}" /></span></td>
                                             </tr>
                                             <c:set var="totalPrice" value="${totalPrice + (p.price * p.repository)}"/>
                                         </c:forEach>
@@ -456,7 +456,7 @@
                                         <tfoot>
                                         <tr class="order-total">
                                             <th>Total</th>
-                                            <td><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>${totalPrice}</span> VND</strong> </td>
+                                            <td><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${totalPrice}" /></span></strong> </td>
                                         </tr>
 
 

@@ -34,8 +34,8 @@ public class homeController {
         modelMap.addAttribute("count", count);
 
 
-        productListBestSellers = productServices.getAllProductBestSellers();
-        modelMap.addAttribute("productListBestSellers", productListBestSellers);
+//        productListBestSellers = productServices.getAllProductBestSellers();
+//        modelMap.addAttribute("productListBestSellers", productListBestSellers);
 
         List<Category> categories = categoryServices.getAllCategory();
         modelMap.addAttribute("categories", categories);

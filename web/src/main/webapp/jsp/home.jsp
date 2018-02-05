@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: tungct
@@ -473,9 +474,9 @@
     <c:forEach var="cate" items="${itemProduct.category}">
         <c:if test="${cate.id==1}">
     <del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>${itemProduct.price}</span></del> <ins><span
+            class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${itemProduct.price}" /></span></del> <ins><span
             class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;
+            class="woocommerce-Price-currencySymbol">$
                 </span>${itemProduct.price - (itemProduct.price /100 * cate.value)}</span>
          <c:set var="test"/>
         </c:if>
@@ -483,8 +484,7 @@
 <c:if test="${not empty test}">
     <span
             class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;
-                </span>${itemProduct.price}</span>
+            class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${itemProduct.price}" /></span>
 </c:if>
 
           <c:set var="test" value="1"/>
@@ -809,18 +809,18 @@
     <c:forEach var="cate" items="${item.category}">
         <c:if test="${cate.id==1}">
     <del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>${item.price}</span></del> <ins><span
+            class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${item.price}" /></span></del> <ins><span
         class="woocommerce-Price-amount amount"><span
-        class="woocommerce-Price-currencySymbol">&pound;
-                </span>${item.price - (item.price /100 * cate.value)}</span>
+        class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${item.price - (item.price /100 * cate.value)}" /></span>
          <c:set var="test"/>
         </c:if>
     </c:forEach>
+
 <c:if test="${not empty test}">
     <span
             class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;
-                </span>${item.price}</span>
+            class="woocommerce-Price-currencySymbol">
+                </span><fmt:formatNumber type="number" pattern="$ ###.##" value="${item.price}" /></span>
 </c:if>
 
           <c:set var="test" value="1"/>
@@ -1047,18 +1047,17 @@
     <c:forEach var="cate" items="${itemProduct.category}">
         <c:if test="${cate.id==1}">
     <del><span class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;</span>${itemProduct.price}</span></del> <ins><span
+            class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${itemProduct.price}" /></span></del> <ins><span
             class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;
-                </span>${itemProduct.price - (itemProduct.price /100 * cate.value)}</span>
+            class="woocommerce-Price-currencySymbol">
+                </span><fmt:formatNumber type="number" pattern="$ ###.##" value="${itemProduct.price - (itemProduct.price /100 * cate.value)}" /></span>
          <c:set var="test"/>
         </c:if>
     </c:forEach>
 <c:if test="${not empty test}">
     <span
             class="woocommerce-Price-amount amount"><span
-            class="woocommerce-Price-currencySymbol">&pound;
-                </span>${itemProduct.price}</span>
+            class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${itemProduct.price}" /></span>
 </c:if>
 
           <c:set var="test" value="1"/>
