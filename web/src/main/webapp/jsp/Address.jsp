@@ -83,30 +83,21 @@
                                     <a href="/account/DeleteCustomerAddress?id=${item.id}"
                                        class="btn btn-remove" title="Remove this item" data-product_id="2034"
                                        data-product_sku="3445"><i class="fa fa-trash fa-lg"></i></a></td>
-
                             </tr>
                         </c:forEach>
                         <tr>
                             <td colspan="6" class="actions">
-
-                                <div class="coupon">
-
-                                    <button type="submit" class="button">Add Address</button>
-                                </div>
-
-                                <input type="submit" class="button" name="update_cart" value="Update Cart">
+                                <a href="/account/addAddressCustomer" type="button" class="button" name="update_cart">Add
+                                    Address</a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-
-
                 </c:when>
                 <c:otherwise>
                     <h1 style="text-align: center">not address</h1>
                 </c:otherwise>
             </c:choose>
-
 
         </div>
     </div>
