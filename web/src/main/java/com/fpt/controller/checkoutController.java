@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,7 +61,7 @@ public class checkoutController {
         return "checkout";
     }
 
-    @RequestMapping(value = "/addOder")
+    @RequestMapping(value = "/addOder",method = RequestMethod.POST)
     public String addOder(HttpServletRequest request, ModelMap modelMap, HttpServletResponse response) {
         OrderProduct orderProduct = new OrderProduct();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
