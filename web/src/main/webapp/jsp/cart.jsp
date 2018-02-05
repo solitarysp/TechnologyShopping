@@ -30,7 +30,7 @@
     <div class="b-page">
         <jsp:include page="/jsp/layout/nav-header.jsp"/>
 
-        <div class="b-page-header custom-7bg-">
+        <div class="b-page-header custom-7bg-" style="margin-bottom: 0px">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 clearfix">
@@ -60,11 +60,11 @@
                                         <h1 style="text-align: center;line-height: 300px">Giỏ hàng trống.</h1>
                                     </c:when>
                                     <c:otherwise>
-                                        <div class="woocommerce-message"><a
-                                                href="http://wpsparrow.com/wordpress/ismiler/cart/"
-                                                class="button wc-forward">View cart</a> &ldquo;BLU
-                                            VIVO 5 Smartphone&rdquo; has been added to your cart.
-                                        </div>
+                                        <%--<div class="woocommerce-message"><a--%>
+                                                <%--href="http://wpsparrow.com/wordpress/ismiler/cart/"--%>
+                                                <%--class="button wc-forward">View cart</a> &ldquo;BLU--%>
+                                            <%--VIVO 5 Smartphone&rdquo; has been added to your cart.--%>
+                                        <%--</div>--%>
                                         <form action="/updateCart?${_csrf.parameterName}=${_csrf.token}" method="post"
                                               class="cart-table ">
 
@@ -84,42 +84,45 @@
                                                     </thead>
                                                     <tbody>
 
-                                                    <%
-                                                        ArrayList<Product> list = (ArrayList<Product>) session.getAttribute("listCart");
-                                                        float totalCart = 0;
-                                                        for (Product p : list) {
-                                                            String id = p.getId();
-                                                            String img = p.getIMG();
-                                                            String name = p.getName();
-                                                            float price = p.getPrice();
-                                                            int quantity = p.getRepository();
-                                                            float total = price * quantity;
-                                                            totalCart = +total;
-                                                    %>
+                                                    <%--<%--%>
+                                                        <%--ArrayList<Product> list = (ArrayList<Product>) session.getAttribute("listCart");--%>
+                                                        <%--float totalCart = 0;--%>
+                                                        <%--for (Product p : list) {--%>
+                                                            <%--String id = p.getId();--%>
+                                                            <%--String img = p.getIMG();--%>
+                                                            <%--String name = p.getName();--%>
+                                                            <%--float price = p.getPrice();--%>
+                                                            <%--int quantity = p.getRepository();--%>
+                                                            <%--float total = price * quantity;--%>
+                                                            <%--totalCart = +total;--%>
+                                                    <%--%>--%>
+                                                    <c:set var="totalCart" value="0" />
+                                                    <c:forEach var="p" items="${listProduct}">
                                                     <tr class="cart_item">
 
 
                                                         <td class="product-thumbnail">
-                                                            <a href="/viewProduct.html?id=<%=id%>"><img
+                                                            <a href="/viewProduct.html?id=${p.id}"><img
                                                                     width="170" height="150"
-                                                                    src="admin/images/<%=img%>"
+                                                                    src="admin/images/${p.IMG}"
                                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                    alt="<%=name%>"/></a></td>
+                                                                    alt="${p.name}"/></a></td>
 
                                                         <td data-title="Product">
                                                             <div class="caption">
                                                                 <a class="product-name"
-                                                                   href="/viewProduct.html?id=<%=id%>"><%=name%>
+                                                                   href="/viewProduct.html?id=${p.id}">${p.name}
                                                                 </a></div>
                                                         </td>
 
                                                         <td class="product-price" data-title="Price">
                                 <span class="product-price total-price">
                                 <span class="woocommerce-Price-amount amount"><span
-                                        class="woocommerce-Price-currencySymbol"></span><%=price%></span> VND </span>
+                                        class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${p.price}" />
+                                    </p></span></span>
                                                         </td>
                                                         <input style="display: none" type="text" name="txtID"
-                                                               value="<%=id%>">
+                                                               value="${p.id}">
                                                         <td class="product-quantity" data-title="Quantity">
 
                                                             <div class="input-group btn-block qty-block"
@@ -129,7 +132,7 @@
 
                                                                     <input type="text" data-rule="quantity" step="1" min="0" max=""
                                                                            name="txtQuantity"
-                                                                           value="<%=quantity%>" title="Quantity" class="input-text qty text"
+                                                                           value="${p.id}" title="Quantity" class="input-text qty text"
                                                                            size="4" pattern="[0-9]*" inputmode="numeric"/>
                                                                     <a class="spinner-btn-mod" href="javascript:;"
                                                                        data-spin="up">+</a>
@@ -140,37 +143,31 @@
 
                                                         <td class="product-subtotal" data-title="Total">
                                 <span class="woocommerce-Price-amount amount"><span
-                                        class="woocommerce-Price-currencySymbol"></span><%=total%></span> VND
+                                        class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${p.repository * p.price}" /></span>
                                                         </td>
                                                         <td class="product-remove">
 
-                                                            <a href="/delCartItem?id=<%=id%>"
+                                                            <a href="/delCartItem?id=${p.id}"
                                                                class="btn btn-remove" title="Remove this item"
                                                                data-product_id="2977" data-product_sku=""><i
                                                                     class="fa fa-trash fa-lg"></i></a></td>
                                                     </tr>
-
-                                                    <%
-                                                        }
-
-                                                    %>
-
-
+                                                    </c:forEach>
                                                     <tr>
                                                         <td colspan="6" class="actions">
 
-                                                            <div class="coupon">
+                                                            <%--<div class="coupon">--%>
 
-                                                                <label for="coupon_code">Coupon:</label> <input type="text"
-                                                                                                                name="coupon_code"
-                                                                                                                class="input-text"
-                                                                                                                id="coupon_code"
-                                                                                                                value=""
-                                                                                                                placeholder="Coupon code"/>
-                                                                <input type="submit" class="button" name="apply_coupon"
-                                                                       value="Apply Coupon"/>
+                                                                <%--<label for="coupon_code">Coupon:</label> <input type="text"--%>
+                                                                                                                <%--name="coupon_code"--%>
+                                                                                                                <%--class="input-text"--%>
+                                                                                                                <%--id="coupon_code"--%>
+                                                                                                                <%--value=""--%>
+                                                                                                                <%--placeholder="Coupon code"/>--%>
+                                                                <%--<input type="submit" class="button" name="apply_coupon"--%>
+                                                                       <%--value="Apply Coupon"/>--%>
 
-                                                            </div>
+                                                            <%--</div>--%>
 
                                                             <input type="submit" class="button" name="update_cart"
                                                                    value="Update Cart"/>
@@ -193,28 +190,26 @@
                                                     <c:set var="totol1" value="${totol1+ item.price * item.repository}"/>
                                                     <c:set var="totalCartFull" value="${totalCartFull+1}"/>
                                                 </c:forEach>
-                                                <fmt:formatNumber var="totol" type = "number"
-                                                                  maxFractionDigits = "0"       value = "${totol1}" />
+
                                                 <h2>Cart totals</h2>
 
                                                 <table cellspacing="0" class="shop_table shop_table_responsive">
 
-                                                    <tr class="cart-subtotal">
-                                                        <th>Subtotal</th>
-                                                        <td data-title="Subtotal"><span
-                                                                class="woocommerce-Price-amount amount"><span
-                                                                class="woocommerce-Price-currencySymbol"></span>${totol}</span>
-                                                            VND
-                                                        </td>
-                                                    </tr>
+                                                    <%--<tr class="cart-subtotal">--%>
+                                                        <%--<th>Subtotal</th>--%>
+                                                        <%--<td data-title="Subtotal"><span--%>
+                                                                <%--class="woocommerce-Price-amount amount"><span--%>
+                                                                <%--class="woocommerce-Price-currencySymbol"></span>${totol}</span>--%>
+                                                            <%--VND--%>
+                                                        <%--</td>--%>
+                                                    <%--</tr>--%>
 
 
                                                     <tr class="order-total">
                                                         <th>Total</th>
                                                         <td data-title="Total"><strong><span
                                                                 class="woocommerce-Price-amount amount"><span
-                                                                class="woocommerce-Price-currencySymbol"></span>${totol}</span>
-                                                            VND</strong>
+                                                            class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${totol1}" /></span></strong>
                                                         </td>
                                                     </tr>
 

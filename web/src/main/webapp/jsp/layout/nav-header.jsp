@@ -381,38 +381,39 @@
 
 
                 </div>
-                <%
-                    int totalCart = 0;
-                    float totalPrice = 0;
-                %>
-                <c:if test="${not empty sessionScope['listCart']}">
-                    <%
-                        ArrayList<Product> listCart = (ArrayList<Product>) session.getAttribute("listCart");
-                        totalCart = listCart.size();
-                        for (Product p : listCart) {
-                            float price = p.getPrice();
-                            int quantity = p.getRepository();
-                            float total = price * quantity;
-                            totalPrice = +total;
-                        }
-                    %>
-                </c:if>
+                <%--<%--%>
+                    <%--int totalCart = 0;--%>
+                    <%--float totalPrice = 0;--%>
+                <%--%>--%>
+                <%--<c:if test="${not empty sessionScope['listCart']}">--%>
+                    <%--<%--%>
+                        <%--ArrayList<Product> listCart = (ArrayList<Product>) session.getAttribute("listCart");--%>
+                        <%--totalCart = listCart.size();--%>
+                        <%--for (Product p : listCart) {--%>
+                            <%--float price = p.getPrice();--%>
+                            <%--int quantity = p.getRepository();--%>
+                            <%--float total = price * quantity;--%>
+                            <%--totalPrice = +total;--%>
+                        <%--}--%>
+                    <%--%>--%>
+                <%--</c:if>--%>
                 <c:set var="totol" value="0"/>
                 <c:set var="totalCartFull" value="0"/>
                 <c:forEach var="item" items="${sessionScope.listCart}">
                     <c:set var="totol" value="${totol+ item.price * item.repository}"/>
                     <c:set var="totalCartFull" value="${totalCartFull+1}"/>
                 </c:forEach>
-                <fmt:formatNumber var="totol1" type="number"
-                                  maxFractionDigits="0" value="${totol}"/>
                 <div id="cart-wrapper" class="col-xs-6 col-sm-12 col-md-2 col-lg-2">
                     <div id="carshow" class="b-cart pull-right">
                         <button id="cart" class="btn btn-default-color1 btn-sm">
-                            <span class="price"><i class="fa fa-shopping-bag"></i><span
-                                    class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol"></span>${totol1}</span> VND</span>
+                            <span class="price"><i class="fa fa-shopping-bag"></i>
+                                <span
+                                    class="woocommerce-Price-amount amount">
+                                <span
+                                    class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${totol}" />
+                            </span>
                             <span class="counter-wrapper"><span class="counter">${totalCartFull}</span></span>
-
+                            </span>
                         </button>
 
 
@@ -439,7 +440,7 @@
                                                        href="/viewProduct.html?id=${item.id}">${item.name}</a>
                                                     <span class="product-price">${item.repository} x <span
                                                             class="woocommerce-Price-amount amount"><span
-                                                            class="woocommerce-Price-currencySymbol"> </span>${item.price}</span></span>
+                                                            class="woocommerce-Price-currencySymbol"> </span><fmt:formatNumber type="number" pattern="$ ###.##" value="${item.price * item.repository}" /></span></span>
 
                                                 </div>
                                                 <a href="/delCartItem?id=${item.id}"
@@ -456,7 +457,7 @@
                                         <div class="products-subtotal text-right">
                                             Subtotal <span class="subtotal-price"><span
                                                 class="woocommerce-Price-amount amount"><span
-                                                class="woocommerce-Price-currencySymbol"></span>${totol1} $</span></span>
+                                                class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber type="number" pattern="$ ###.##" value="${totol}" /></span></span>
                                         </div>
                                     </li>
                                 </ul>
