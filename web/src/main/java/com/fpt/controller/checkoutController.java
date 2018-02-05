@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,7 +61,7 @@ public class checkoutController {
         return "checkout";
     }
 
-    @RequestMapping(value = "/addOder")
+    @RequestMapping(value = "/addOder", method = RequestMethod.POST)
     public String addOder(HttpServletRequest request, ModelMap modelMap, HttpServletResponse response) {
         OrderProduct orderProduct = new OrderProduct();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -123,12 +124,29 @@ public class checkoutController {
             refProductOrder.setProduct(productServices.getProductById(p.getId()));
             refProductOrder.setOrderProduct(orderProduct);
             refProductOrders.add(refProductOrder);
+            // xóa bỏ ở product số lượng đi
+            Product product1 = productServices.getProductById(p.getId());
+            if (product1.getRepository() <= p.getRepository()) {
+                product1.setRepository(0);
+            } else {
+                product1.setRepository(product1.getRepository() - p.getRepository());
 
+            }
+            productServices.saveProduct(product1);
         }
 
         orderProduct.setRefProductOrder(refProductOrders);
         orderProductServices.saveOrderProduct(orderProduct);
+
+        ArrayList<Product> listProduct1 = (ArrayList<Product>) listProduct.clone();
+        httpSession.setAttribute("listCartCuccess", listProduct1);
+        httpSession.setAttribute("orderProduct", orderProduct);
         httpSession.setAttribute("listCart", null);
-        return "checkout";
+        try {
+            response.getWriter().println("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -89,7 +89,7 @@
                                 <%--<div class="clear"></div>--%>
                             <%--</form>--%>
 
-                            <form name="checkout"class="checkout woocommerce-checkout" method="post" action="/addOder?${_csrf.parameterName}=${_csrf.token}">
+                            <form id="form"  class="checkout woocommerce-checkout"">
 
 
 
@@ -230,7 +230,7 @@
 
 
 
-                                            <input type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order" />
+                                            <input type="button" onclick="Registration()" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order" />
 
                                             <input type="hidden" name="_wpnonce" value="944d0a21ad" /><input type="hidden" name="_wp_http_referer" value="/wordpress/ismiler/checkout/" />	</div>
                                     </div>
@@ -249,7 +249,37 @@
         </section>
 
 
+        <script type="text/javascript">
 
+
+            function Registration() {
+                var data = $("#form").serialize();
+                $.ajax({
+                    url: "/addOder?${_csrf.parameterName}=${_csrf.token}",
+                    type: "post",
+                    dataType: "text",
+                    data: data,
+                    success: function (result) {
+                        if (result.trim() == 'erroeEmail') {
+                            swal("Email đã tồn tại", "ERROR!", "error");
+                        }
+                        if (result.trim() == 'success') {
+                            swal("Đặt hàng thành công!.")
+                                .then((value) => {
+                                    window.location = "/confirmCartSuccess";
+                                });
+                        }
+                    },
+                    complete: function (xhr, textStatus) {
+                        if (xhr.status == 403) {
+                            $('#result').html("Bạn không có quyền xem");
+                            $('#stt').html("Bạn không có quyền xem");
+                        }
+                    }
+                });
+            }
+
+        </script>
 
 
         <jsp:include page="/jsp/layout/footer.jsp"/>

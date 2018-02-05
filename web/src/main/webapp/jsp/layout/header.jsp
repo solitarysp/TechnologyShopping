@@ -1,8 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="http://wpsparrow.com/wordpress/ismiler/xmlrpc.php">
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@6.10.2/dist/sweetalert2.min.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
