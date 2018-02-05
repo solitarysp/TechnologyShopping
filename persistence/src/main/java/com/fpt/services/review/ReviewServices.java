@@ -13,4 +13,7 @@ public interface ReviewServices {
 
     public List<Review> getAllByIdProduct(String id);
 
+    int countCmtByDay(Integer day);
+
+    long countTotal();
 }

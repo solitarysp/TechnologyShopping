@@ -78,11 +78,25 @@
             </div>
 
             <div class="infobox-data">
-                <span class="infobox-data-number">32</span>
-                <div class="infobox-content">comments + 2 reviews</div>
+                <span class="infobox-data-number">${comment.get('cmtTotal')}</span>
+
+
+                <div class="infobox-content">comments + ${comment.get('cmtNow')} reviews</div>
             </div>
 
-            <div class="stat stat-success">-8%</div>
+            <c:set var="percentCmt"
+                   value="${(comment.get('cmtNow')-comment.get('cmtBef'))/comment.get('cmtBef')*100}"/>
+            <c:catch>
+                ${percent=0}
+            </c:catch>
+            <c:choose>
+                <c:when test="${percentCmt>=0}">
+                    <div class="stat stat-success">${percentCmt}%</div>
+                </c:when>
+                <c:otherwise>
+                    <div class="stat stat-important">${percentCmt}%</div>
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <div class="infobox infobox-blue">
@@ -113,8 +127,8 @@
             <c:set var="percent"
                    value="${(order.get('ordernow')-order.get('orderbefore'))/order.get('orderbefore')*100}"/>
             <c:catch>
-            ${percent=0}
-        </c:catch>
+                ${percent=0}
+            </c:catch>
             <c:choose>
                 <c:when test="${percent>=0}">
                     <div class="stat stat-success">${percent}%</div>
@@ -504,25 +518,25 @@
                         <div class="grid3">
 															<span class="grey">
 																<i class="ace-icon fa fa-users fa-2x blue"></i>
-																&nbsp; customer
+																&nbsp; Customer
 															</span>
                             <h4 class="bigger pull-right">${countCustomer}</h4>
                         </div>
 
                         <div class="grid3">
 															<span class="grey">
-																<i class="ace-icon fa fa-twitter-square fa-2x purple"></i>
+																<i class="ace-icon fa fa-cart-arrow-down fa-2x purple"></i>
 																&nbsp; total orders
 															</span>
-                            <h4 class="bigger pull-right">${totalOrder}</h4>
+                            <h4 class="bigger pull-right">${TotalOrder}</h4>
                         </div>
 
                         <div class="grid3">
 															<span class="grey">
 																<i class="ace-icon fa fa-pinterest-square fa-2x red"></i>
-																&nbsp; pins
+																&nbsp; Online
 															</span>
-                            <h4 class="bigger pull-right">1,050</h4>
+                            <h4 id="online" class="bigger pull-right"></h4>
                         </div>
                     </div>
                 </div><!-- /.widget-main -->
@@ -636,6 +650,19 @@
             success: function (result) {
 
                 $('#widget').html(result);
+
+            },
+        });
+    }
+
+    window.onload = function () {
+        $.ajax({
+            url: "/getTotalOnlineWithSession",
+            type: "GET",
+            dataType: "text",
+            success: function (result) {
+                console.log(result);
+                $('#online').html(result);
 
             },
         });
