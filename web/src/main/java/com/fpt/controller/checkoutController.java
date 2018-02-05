@@ -1,12 +1,16 @@
 package com.fpt.controller;
 
 import com.fpt.entity.*;
+import com.fpt.services.customer.CustomerServices;
 import com.fpt.services.customeraddress.CustomerAddressServices;
 import com.fpt.services.orderproduct.OrderProductServices;
 import com.fpt.services.payment.PaymentServices;
 import com.fpt.services.product.ProductServices;
 import com.fpt.services.refproductorder.RefProductOrderServices;
+import com.fpt.utils.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +37,9 @@ public class checkoutController {
     PaymentServices paymentServices;
     @Autowired
     RefProductOrderServices refProductOrderServices;
+
+    @Autowired
+    CustomerServices customerServices;
     private ArrayList<Product> listProduct;
     private Set<OrderProduct> listProductOrder;
 
@@ -55,6 +62,13 @@ public class checkoutController {
 
     @RequestMapping(value = "/addOder")
     public String addOder(HttpServletRequest request, ModelMap modelMap, HttpServletResponse response) {
+        OrderProduct orderProduct = new OrderProduct();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        if (CommonUtil.isEmail(name)) {
+            Customer customer = customerServices.getCustomerByEmail(name);
+            orderProduct.setCustomer(customer);
+        }
         HttpSession httpSession = request.getSession();
         listProduct = (ArrayList<Product>) httpSession.getAttribute("listCart");
         String fullName = request.getParameter("Full_name");
@@ -80,7 +94,6 @@ public class checkoutController {
         customerAddressServices.saveCustomerAddress(customerAddress);
         Float totalWeight = 0F;
         Float totalBill = 0F;
-        OrderProduct orderProduct = new OrderProduct();
         Timestamp now = new Timestamp(System.currentTimeMillis());
         orderProduct.setDate(now);
         for (Product p : listProduct) {
