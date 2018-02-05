@@ -174,10 +174,10 @@
                                         class="product-quantity">× ${item.repository}</strong></td>
 
                                 <fmt:formatNumber var="totolProduct" type="number"
-                                                  maxFractionDigits="2" value="${item.price * item.repository}"/>
+                                                  value="${item.price * item.repository}"/>
                                 <td class="product-total">
                                     <span class="woocommerce-Price-amount amount"><span
-                                            class="woocommerce-Price-currencySymbol">${totolProduct}</span> VND</span>
+                                            class="woocommerce-Price-currencySymbol">$ ${totolProduct}</span></span>
                                 </td>
                             </tr>
                         </c:forEach>

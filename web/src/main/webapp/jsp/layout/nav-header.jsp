@@ -440,7 +440,7 @@
                                                        href="/viewProduct.html?id=${item.id}">${item.name}</a>
                                                     <span class="product-price">${item.repository} x <span
                                                             class="woocommerce-Price-amount amount"><span
-                                                            class="woocommerce-Price-currencySymbol"> </span><fmt:formatNumber type="number" pattern="$ ###.##" value="${item.price * item.repository}" /></span></span>
+                                                            class="woocommerce-Price-currencySymbol"> </span><fmt:formatNumber type="number" pattern="###.##" value="${item.price * item.repository}" /></span></span>
 
                                                 </div>
                                                 <a href="/delCartItem?id=${item.id}"
