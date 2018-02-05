@@ -264,9 +264,9 @@
                             swal("Email đã tồn tại", "ERROR!", "error");
                         }
                         if (result.trim() == 'success') {
-                            swal("Tạo tài khoản thành công!.")
+                            swal("Đặt hàng thành công!.")
                                 .then((value) => {
-                                    window.location = "/login.html";
+                                    window.location = "/confirmCartSuccess";
                                 });
                         }
                     },
