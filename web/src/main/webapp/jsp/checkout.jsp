@@ -89,7 +89,7 @@
                                 <%--<div class="clear"></div>--%>
                             <%--</form>--%>
 
-                            <form name="checkout"class="checkout woocommerce-checkout" action="/addOder">
+                            <form name="checkout"class="checkout woocommerce-checkout" method="post" action="/addOder?${_csrf.parameterName}=${_csrf.token}">
 
 
 
