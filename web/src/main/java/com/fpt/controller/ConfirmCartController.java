@@ -145,8 +145,6 @@ public class ConfirmCartController {
         orderProduct.setStatusDelivery("Chưa vận chuyển");
         orderProduct.setStatusBill("Hiện tại");
         orderProductServices.saveOrderProduct(orderProduct);
-        HttpSession httpSession1 = request.getSession();
-        httpSession.setAttribute("listCart", null);
         for (Product product : listProduct
                 ) {
             Product product1 = productServices.getProductById(product.getId());
@@ -158,7 +156,30 @@ public class ConfirmCartController {
             }
             productServices.saveProduct(product1);
         }
-        return "/";
+        ArrayList<Product> listProduct1 = (ArrayList<Product>) listProduct.clone();
+        httpSession.setAttribute("listCartCuccess", listProduct1);
+        httpSession.setAttribute("orderProduct", orderProduct);
+        httpSession.setAttribute("listCart", null);
+
+        try {
+            response.sendRedirect("/confirmCartSuccess");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
+    @RequestMapping(value = "/confirmCartSuccess")
+    public String confirmCartSuccess(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+        HttpSession httpSession1 = request.getSession();
+        ArrayList<Product> listProduct = (ArrayList<Product>) httpSession1.getAttribute("listCartCuccess");
+        OrderProduct orderProduct = (OrderProduct) httpSession1.getAttribute("orderProduct");
+        //xóa bỏ đi để chỉ cho xem 1 lần
+        httpSession1.setAttribute("listCartCuccess", null);
+        httpSession1.setAttribute("orderProduct", null);
+        // add vào view
+        modelMap.addAttribute("listProduct", listProduct);
+        modelMap.addAttribute("orderProduct", orderProduct);
+        return "ConfirmCartSuccess";
+    }
 }
