@@ -65,8 +65,9 @@ public class checkoutController {
         OrderProduct orderProduct = new OrderProduct();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
+        Customer customer = null;
         if (CommonUtil.isEmail(name)) {
-            Customer customer = customerServices.getCustomerByEmail(name);
+            customer = customerServices.getCustomerByEmail(name);
             orderProduct.setCustomer(customer);
         }
         HttpSession httpSession = request.getSession();
@@ -91,6 +92,9 @@ public class checkoutController {
         customerAddress.setNation(nation);
         customerAddress.setPhone(phone);
         customerAddress.setZipCode(zipCode);
+        if (customer != null) {
+            customerAddress.setCustomer(customer);
+        }
         customerAddressServices.saveCustomerAddress(customerAddress);
         Float totalWeight = 0F;
         Float totalBill = 0F;
