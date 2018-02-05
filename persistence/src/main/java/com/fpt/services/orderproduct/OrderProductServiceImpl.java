@@ -3,7 +3,6 @@ package com.fpt.services.orderproduct;/*
  */
 
 import com.fpt.entity.OrderProduct;
-import com.fpt.entity.RefProductOrder;
 import com.fpt.repositories.orderproduct.OrderProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +37,15 @@ public class OrderProductServiceImpl implements OrderProductServices {
     @Override
     public OrderProduct getOrderByID(Integer id) {
         return orderProductRepo.findOne(id);
+    }
+
+    @Override
+    public List<OrderProduct> getWithLastWeed() {
+        return orderProductRepo.getWithLastWeed();
+    }
+
+    @Override
+    public List<OrderProduct> getWithThisWeed() {
+        return orderProductRepo.getWithThisWeed();
     }
 }

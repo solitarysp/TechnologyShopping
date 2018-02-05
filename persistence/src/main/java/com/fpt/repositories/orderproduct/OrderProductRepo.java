@@ -15,11 +15,15 @@ public interface OrderProductRepo extends PagingAndSortingRepository<OrderProduc
     @Query(value = "select o from OrderProduct  as o")
     public List<OrderProduct> getAll();
 
-    @Query(value = "SELECT count(*)  FROM order_product where DATE(`_date`)= CURDATE() - INTERVAL :day DAY",nativeQuery = true)
-    public Integer getNewOrderByDate(@Param("day")Integer day);
+    @Query(value = "SELECT count(*)  FROM order_product where DATE(`_date`)= CURDATE() - INTERVAL :day DAY", nativeQuery = true)
+    public Integer getNewOrderByDate(@Param("day") Integer day);
 
-    @Query(value = "SELECT COUNT(*) FROM order_product",nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM order_product", nativeQuery = true)
     public Integer totalOrder();
 
+    @Query(value = "SELECT * FROM order_product WHERE YEARWEEK(_date) = YEARWEEK(CURRENT_DATE)-1", nativeQuery = true)
+    public List<OrderProduct> getWithLastWeed();
 
+    @Query(value = "SELECT * FROM order_product WHERE YEARWEEK(_date) = YEARWEEK(CURRENT_DATE)", nativeQuery = true)
+    public List<OrderProduct> getWithThisWeed();
 }
