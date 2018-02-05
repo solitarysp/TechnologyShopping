@@ -11,7 +11,9 @@
 <head>
     <title>Title</title>
     <jsp:include page="/jsp/layout/header.jsp"/>
+    <link href="../resources/wp-content/themes/ismiler/assets/woocommerce/css/woocommerce.css" type="text/css" rel="stylesheet">
 </head>
+
 <body class="home page-template-default page page-id-2603 animated-css layout-switch home-construction-v2 primary-menu-not-active wpb-js-composer js-comp-ver-5.2.1 vc_responsive"
       data-scrolling-animations="false" data-header="fixed-header">
 <!-- Loader -->
@@ -116,11 +118,12 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                     <ul class="product_list_widget">
                                                         <c:forEach var="item" items="${productBestSellers}">
                                                             <li>
-                                                                <a  href="/viewProduct.html?id=${item.id}">
+                                                                <a href="/viewProduct.html?id=${item.id}">
                                                                     <img width="170" height="150"
                                                                          src="admin/images/${item.IMG}"
                                                                          class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                         alt=""/> <span class="product-title">${item.name}</span>
+                                                                         alt=""/> <span
+                                                                        class="product-title">${item.name}</span>
                                                                 </a><br>
 
 
@@ -128,24 +131,26 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                 <c:forEach var="cate" items="${item.category}">
                                                                 <c:if test="${cate.id==1}">
                                                                 <del><span class="woocommerce-Price-amount amount"><span
-                                                                        class="woocommerce-Price-currencySymbol">&pound;</span>${item.price}</span></del> <ins><span
-                                                                    class="woocommerce-Price-amount amount"><span
-                                                                    class="woocommerce-Price-currencySymbol">&pound;
+                                                                        class="woocommerce-Price-currencySymbol">&pound;</span>${item.price}</span>
+                                                                </del>
+                                                                <ins><span
+                                                                        class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">&pound;
                 </span>${item.price - (item.price /100 * cate.value)}</span>
-                                                                <c:set var="test"/>
-                                                                </c:if>
-                                                                </c:forEach>
-                                                                <c:if test="${not empty test}">
+                                                                    <c:set var="test"/>
+                                                                    </c:if>
+                                                                    </c:forEach>
+                                                                    <c:if test="${not empty test}">
                                                       <span
-                                                            class="woocommerce-Price-amount amount"><span
-                                                            class="woocommerce-Price-currencySymbol">&pound;
+                                                              class="woocommerce-Price-amount amount"><span
+                                                              class="woocommerce-Price-currencySymbol">&pound;
                                                                 </span>${item.price}</span>
-                                                                </c:if>
+                                                                    </c:if>
 
-                                                                <c:set var="test" value="1"/>
+                                                                    <c:set var="test" value="1"/>
 
 
-                                                            </ins>
+                                                                </ins>
 
 
                                                             </li>
@@ -155,51 +160,51 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
 
                                                     </ul>
                                                 </div>
-                                              <%--  <div id="woocommerce_product_tag_cloud-2"
-                                                     class="woocommerce widget_product_tag_cloud accordion-l-box wow fadeInUp enable-accordion"
-                                                     data-active="0" data-collapsible="true"
-                                                     data-height-style="content"><h3 class="accordion-header-mod"><span
-                                                        class="heading-line title-accordion-menu-item">Product Tags</span><span
-                                                        class="accordion-icon"></span></h3>
-                                                    <div class="tagcloud"><a
-                                                            href="http://wpsparrow.com/wordpress/ismiler/product-tag/accessories/"
-                                                            class="tag-cloud-link tag-link-164 tag-link-position-1"
-                                                            style="font-size: 22pt;"
-                                                            aria-label="accessories (8 products)">accessories</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/android/"
-                                                           class="tag-cloud-link tag-link-157 tag-link-position-2"
-                                                           style="font-size: 22pt;" aria-label="android (8 products)">android</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/apple/"
-                                                           class="tag-cloud-link tag-link-156 tag-link-position-3"
-                                                           style="font-size: 22pt;" aria-label="apple (8 products)">apple</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/cases/"
-                                                           class="tag-cloud-link tag-link-165 tag-link-position-4"
-                                                           style="font-size: 22pt;" aria-label="cases (8 products)">cases</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/iphone/"
-                                                           class="tag-cloud-link tag-link-155 tag-link-position-5"
-                                                           style="font-size: 22pt;" aria-label="iphone (8 products)">iphone</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/nexus/"
-                                                           class="tag-cloud-link tag-link-162 tag-link-position-6"
-                                                           style="font-size: 8pt;"
-                                                           aria-label="nexus (1 product)">nexus</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/nokia/"
-                                                           class="tag-cloud-link tag-link-159 tag-link-position-7"
-                                                           style="font-size: 22pt;" aria-label="nokia (8 products)">nokia</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/premium/"
-                                                           class="tag-cloud-link tag-link-163 tag-link-position-8"
-                                                           style="font-size: 22pt;" aria-label="premium (8 products)">premium</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/samsung/"
-                                                           class="tag-cloud-link tag-link-158 tag-link-position-9"
-                                                           style="font-size: 11.876923076923pt;"
-                                                           aria-label="samsung (2 products)">samsung</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/smart/"
-                                                           class="tag-cloud-link tag-link-161 tag-link-position-10"
-                                                           style="font-size: 22pt;" aria-label="smart (8 products)">smart</a>
-                                                        <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/unlocked/"
-                                                           class="tag-cloud-link tag-link-166 tag-link-position-11"
-                                                           style="font-size: 22pt;" aria-label="Unlocked (8 products)">Unlocked</a>
-                                                    </div>
-                                                </div>--%>
+                                                <%--  <div id="woocommerce_product_tag_cloud-2"
+                                                       class="woocommerce widget_product_tag_cloud accordion-l-box wow fadeInUp enable-accordion"
+                                                       data-active="0" data-collapsible="true"
+                                                       data-height-style="content"><h3 class="accordion-header-mod"><span
+                                                          class="heading-line title-accordion-menu-item">Product Tags</span><span
+                                                          class="accordion-icon"></span></h3>
+                                                      <div class="tagcloud"><a
+                                                              href="http://wpsparrow.com/wordpress/ismiler/product-tag/accessories/"
+                                                              class="tag-cloud-link tag-link-164 tag-link-position-1"
+                                                              style="font-size: 22pt;"
+                                                              aria-label="accessories (8 products)">accessories</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/android/"
+                                                             class="tag-cloud-link tag-link-157 tag-link-position-2"
+                                                             style="font-size: 22pt;" aria-label="android (8 products)">android</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/apple/"
+                                                             class="tag-cloud-link tag-link-156 tag-link-position-3"
+                                                             style="font-size: 22pt;" aria-label="apple (8 products)">apple</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/cases/"
+                                                             class="tag-cloud-link tag-link-165 tag-link-position-4"
+                                                             style="font-size: 22pt;" aria-label="cases (8 products)">cases</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/iphone/"
+                                                             class="tag-cloud-link tag-link-155 tag-link-position-5"
+                                                             style="font-size: 22pt;" aria-label="iphone (8 products)">iphone</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/nexus/"
+                                                             class="tag-cloud-link tag-link-162 tag-link-position-6"
+                                                             style="font-size: 8pt;"
+                                                             aria-label="nexus (1 product)">nexus</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/nokia/"
+                                                             class="tag-cloud-link tag-link-159 tag-link-position-7"
+                                                             style="font-size: 22pt;" aria-label="nokia (8 products)">nokia</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/premium/"
+                                                             class="tag-cloud-link tag-link-163 tag-link-position-8"
+                                                             style="font-size: 22pt;" aria-label="premium (8 products)">premium</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/samsung/"
+                                                             class="tag-cloud-link tag-link-158 tag-link-position-9"
+                                                             style="font-size: 11.876923076923pt;"
+                                                             aria-label="samsung (2 products)">samsung</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/smart/"
+                                                             class="tag-cloud-link tag-link-161 tag-link-position-10"
+                                                             style="font-size: 22pt;" aria-label="smart (8 products)">smart</a>
+                                                          <a href="http://wpsparrow.com/wordpress/ismiler/product-tag/unlocked/"
+                                                             class="tag-cloud-link tag-link-166 tag-link-position-11"
+                                                             style="font-size: 22pt;" aria-label="Unlocked (8 products)">Unlocked</a>
+                                                      </div>
+                                                  </div>--%>
                                             </aside>
                                         </div>
 
@@ -474,7 +479,8 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                     </li>
                                                     <li class="reviews_tab ">
                                                         <a class="heading-line" href="#tab-reviews " role="tab"
-                                                           data-toggle="tab" aria-expanded="true">Reviews (0)</a>
+                                                           data-toggle="tab" aria-expanded="true">Reviews
+                                                            (${product.review.size()})</a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content">
@@ -485,40 +491,67 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                         <div id="reviews" class="woocommerce-Reviews">
                                                             <div id="comments">
                                                                 <h2 class="woocommerce-Reviews-title">Reviews</h2>
+                                                                <c:choose>
+                                                                    <c:when test="${product.review.size()>0}">
+                                                                        <ol class="commentlist">
+                                                                            <c:forEach items="${product.review}" var="rv">
+                                                                                <li class="comment even thread-even depth-1"
+                                                                                    id="li-comment-45">
 
+                                                                                    <div id="comment-45"
+                                                                                         class="comment_container">
 
-                                                                <p class="woocommerce-noreviews">There are no reviews
-                                                                    yet.</p>
+                                                                                        <div class="comment-text">
+
+                                                                                            <div class="star-rating"><span
+                                                                                                    style="width:${rv.rating*20}%">${rv.customer.name} Rated <strong
+                                                                                                    class="rating">${rv.rating}</strong> out of 5</span>
+                                                                                            </div>
+
+                                                                                            <div class="description"><p>
+                                                                                                ${rv.comment}</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li><!-- #comment-## -->
+                                                                            </c:forEach>
+
+                                                                        </ol>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <p class="woocommerce-noreviews">There are no
+                                                                            reviews
+                                                                            yet.</p>
+                                                                    </c:otherwise>
+                                                                </c:choose>
 
                                                             </div>
                                                             <div id="review_form_wrapper">
                                                                 <div id="review_form">
                                                                     <div id="respond" class="comment-respond">
                                                                         <span id="reply-title"
-                                                                              class="comment-reply-title">Be the first to review &ldquo;BLU VIVO 5 Smartphone&rdquo; <small><a
+                                                                              class="comment-reply-title">Be the first to review &ldquo;${product.name}&rdquo; <small><a
                                                                                 rel="nofollow"
                                                                                 id="cancel-comment-reply-link"
-                                                                                href="/wordpress/ismiler/product/blu-vivo-5-smartphone/#respond"
+
                                                                                 style="display:none;">Cancel reply</a></small></span>
-                                                                        <form action="http://wpsparrow.com/wordpress/ismiler/wp-comments-post.php"
-                                                                              method="post" id="commentform"
-                                                                              class="comment-form">
+                                                                        <form   id="comment_form"                                                                              method="post" id="commentform"
+                                                                                class="comment-form">
                                                                             <p class="comment-notes"><span
                                                                                     id="email-notes">Your email address will not be published.</span>
                                                                                 Required fields are marked <span
                                                                                         class="required">*</span></p>
                                                                             <div class="comment-form-rating"><label
                                                                                     for="rating">Your
-                                                                                rating</label><select name="rating"
+                                                                                rating</label><select required name="rating"
                                                                                                       id="rating"
-                                                                                                      aria-required="true"
-                                                                                                      required>
+                                                                                                      aria-required="true">
                                                                                 <option value="">Rate&hellip;</option>
-                                                                                <option value="5">Perfect</option>
-                                                                                <option value="4">Good</option>
-                                                                                <option value="3">Average</option>
-                                                                                <option value="2">Not that bad</option>
-                                                                                <option value="1">Very poor</option>
+                                                                                <option value="5">Perfect(5*)</option>
+                                                                                <option value="4">Good(4*)</option>
+                                                                                <option value="3">Average(3*)</option>
+                                                                                <option value="2">Not that bad(2*)</option>
+                                                                                <option value="1">Very poor(1*)</option>
                                                                             </select></div>
                                                                             <p class="comment-form-comment"><label
                                                                                     for="comment">Your review <span
@@ -530,30 +563,31 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                             <p class="comment-form-author"><label
                                                                                     for="author">Name <span
                                                                                     class="required">*</span></label>
-                                                                                <input id="author" name="author"
-                                                                                       type="text" value="" size="30"
+                                                                                <input disabled id="author" name="customer"
+                                                                                       type="text" value="${customer.name}" size="30"
                                                                                        aria-required="true" required/>
                                                                             </p>
                                                                             <p class="comment-form-email"><label
                                                                                     for="email">Email <span
                                                                                     class="required">*</span></label>
-                                                                                <input id="email" name="email"
-                                                                                       type="email" value="" size="30"
+                                                                                <input disabled id="email" name="email"
+                                                                                       type="email" value="${customer.email}" size="30"
                                                                                        aria-required="true" required/>
                                                                             </p>
-                                                                            <p class="form-submit"><input name="submit"
-                                                                                                          type="submit"
-                                                                                                          id="submit"
-                                                                                                          class="submit"
-                                                                                                          value="Submit"/>
-                                                                                <input type='hidden'
-                                                                                       name='comment_post_ID'
-                                                                                       value='2977'
-                                                                                       id='comment_post_ID'/>
-                                                                                <input type='hidden'
-                                                                                       name='comment_parent'
-                                                                                       id='comment_parent' value='0'/>
+
+                                                                                <input name="idPro" value="${product.id}" hidden/>
+                                                                                <%--<input type='hidden'--%>
+                                                                                <%--name='comment_post_ID'--%>
+                                                                                <%--value='2977'--%>
+                                                                                <%--id='comment_post_ID'/>--%>
+                                                                                <%--<input type='hidden'--%>
+                                                                                <%--name='comment_parent'--%>
+                                                                                <%--id='comment_parent' value='0'/>--%>
                                                                             </p></form>
+                                                                        <p class="form-submit"><button id="submit" onclick="addCmt()" name="submit"
+
+                                                                        >Submit</button>
+                                                                            <br/><span id="noti"></span>
                                                                     </div><!-- #respond -->
                                                                 </div>
                                                             </div>
@@ -745,12 +779,54 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
             function addCartItem() {
 
             }
-
         </script>
 
         <jsp:include page="/jsp/layout/footer.jsp"/>
     </div>
     <jsp:include page="/jsp/layout/js-footer.jsp"/>
 </div>
+<script type="text/javascript">
+    function addCmt() {
+        var content = document.getElementById('comment').value;
+        var rate = document.getElementById('rating').value;
+        if(content.length>0){
+            if(rate.length>0){
+                var data = $("#comment_form").serialize();
+                $.ajax({
+                    url: "addComment?${_csrf.parameterName}=${_csrf.token}",
+                    type: "post",
+                    dataType: "text",
+                    data: data,
+                    success: function (result) {
+                        console.log(result == 'success');
+                        if (result.trim() == 'success') {
+                            $('#comment_form')[0].reset();
+                            $("ol").append("<li class='comment even thread-even depth-1' id='li-comment-45'><div id='comment-45' class='comment_container'><div class='comment-text'><div class='star-rating'><span style='width:"+rate*20+"%'>${rv.customer.name} Rated <strong class='rating'>"+rate+"</strong> out of 5</span></div><div class='description'><p>"+content+"</p></div></div></div></li>");
+                        }
+                    },
+                    complete: function (xhr, textStatus) {
+                        if (xhr.status == 403) {
+                            $('#result').html("Bạn không có quyền xem");
+                            $('#stt').html("Bạn không có quyền xem");
+                        }
+                    }
+                });
+            }else {
+                alert('You do not rate this product');
+            }
+        }else {
+
+            alert('You do not fill in the comment box');
+        }
+
+    }
+
+</script>
+<style>
+    ol{
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 10px;}
+</style>
 </body>
 </html>
