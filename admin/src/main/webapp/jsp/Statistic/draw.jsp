@@ -7,11 +7,29 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="js/jquery-1.11.3.min.js"></script>
 
-<div class="widget-box">
+<script src="js/jquery-2.1.4.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<script src="js/jquery-ui.custom.min.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script src="js/jquery.easypiechart.min.js"></script>
+<script src="js/jquery.sparkline.index.min.js"></script>
+<script src="js/jquery.flot.min.js"></script>
+<script src="js/jquery.flot.pie.min.js"></script>
+<script src="js/jquery.flot.resize.min.js"></script>
+
+<!-- ace scripts -->
+<script src="js/ace-elements.min.js"></script>
+<script src="js/ace.min.js"></script>
+<div class="widget-body">
     <script type="text/javascript">
         jQuery(function ($) {
+            console.log('sssss');
             $('.easy-pie-chart.percentage').each(function () {
                 var $box = $(this).closest('.infobox');
                 var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
@@ -230,83 +248,36 @@
 
         })
     </script>
-    <div class="widget-header widget-header-flat widget-header-small">
-        <h5 class="widget-title">
-            <i class="ace-icon fa fa-signal"></i>
-            Traffic Sources
-        </h5>
+    <div class="widget-main">
+        <div id="piechart-placeholder"></div>
 
-        <div class="widget-toolbar no-border">
-            <div class="inline dropdown-hover">
-                <button class="btn btn-minier btn-primary">
-                    This Week
-                    <i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
-                </button>
+        <div class="hr hr8 hr-double"></div>
 
-                <ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
-                    <li class="active">
-                        <a href="#" class="blue">
-                            <i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
-                            This Week
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-                            Last Week
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-                            This Month
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
-                            Last Month
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="widget-body">
-        <div class="widget-main">
-            <div id="piechart-placeholder"></div>
-
-            <div class="hr hr8 hr-double"></div>
-
-            <div class="clearfix">
-                <div class="grid3">
+        <div class="clearfix">
+            <div class="grid3">
 															<span class="grey">
 																<i class="ace-icon fa fa-users fa-2x blue"></i>
 																&nbsp; customer
 															</span>
-                    <h4 class="bigger pull-right">${countCustomer}</h4>
-                </div>
+                <h4 class="bigger pull-right">${countCustomer}</h4>
+            </div>
 
-                <div class="grid3">
+            <div class="grid3">
 															<span class="grey">
 																<i class="ace-icon fa fa-twitter-square fa-2x purple"></i>
-																&nbsp; tweets
+																&nbsp; total orders
 															</span>
-                    <h4 class="bigger pull-right">941</h4>
-                </div>
+                <h4 class="bigger pull-right">${totalOrder}</h4>
+            </div>
 
-                <div class="grid3">
+            <div class="grid3">
 															<span class="grey">
 																<i class="ace-icon fa fa-pinterest-square fa-2x red"></i>
 																&nbsp; pins
 															</span>
-                    <h4 class="bigger pull-right">1,050</h4>
-                </div>
+                <h4 class="bigger pull-right">1,050</h4>
             </div>
-        </div><!-- /.widget-main -->
-    </div><!-- /.widget-body -->
-</div><!-- /.widget-box -->
+        </div>
+    </div><!-- /.widget-main -->
+</div>
+<!-- /.widget-body -->

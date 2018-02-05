@@ -1,5 +1,6 @@
 package com.fpt.controller;
 
+import com.fpt.entity.OrderProduct;
 import com.fpt.entity.ProductType;
 import com.fpt.entity.RefProductOrder;
 import com.fpt.services.customer.CustomerServices;
@@ -14,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class StatisticController {
@@ -38,9 +39,11 @@ public class StatisticController {
         HashMap<String, Double> totalMap = new HashMap<String, Double>();
         double totalAll = 0;
         for (ProductType pt : productTypeList) {
-            double total = productTypeServices.getTotalRevenueOfProductType(pt.getId());
-            totalAll += total;
-            totalMap.put(pt.getName(), total);
+            Double total = productTypeServices.getTotalRevenueOfProductType(pt.getId());
+            if (total != null) {
+                totalAll += total;
+                totalMap.put(pt.getName(), total);
+            }
         }
         //total revenue
         Double totalRenueve = productTypeServices.getTotalRevenue();
@@ -57,7 +60,7 @@ public class StatisticController {
         //total order
         int totalOrder = orderProductServices.totalOrder();
 
-        modelMap.addAttribute("totalOrder",totalOrder);
+        modelMap.addAttribute("totalOrder", totalOrder);
         modelMap.addAttribute("order", order);
         modelMap.addAttribute("countCustomer", countCustomer);
         modelMap.addAttribute("totalProductType", totalMap);
@@ -66,4 +69,45 @@ public class StatisticController {
         modelMap.addAttribute("refProductOrders", refProductOrders);
         return "Statistic/statistic";
     }
+
+    @RequestMapping(value = "/statisticWeed", method = RequestMethod.GET)
+    public String getStatisticWeed(ModelMap modelMap, HttpServletRequest request) {
+        List<OrderProduct> orderProducts = null;
+        String value = request.getParameter("value");
+        if (value.equals("thisweed")) {
+            orderProducts = orderProductServices.getWithThisWeed();
+        }
+        if (value.equals("lastweed")) {
+            orderProducts = orderProductServices.getWithLastWeed();
+        }
+        if (value.equals("all")) {
+            orderProducts = orderProductServices.getAll();
+        }
+        HashMap<String, Double> totalMap = new HashMap<String, Double>();
+        List<ProductType> productTypeList = productTypeServices.getAllProductType();
+        Double totalAll = 0D;
+        for (ProductType productType : productTypeList
+                ) {
+            Double tongtien = 0D;
+            for (OrderProduct orderProducts1 : orderProducts
+                    ) {
+                Set<RefProductOrder> refProductOrder = orderProducts1.getRefProductOrder();
+                for (RefProductOrder refProductOrder1 : refProductOrder
+                        ) {
+
+                    if (productType.getId() == refProductOrder1.getProduct().getProductType().getId()) {
+                        tongtien = tongtien + orderProducts1.getTotalBill();
+                        break;
+                    }
+                }
+
+            }
+            totalAll = totalAll + tongtien;
+            totalMap.put(productType.getName(), tongtien);
+        }
+        modelMap.addAttribute("totalAll", totalAll);
+        modelMap.addAttribute("totalProductType", totalMap);
+        return "Statistic/draw";
+    }
+
 }
