@@ -19,7 +19,15 @@
 <h3 class="header smaller lighter blue">Products</h3>
 
 <div class="table-header">
-    Results for "Products"
+    <c:choose>
+        <c:when test="${param.name !=null && param.name !=''}">
+            Search Results for : <span style="color: white;font-weight: bold">${param.name}</span>
+        </c:when>
+        <c:otherwise>
+            Results for "Products"
+        </c:otherwise>
+    </c:choose>
+
 </div>
 
 
@@ -38,7 +46,12 @@
 </div>
 <div style="float: right;" class="col-xs-6">
     <div style="margin-top: 10px;float:right;">
-        <span style="line-height: 25px;">Search: &nbsp;&nbsp; </span> <input style="width: 200px;float: right;" type="search" class="form-control input-sm">
+        <span style="line-height: 25px;">Search: &nbsp;&nbsp; </span>
+        <form action="/admin/viewProduct">
+            <input name="name" style="width: 200px;float: right;" type="search" class="form-control input-sm">
+        </form>
+
+
     </div>
 </div>
 

@@ -14,6 +14,6 @@ public class IndexController {
     @RequestMapping("/")
     public String index(HttpServletRequest httpServletRequest) {
         System.out.println(httpServletRequest.getSession().getId());
-        return "Index";
+        return "redirect:/statistic";
     }
 }

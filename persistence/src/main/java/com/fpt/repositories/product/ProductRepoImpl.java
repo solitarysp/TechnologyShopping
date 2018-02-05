@@ -26,7 +26,7 @@ public class ProductRepoImpl implements ProductRepoCustom {
             name = "";
         }
         Integer first = page * limit;
-        Query query = em.createQuery("SELECT p FROM Product as p WHERE p.id LIKE :name").setFirstResult(first).setMaxResults(limit);
+        Query query = em.createQuery("SELECT p FROM Product as p WHERE p.name LIKE :name").setFirstResult(first).setMaxResults(limit);
         query.setParameter("name", "%" + name + "%");
         return query.getResultList();
     }
@@ -36,7 +36,7 @@ public class ProductRepoImpl implements ProductRepoCustom {
         if (name == null) {
             name = "";
         }
-        Query query = em.createQuery("SELECT count(p.id) FROM Product as p WHERE p.id LIKE :name");
+        Query query = em.createQuery("SELECT count(p.id) FROM Product as p WHERE p.name LIKE :name");
         query.setParameter("name", "%" + name + "%");
         List<Long> longList = query.getResultList();
         for (Long o : longList
@@ -96,5 +96,13 @@ public class ProductRepoImpl implements ProductRepoCustom {
             products.add(product);
         }
         return products;
+    }
+
+    @Override
+    public List<Product> getAllProductByName(String name) {
+        Query query = em.createQuery("SELECT p FROM Product as p WHERE p.name LIKE :name");
+        query.setParameter("name", "%" + name + "%");
+        return query.getResultList();
+
     }
 }

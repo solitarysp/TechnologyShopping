@@ -81,8 +81,13 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/viewProduct", method = RequestMethod.GET)
-    public String ViewAllProduct(ModelMap modelMap) {
-        modelMap.addAttribute("listAllProduct", productServices.getAll());
+    public String ViewAllProduct(ModelMap modelMap, HttpServletRequest request) {
+        String value = request.getParameter("name");
+        if (value != null) {
+            modelMap.addAttribute("listAllProduct", productServices.getAllProductByName(value));
+        } else {
+            modelMap.addAttribute("listAllProduct", productServices.getAll());
+        }
         return "Product/viewAllProduct";
     }
 

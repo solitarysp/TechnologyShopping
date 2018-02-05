@@ -88,7 +88,7 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="" class="navbar-brand">
+            <a href="/admin/" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     Ace Admin

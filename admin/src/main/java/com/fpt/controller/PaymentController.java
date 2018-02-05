@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -36,8 +36,9 @@ public class PaymentController {
         }
 
     }
+
     @RequestMapping(value = "/editPayment", method = RequestMethod.POST)
-    public void EditPayment(Payment payment, HttpServletResponse response){
+    public void EditPayment(Payment payment, HttpServletResponse response) {
         paymentServices.savePayment(payment);
         try {
             response.getWriter().println("success");
@@ -46,15 +47,24 @@ public class PaymentController {
         }
     }
 
-    @RequestMapping(value = "/getAllPayment",method = RequestMethod.GET)
-    public String getAllPayment(ModelMap modelMap){
-        List<Payment> listPayments = paymentServices.getAll();
-        modelMap.addAttribute("listPayments",listPayments);
+    @RequestMapping(value = "/getAllPayment", method = RequestMethod.GET)
+    public String getAllPayment(ModelMap modelMap, HttpServletRequest request) {
+        String value = request.getParameter("name");
+        if (value != null) {
+            List<Payment> listPayments = paymentServices.getAllPaymentByName(value);
+            modelMap.addAttribute("listPayments", listPayments);
+
+        } else {
+            List<Payment> listPayments = paymentServices.getAll();
+            modelMap.addAttribute("listPayments", listPayments);
+
+
+        }
         return "Payment/viewAllPayment";
     }
 
-    @RequestMapping(value = "/removePayment",method = RequestMethod.POST)
-    public void DeletePayment(Integer id, HttpServletResponse response){
+    @RequestMapping(value = "/removePayment", method = RequestMethod.POST)
+    public void DeletePayment(Integer id, HttpServletResponse response) {
         paymentServices.deletePayment(id);
         try {
             response.getWriter().println("success");
@@ -62,8 +72,9 @@ public class PaymentController {
             e.printStackTrace();
         }
     }
+
     @RequestMapping(value = "/findPaymentByID", method = RequestMethod.GET)
-    public String FindPaymentByID(@RequestParam("id")Integer id, ModelMap modelMap) {
+    public String FindPaymentByID(@RequestParam("id") Integer id, ModelMap modelMap) {
         modelMap.addAttribute("payment", paymentServices.findByID(id));
         return "Payment/viewAndEditPayment";
     }

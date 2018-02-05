@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -36,8 +36,9 @@ public class ProductTypeController {
         }
 
     }
+
     @RequestMapping(value = "/editProductType", method = RequestMethod.POST)
-    public void EditProductType(ProductType productType, HttpServletResponse response){
+    public void EditProductType(ProductType productType, HttpServletResponse response) {
         productTypeServices.saveProductType(productType);
         try {
             response.getWriter().println("success");
@@ -46,16 +47,22 @@ public class ProductTypeController {
         }
     }
 
-    @RequestMapping(value = "/getAllProductType",method = RequestMethod.GET)
-    public String getAllProductTypes(ModelMap modelMap){
-        List<ProductType> listProductTypes = productTypeServices.getAllProductType();
-        modelMap.addAttribute("listProductTypes",listProductTypes);
+    @RequestMapping(value = "/getAllProductType", method = RequestMethod.GET)
+    public String getAllProductTypes(ModelMap modelMap, HttpServletRequest request) {
+        String value = request.getParameter("name");
+        if (value != null) {
+            List<ProductType> listProductTypes = productTypeServices.getAllProductTypeByName(value);
+            modelMap.addAttribute("listProductTypes", listProductTypes);
+        } else {
+            List<ProductType> listProductTypes = productTypeServices.getAllProductType();
+            modelMap.addAttribute("listProductTypes", listProductTypes);
+        }
         return "ProductType/viewAllProductType";
     }
 
 
-    @RequestMapping(value = "/removeProductType",method = RequestMethod.POST)
-    public void DeleteProductType(ProductType productType,HttpServletResponse response){
+    @RequestMapping(value = "/removeProductType", method = RequestMethod.POST)
+    public void DeleteProductType(ProductType productType, HttpServletResponse response) {
         productTypeServices.deleteProductType(productType);
         try {
             response.getWriter().println("success");
@@ -65,7 +72,7 @@ public class ProductTypeController {
     }
 
     @RequestMapping(value = "/findProductTypeByID", method = RequestMethod.GET)
-    public String FindProductTypeByID(@RequestParam("id")Integer id, ModelMap modelMap) {
+    public String FindProductTypeByID(@RequestParam("id") Integer id, ModelMap modelMap) {
         modelMap.addAttribute("productType", productTypeServices.findByID(id));
         return "ProductType/viewAndEditProductType";
     }
