@@ -26,10 +26,9 @@
 <!-- ace scripts -->
 <script src="js/ace-elements.min.js"></script>
 <script src="js/ace.min.js"></script>
-<div class="widget-body">
+<div id="widget">
     <script type="text/javascript">
         jQuery(function ($) {
-            console.log('sssss');
             $('.easy-pie-chart.percentage').each(function () {
                 var $box = $(this).closest('.infobox');
                 var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
@@ -63,7 +62,10 @@
             //but sometimes it brings up errors with normal resize event handlers
             $.resize.throttleWindow = false;
 
-            var placeholder = $('#piechart-placeholder').css({'width': '90%', 'min-height': '150px'});
+            var placeholder = $('#piechart-placeholder').css({
+                'width': '90%',
+                'min-height': '150px'
+            });
             var colors = ["#68BC31", "#2091CF", "#AF4E96", "#DA5430", "#FEE074"];
             var data = [
                 <c:forEach items="${totalProductType}" varStatus="i" var="tpt">
@@ -248,36 +250,6 @@
 
         })
     </script>
-    <div class="widget-main">
-        <div id="piechart-placeholder"></div>
-
-        <div class="hr hr8 hr-double"></div>
-
-        <div class="clearfix">
-            <div class="grid3">
-															<span class="grey">
-																<i class="ace-icon fa fa-users fa-2x blue"></i>
-																&nbsp; customer
-															</span>
-                <h4 class="bigger pull-right">${countCustomer}</h4>
-            </div>
-
-            <div class="grid3">
-															<span class="grey">
-																<i class="ace-icon fa fa-twitter-square fa-2x purple"></i>
-																&nbsp; total orders
-															</span>
-                <h4 class="bigger pull-right">${totalOrder}</h4>
-            </div>
-
-            <div class="grid3">
-															<span class="grey">
-																<i class="ace-icon fa fa-pinterest-square fa-2x red"></i>
-																&nbsp; pins
-															</span>
-                <h4 class="bigger pull-right">1,050</h4>
-            </div>
-        </div>
-    </div><!-- /.widget-main -->
+    <div id="piechart-placeholder"></div>
 </div>
 <!-- /.widget-body -->
