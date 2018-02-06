@@ -35,4 +35,5 @@ public interface ProductServices {
 
     public List<Product> getAllProductByName(String name);
 
+    int countProductOutStock();
 }

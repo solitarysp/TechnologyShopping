@@ -42,6 +42,11 @@ public class BrandServiceImpl implements BrandServices {
         return brandRepo.getAllBrandByName(name);
     }
 
+    @Override
+    public int countBrand() {
+        return Math.toIntExact(brandRepo.count());
+    }
+
 //    @Override
 //    public List<Brand> GetTotalBrand(Integer number) {
 //        return brandRepo.getTotalBrand(number);

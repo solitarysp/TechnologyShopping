@@ -82,5 +82,10 @@ public class ProductServiceImpl implements ProductServices {
         return productRepo.getAllProductByName(name);
     }
 
+    @Override
+    public int countProductOutStock() {
+        return productRepo.countProductOutStock();
+    }
+
 
 }
