@@ -4579,10 +4579,6 @@ input[type=radio]:checked + label:after {
     background-color: #444444;
 }
 
-input[type=checkbox] {
-    display: none;
-}
-
 .checkbox label {
     font-weight: bold;
     padding-left: 27px;
