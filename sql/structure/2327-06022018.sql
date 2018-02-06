@@ -171,7 +171,14 @@ CREATE PROCEDURE SelectCustomer(IN paramter NVARCHAR(30))
     WHERE _email = paramter OR _user=paramter;
   END;
 
-
+CREATE TABLE persistent_logins
+(
+  username  VARCHAR(60)                         NOT NULL,
+  series    VARCHAR(60)                         NOT NULL
+    PRIMARY KEY,
+  token     VARCHAR(60)                         NOT NULL,
+  last_used TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
 
 
 /* add data mặc định */
