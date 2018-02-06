@@ -526,71 +526,77 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
                                                                 </c:choose>
 
                                                             </div>
-                                                            <div id="review_form_wrapper">
-                                                                <div id="review_form">
-                                                                    <div id="respond" class="comment-respond">
+                                                            <c:if test="${not empty customer}">
+                                                                <div id="review_form_wrapper">
+                                                                    <div id="review_form">
+                                                                        <div id="respond" class="comment-respond">
                                                                         <span id="reply-title"
                                                                               class="comment-reply-title">Be the first to review &ldquo;${product.name}&rdquo; <small><a
                                                                                 rel="nofollow"
                                                                                 id="cancel-comment-reply-link"
 
                                                                                 style="display:none;">Cancel reply</a></small></span>
-                                                                        <form   id="comment_form"                                                                              method="post" id="commentform"
-                                                                                class="comment-form">
-                                                                            <p class="comment-notes"><span
-                                                                                    id="email-notes">Your email address will not be published.</span>
-                                                                                Required fields are marked <span
-                                                                                        class="required">*</span></p>
-                                                                            <div class="comment-form-rating"><label
-                                                                                    for="rating">Your
-                                                                                rating</label><select required name="rating"
-                                                                                                      id="rating"
-                                                                                                      aria-required="true">
-                                                                                <option value="">Rate&hellip;</option>
-                                                                                <option value="5">Perfect(5*)</option>
-                                                                                <option value="4">Good(4*)</option>
-                                                                                <option value="3">Average(3*)</option>
-                                                                                <option value="2">Not that bad(2*)</option>
-                                                                                <option value="1">Very poor(1*)</option>
-                                                                            </select></div>
-                                                                            <p class="comment-form-comment"><label
-                                                                                    for="comment">Your review <span
-                                                                                    class="required">*</span></label><textarea
-                                                                                    id="comment" name="comment"
-                                                                                    cols="45" rows="8"
-                                                                                    aria-required="true"
-                                                                                    required></textarea></p>
-                                                                            <p class="comment-form-author"><label
-                                                                                    for="author">Name <span
-                                                                                    class="required">*</span></label>
-                                                                                <input disabled id="author" name="customer"
-                                                                                       type="text" value="${customer.name}" size="30"
-                                                                                       aria-required="true" required/>
-                                                                            </p>
-                                                                            <p class="comment-form-email"><label
-                                                                                    for="email">Email <span
-                                                                                    class="required">*</span></label>
-                                                                                <input disabled id="email" name="email"
-                                                                                       type="email" value="${customer.email}" size="30"
-                                                                                       aria-required="true" required/>
-                                                                            </p>
+                                                                            <form   id="comment_form"                                                                              method="post" id="commentform"
+                                                                                    class="comment-form">
+                                                                                <p class="comment-notes"><span
+                                                                                        id="email-notes">Your email address will not be published.</span>
+                                                                                    Required fields are marked <span
+                                                                                            class="required">*</span></p>
+                                                                                <div class="comment-form-rating"><label
+                                                                                        for="rating">Your
+                                                                                    rating</label><select required name="rating"
+                                                                                                          id="rating"
+                                                                                                          aria-required="true">
+                                                                                    <option value="">Rate&hellip;</option>
+                                                                                    <option value="5">Perfect(5*)</option>
+                                                                                    <option value="4">Good(4*)</option>
+                                                                                    <option value="3">Average(3*)</option>
+                                                                                    <option value="2">Not that bad(2*)</option>
+                                                                                    <option value="1">Very poor(1*)</option>
+                                                                                </select></div>
+                                                                                <p class="comment-form-comment"><label
+                                                                                        for="comment">Your review <span
+                                                                                        class="required">*</span></label><textarea
+                                                                                        id="comment" name="comment"
+                                                                                        cols="45" rows="8"
+                                                                                        aria-required="true"
+                                                                                        required></textarea></p>
+                                                                                <p class="comment-form-author"><label
+                                                                                        for="author">Name <span
+                                                                                        class="required">*</span></label>
+                                                                                    <input disabled id="author" name="customer"
+                                                                                           type="text" value="${customer.name}" size="30"
+                                                                                           aria-required="true" required/>
+                                                                                </p>
+                                                                                <p class="comment-form-email"><label
+                                                                                        for="email">Email <span
+                                                                                        class="required">*</span></label>
+                                                                                    <input disabled id="email" name="emailCus"
+                                                                                           type="email" value="${customer.email}" size="30"
+                                                                                    />
+                                                                                    <input hidden="hidden"  name="emailCus"
+                                                                                           type="email" value="${customer.email}" size="30"
+                                                                                    />
+                                                                                </p>
 
                                                                                 <input name="idPro" value="${product.id}" hidden/>
-                                                                                <%--<input type='hidden'--%>
-                                                                                <%--name='comment_post_ID'--%>
-                                                                                <%--value='2977'--%>
-                                                                                <%--id='comment_post_ID'/>--%>
-                                                                                <%--<input type='hidden'--%>
-                                                                                <%--name='comment_parent'--%>
-                                                                                <%--id='comment_parent' value='0'/>--%>
-                                                                            </p></form>
-                                                                        <p class="form-submit"><button id="submit" onclick="addCmt()" name="submit"
+                                                                                    <%--<input type='hidden'--%>
+                                                                                    <%--name='comment_post_ID'--%>
+                                                                                    <%--value='2977'--%>
+                                                                                    <%--id='comment_post_ID'/>--%>
+                                                                                    <%--<input type='hidden'--%>
+                                                                                    <%--name='comment_parent'--%>
+                                                                                    <%--id='comment_parent' value='0'/>--%>
+                                                                                </p></form>
+                                                                            <p class="form-submit"><button id="submit" onclick="addCmt()" name="submit"
 
-                                                                        >Submit</button>
-                                                                            <br/><span id="noti"></span>
-                                                                    </div><!-- #respond -->
+                                                                            >Submit</button>
+                                                                                <br/><span id="noti"></span>
+                                                                        </div><!-- #respond -->
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            </c:if>
+
 
 
                                                             <div class="clear"></div>
@@ -793,7 +799,7 @@ http://schema.org/Product" id="product-2977" class="product-sidebar-left ">
             if(rate.length>0){
                 var data = $("#comment_form").serialize();
                 $.ajax({
-                    url: "addComment?${_csrf.parameterName}=${_csrf.token}",
+                    url: "account/addComment?${_csrf.parameterName}=${_csrf.token}",
                     type: "post",
                     dataType: "text",
                     data: data,
