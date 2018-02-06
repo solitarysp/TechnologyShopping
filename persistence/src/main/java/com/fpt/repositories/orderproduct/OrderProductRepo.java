@@ -26,4 +26,7 @@ public interface OrderProductRepo extends PagingAndSortingRepository<OrderProduc
 
     @Query(value = "SELECT * FROM order_product WHERE YEARWEEK(_date) = YEARWEEK(CURRENT_DATE)", nativeQuery = true)
     public List<OrderProduct> getWithThisWeed();
+
+    @Query(value = "SELECT count(*) from OrderProduct as o join o.customer as c where c.id = :id",nativeQuery = false)
+    int countOrdersByIDCustomer(@Param("id") Integer id);
 }

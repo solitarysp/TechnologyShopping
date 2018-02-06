@@ -51,4 +51,10 @@ public class CustomerServiceImpl implements CustomerServices {
         return customerRepo.getCustomerByUser(user);
     }
 
+    @Override
+    public Customer getCustomerByID(Integer id) {
+        return customerRepo.findOne(id);
+    }
+
+
 }

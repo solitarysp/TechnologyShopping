@@ -48,4 +48,9 @@ public class OrderProductServiceImpl implements OrderProductServices {
     public List<OrderProduct> getWithThisWeed() {
         return orderProductRepo.getWithThisWeed();
     }
+
+    @Override
+    public int countOrdersByIDCustomer(Integer id) {
+        return orderProductRepo.countOrdersByIDCustomer(id);
+    }
 }

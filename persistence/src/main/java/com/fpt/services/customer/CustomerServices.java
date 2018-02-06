@@ -24,4 +24,7 @@ public interface CustomerServices {
     Customer getCustomerByUser(String user);
 
 
+    Customer getCustomerByID(Integer id);
+
+
 }

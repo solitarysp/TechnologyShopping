@@ -22,4 +22,6 @@ public interface OrderProductServices {
     public List<OrderProduct> getWithLastWeed();
 
     public List<OrderProduct> getWithThisWeed();
+
+    int countOrdersByIDCustomer(Integer id);
 }
