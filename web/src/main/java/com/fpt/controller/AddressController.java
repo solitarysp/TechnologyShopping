@@ -4,8 +4,11 @@ package com.fpt.controller;/*
 
 import com.fpt.entity.Customer;
 import com.fpt.entity.CustomerAddress;
+import com.fpt.entity.Payment;
+import com.fpt.entity.Product;
 import com.fpt.services.customer.CustomerServices;
 import com.fpt.services.customeraddress.CustomerAddressServices;
+import com.fpt.services.payment.PaymentServices;
 import com.fpt.utils.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,7 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AddressController {
@@ -25,6 +31,8 @@ public class AddressController {
     CustomerAddressServices customerAddressServices;
     @Autowired
     CustomerServices customerServices;
+    @Autowired
+    PaymentServices paymentServices;
 
     @RequestMapping(value = "/account/listAddress")
     public String getShowListAddress(ModelMap modelMap, HttpServletRequest request) {
@@ -56,7 +64,7 @@ public class AddressController {
     }
 
     @RequestMapping(value = "/account/ShowListAddressChoose")
-    public String getShowListAddressChoose(ModelMap modelMap, HttpServletRequest request) {
+    public String getShowListAddressChoose(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
         Customer customer = null;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
@@ -70,6 +78,22 @@ public class AddressController {
             modelMap.addAttribute("CustomerAddress", customer.getCustomerAddress());
         } catch (Exception e) {
 
+        }
+        if (customer.getCustomerAddress().size() == 0) {
+            HttpSession httpSession = request.getSession();
+            ArrayList<Product> listProduct;
+            listProduct = (ArrayList<Product>) httpSession.getAttribute("listCart");
+            List<Payment> payment = paymentServices.getAll();
+            if (listProduct == null) {
+                try {
+                    response.sendRedirect("cart.html");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            modelMap.addAttribute("listProduct", listProduct);
+            modelMap.addAttribute("payment", payment);
+            return "checkout";
         }
         return "ChooseAddress";
     }

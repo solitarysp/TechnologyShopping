@@ -27,9 +27,9 @@ public class homeController {
         productListSale = productServices.getAllByCategoryID(1);
         modelMap.addAttribute("productListSale", productListSale);
 
-        Double value = Double.valueOf(productServices.getCountProduct()) / 12;
+        Double value = Double.valueOf(productServices.getCountProduct()) / 16;
         Double count = Math.ceil(value);
-        List<Product> products = productServices.getProductHasL21imit(0, 12);
+        List<Product> products = productServices.getProductHasL21imit(0, 16);
         modelMap.addAttribute("productList", products);
         modelMap.addAttribute("count", count);
 

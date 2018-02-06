@@ -133,7 +133,7 @@ public class ConfirmCartController {
         }
         double convertLaiGia = Math.ceil(TinhGia);
         orderProduct.setTotalBill((float) convertLaiGia);
-        orderProduct.setStatusPayment("Chưa thanh toán");
+        orderProduct.setStatusPayment("Unpaid");
         orderProduct.setTotalWeight(tongKhoiLuong);
         orderProduct.setFeeDelivery(0);
 
@@ -142,8 +142,8 @@ public class ConfirmCartController {
         orderProduct.setPayment(payment);
         Timestamp now = new Timestamp(System.currentTimeMillis());
         orderProduct.setDate(now);
-        orderProduct.setStatusDelivery("Chưa vận chuyển");
-        orderProduct.setStatusBill("Hiện tại");
+        orderProduct.setStatusDelivery("Not transport");
+        orderProduct.setStatusBill("Expiring");
         orderProductServices.saveOrderProduct(orderProduct);
         for (Product product : listProduct
                 ) {

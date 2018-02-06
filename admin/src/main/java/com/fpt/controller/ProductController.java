@@ -54,10 +54,11 @@ public class ProductController {
     ) {
         Category category = null;
         Set<Category> categories = new HashSet<Category>();
-
-        for (int i = 0; i < categoryTemp.length; i++) {
-            category = categoryServices.findByID(categoryTemp[i]);
-            categories.add(category);
+        if (categoryTemp != null) {
+            for (int i = 0; i < categoryTemp.length; i++) {
+                category = categoryServices.findByID(categoryTemp[i]);
+                categories.add(category);
+            }
         }
         product.setCategory(categories);
         String[] productTypeSplit = productTypeTemp.split("-");

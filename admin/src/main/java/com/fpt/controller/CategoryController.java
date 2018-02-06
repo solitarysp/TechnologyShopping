@@ -29,6 +29,9 @@ public class CategoryController {
     @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
     public void AddCategory(Category category, HttpServletResponse response) {
         try {
+            if (category.getValue() == null) {
+                category.setValue(0);
+            }
             categoryServices.saveCategory(category);
             response.getWriter().println("success");
         } catch (IOException e) {
