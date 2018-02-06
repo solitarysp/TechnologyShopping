@@ -75,7 +75,7 @@ public class Review {
 
     private Customer customer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch =FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "_id_customer")
     public Customer getCustomer() {
         return customer;

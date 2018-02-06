@@ -3,11 +3,13 @@ package com.fpt.controller;
 import com.fpt.entity.OrderProduct;
 import com.fpt.entity.ProductType;
 import com.fpt.entity.RefProductOrder;
+import com.fpt.entity.entity2.CountSession;
 import com.fpt.services.customer.CustomerServices;
 import com.fpt.services.orderproduct.OrderProductServices;
 import com.fpt.services.product.ProductServices;
 import com.fpt.services.producttype.ProductTypeServices;
 import com.fpt.services.refproductorder.RefProductOrderServices;
+import com.fpt.services.review.ReviewServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,6 +33,8 @@ public class StatisticController {
     OrderProductServices orderProductServices;
     @Autowired
     RefProductOrderServices refProductOrderServices;
+    @Autowired
+    ReviewServices reviewServices;
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)
     public String getData(ModelMap modelMap, HttpServletRequest request) {
@@ -59,7 +63,19 @@ public class StatisticController {
         order.put("orderbefore", orderbefore);
         //total order
         int totalOrder = orderProductServices.totalOrder();
+        //customer online
+        int online = CountSession.getCountSession().getTotal();
+        //today comment
+        int cmtNow = reviewServices.countCmtByDay(0);
+        int cmtBef = reviewServices.countCmtByDay(1);
+        int cmtTotal = Math.toIntExact(reviewServices.countTotal());
+        HashMap<String, Integer> cmt = new HashMap<String, Integer>();
+        cmt.put("cmtNow", cmtNow);
+        cmt.put("cmtBef", cmtBef);
+        cmt.put("cmtTotal",cmtTotal);
 
+        modelMap.addAttribute("comment",cmt);
+        modelMap.addAttribute("online",online);
         modelMap.addAttribute("totalOrder", totalOrder);
         modelMap.addAttribute("order", order);
         modelMap.addAttribute("countCustomer", countCustomer);

@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class viewProductController {
@@ -50,20 +53,29 @@ public class viewProductController {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             String name = auth.getName();
             Customer customer = customerServices.getCustomerByEmail(name);
-            modelMap.addAttribute("customer",customer);
+            modelMap.addAttribute("customer", customer);
         }
         return "viewProduct";
     }
 
-    @RequestMapping(value = "/addComment",method = RequestMethod.POST)
-    public void addComment(String idPro,String comment,Integer rating,String email,HttpServletResponse response){
+    @RequestMapping(value = "/account/addComment", method = RequestMethod.POST)
+    public void addComment(String idPro, String comment, Integer rating, String emailCus, HttpServletResponse response) {
         Review review = new Review();
-        review.setCustomer(customerServices.getCustomerByEmail(email));
+        Customer customer = customerServices.getCustomerByEmail(emailCus);
+        review.setCustomer(customer);
         review.setComment(comment);
         review.setRating(rating);
+        review.setDate(new Timestamp(System.currentTimeMillis()));
         review.setProduct(productServices.getProductById(idPro));
         try {
-            reviewServices.saveReview(review);
+            Set<Review> reviews = customer.getReview();
+            if (reviews != null) {
+                reviews.add(review);
+            } else {
+                reviews = new HashSet<>();
+                reviews.add(review);
+            }
+            customerServices.saveCustomer(customer);
             response.getWriter().println("success");
         } catch (IOException e) {
             e.printStackTrace();

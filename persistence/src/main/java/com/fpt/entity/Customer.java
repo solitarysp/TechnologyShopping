@@ -115,7 +115,7 @@ public class Customer extends Person {
 
     private Set<Review> review;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     public Set<Review> getReview() {
         return review;
     }
