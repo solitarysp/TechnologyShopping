@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 
 <head>
@@ -59,13 +60,11 @@
 
     <i class="ace-icon fa fa-check green"></i>
 
-    Welcome to
+    Welcome
     <strong class="green">
-        Ace
-        <small>(v1.4)</small>
-    </strong>,
-    лёгкий, многофункциональный и простой в использовании шаблон для админки на bootstrap 3.3.6. Загрузить
-    исходники с <a href="https://github.com/bopoda/ace">github</a> (with minified ace js/css files).
+        ${admin}
+
+    </strong>
 </div>
 
 <div class="row">
@@ -170,7 +169,7 @@
 
         <div class="infobox infobox-blue2">
             <div class="infobox-progress">
-                <div class="easy-pie-chart percentage" data-percent="10" data-size="46">
+                <div class="easy-pie-chart percentage" data-percent="42" data-size="46">
                     <span class="percent">42</span>%
                 </div>
             </div>
@@ -189,14 +188,14 @@
 
         <div class="infobox infobox-green infobox-small infobox-dark">
             <div class="infobox-progress">
-                <div class="easy-pie-chart percentage" data-percent="61" data-size="39">
-                    <span class="percent">61</span>%
+                <div class="easy-pie-chart percentage" data-percent="${percentP}" data-size="39">
+                    <span class="percent">${percentP}</span>%
                 </div>
             </div>
 
             <div class="infobox-data">
-                <div class="infobox-content">Task</div>
-                <div class="infobox-content">Completion</div>
+                <div class="infobox-content">Product</div>
+                <div class="infobox-content"><fmt:formatNumber value="${totalProduct}" type="number" pattern="#"></fmt:formatNumber></div>
             </div>
         </div>
 
@@ -211,14 +210,14 @@
             </div>
         </div>
 
-        <div class="infobox infobox-grey infobox-small infobox-dark">
+        <div class="infobox infobox-orange infobox-small infobox-dark">
             <div class="infobox-icon">
-                <i class="ace-icon fa fa-download"></i>
+                <i class="ace-icon fa fa-bandcamp"></i>
             </div>
 
             <div class="infobox-data">
-                <div class="infobox-content">Downloads</div>
-                <div class="infobox-content">1,205</div>
+                <div class="infobox-content">Brand</div>
+                <div class="infobox-content">${totalBrand}</div>
             </div>
         </div>
     </div>
@@ -231,7 +230,7 @@
             <div class="widget-header widget-header-flat widget-header-small">
                 <h5 class="widget-title">
                     <i class="ace-icon fa fa-signal"></i>
-                    Traffic Sources
+                    Chart Sources
                 </h5>
 
                 <div class="widget-toolbar no-border">
@@ -528,7 +527,7 @@
 																<i class="ace-icon fa fa-cart-arrow-down fa-2x purple"></i>
 																&nbsp; total orders
 															</span>
-                            <h4 class="bigger pull-right">${TotalOrder}</h4>
+                            <h4 class="bigger pull-right">${totalOrder}</h4>
                         </div>
 
                         <div class="grid3">
@@ -593,19 +592,23 @@
                                 <td>${r.product.name}</td>
 
                                 <td>
+                                    <c:set var="total" value="0"/>
                                     <c:forEach items="${r.product.category}" var="c">
-                                        <c:choose>
-                                            <c:when test="${not empty c.value}">
-                                                <small>
-                                                    <s class="red">$${r.product.price}</s>
-                                                </small>
-                                                <b class="green">$${r.product.price-r.product.price*c.value/100}</b>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <b class="blue">$${r.product.price}</b>
-                                            </c:otherwise>
-                                        </c:choose>
+                                        <c:if test="${total==0}">
+                                            <c:set var="total" value="${total+c.value}"/>
+                                        </c:if>
                                     </c:forEach>
+
+                                    <c:if test="${not empty r.product.category || total!=0}">
+                                        <small>
+                                            <s class="red">$${r.product.price}</s>
+                                        </small>
+                                        <b class="green">$${r.product.price-r.product.price*total/100}</b>
+                                    </c:if>
+
+                                    <c:if test="${empty r.product.category}">
+                                        <b class="blue">$${r.product.price}</b>
+                                    </c:if>
                                 </td>
 
                                 <td>

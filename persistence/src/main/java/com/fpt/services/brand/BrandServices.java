@@ -20,4 +20,6 @@ public interface BrandServices {
 
 //    List<Brand> GetTotalBrand(Integer number);
 List<Brand> getAllBrandByName(String name);
+
+    int countBrand();
 }

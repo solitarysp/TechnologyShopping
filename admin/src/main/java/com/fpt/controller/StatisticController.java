@@ -4,6 +4,7 @@ import com.fpt.entity.OrderProduct;
 import com.fpt.entity.ProductType;
 import com.fpt.entity.RefProductOrder;
 import com.fpt.entity.entity2.CountSession;
+import com.fpt.services.brand.BrandServices;
 import com.fpt.services.customer.CustomerServices;
 import com.fpt.services.orderproduct.OrderProductServices;
 import com.fpt.services.product.ProductServices;
@@ -11,6 +12,8 @@ import com.fpt.services.producttype.ProductTypeServices;
 import com.fpt.services.refproductorder.RefProductOrderServices;
 import com.fpt.services.review.ReviewServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
 
 @Controller
 public class StatisticController {
@@ -35,6 +39,8 @@ public class StatisticController {
     RefProductOrderServices refProductOrderServices;
     @Autowired
     ReviewServices reviewServices;
+    @Autowired
+    BrandServices brandServices;
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)
     public String getData(ModelMap modelMap, HttpServletRequest request) {
@@ -73,7 +79,21 @@ public class StatisticController {
         cmt.put("cmtNow", cmtNow);
         cmt.put("cmtBef", cmtBef);
         cmt.put("cmtTotal",cmtTotal);
+        //total brand
+        int totalBrand = brandServices.countBrand();
+        //total Product
+        double totalProduct = productServices.getCountProduct();
+        //out of stock and percent
+        double outStock = productServices.countProductOutStock();
+        int percentP = (int)(100-outStock/totalProduct*100);
+        //admin
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String admin = auth.getName();
 
+        modelMap.addAttribute("admin",admin);
+        modelMap.addAttribute("percentP",percentP);
+        modelMap.addAttribute("totalProduct",totalProduct);
+        modelMap.addAttribute("totalBrand",totalBrand);
         modelMap.addAttribute("comment",cmt);
         modelMap.addAttribute("online",online);
         modelMap.addAttribute("totalOrder", totalOrder);
