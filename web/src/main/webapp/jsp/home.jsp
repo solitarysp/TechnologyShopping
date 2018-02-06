@@ -727,7 +727,7 @@
                                         <c:set var="categories" value="${categories}"/>
                                         <c:forEach var="itemCategories" items="${categories}">
                                             <li class="cat-item cat-item-151"><a
-                                                    onclick="clickGetSaleCATEGORIES(${itemCategories.id},12,1)"
+                                                    onclick="clickGetSaleCATEGORIES(${itemCategories.id},15,1)"
                                                     class="btn btn-tag  font-additional font-weight-normal text-uppercase hover-focus-bg">${itemCategories.name}</a>
                                             </li>
 
@@ -920,14 +920,14 @@
                                                                     <c:when test="${loop.count==1}">
                                                                         <li><a class="page-numbers  current"
                                                                                href="#iphoneByCATEGORIESBank"
-                                                                               onclick="clickGetSaleCATEGORIES(null,12,${loop.count})">${loop.count}</a>
+                                                                               onclick="clickGetSaleCATEGORIES(null,15,${loop.count})">${loop.count}</a>
                                                                         </li>
 
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <li><a class="page-numbers"
                                                                                href="#iphoneByCATEGORIESBank"
-                                                                               onclick="clickGetSaleCATEGORIES(null,12,${loop.count})">${loop.count}</a>
+                                                                               onclick="clickGetSaleCATEGORIES(null,15,${loop.count})">${loop.count}</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>

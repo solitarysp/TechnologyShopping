@@ -109,9 +109,9 @@ public class checkoutController {
         }
         orderProduct.setTotalWeight(totalWeight);
         orderProduct.setTotalBill(totalBill);
-        orderProduct.setStatusPayment("Chưa thanh toán");
-        orderProduct.setStatusDelivery("Chưa giao hàng");
-        orderProduct.setStatusBill("Hiện tại");
+        orderProduct.setStatusPayment("Unpaid");
+        orderProduct.setStatusDelivery("Not transport");
+        orderProduct.setStatusBill("Expiring");
         Payment payment1 = paymentServices.findByID(payment);
         orderProduct.setPayment(payment1);
         orderProduct.setCustomerAddress(customerAddress);

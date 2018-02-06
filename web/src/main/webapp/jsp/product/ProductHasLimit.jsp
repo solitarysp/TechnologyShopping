@@ -4,7 +4,7 @@
 <c:set var="itemAll" value="${products}"/>
 <div class="row">
 
-    <c:forEach var="item" items="${itemAll}" begin="0" end="11">
+    <c:forEach var="item" items="${itemAll}">
         <li class="isotope-item col-sm-4 accessories carrier-phones cases  <c:forEach var="item2" items="${item.category}" begin="0" end="10">
                                                 ${item2.name}
 </c:forEach> ">
@@ -156,13 +156,13 @@
                         <c:choose>
                             <c:when test="${loop.count==param.page}">
                                 <li><a class="page-numbers  current"
-                                     href="#iphoneByCATEGORIESBank"  onclick="clickGetSaleCATEGORIES(null,12,${loop.count})">${loop.count}</a>
+                                     href="#iphoneByCATEGORIESBank"  onclick="clickGetSaleCATEGORIES(null,15,${loop.count})">${loop.count}</a>
                                 </li>
 
                             </c:when>
                             <c:otherwise>
                                 <li><a class="page-numbers"
-                                       href="#iphoneByCATEGORIESBank"   onclick="clickGetSaleCATEGORIES(null,12,${loop.count})">${loop.count}</a>
+                                       href="#iphoneByCATEGORIESBank"   onclick="clickGetSaleCATEGORIES(null,15,${loop.count})">${loop.count}</a>
                                 </li>
                             </c:otherwise>
                         </c:choose>

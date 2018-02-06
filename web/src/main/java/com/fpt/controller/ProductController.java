@@ -25,7 +25,7 @@ public class ProductController {
     @RequestMapping(value = "/getCategories", method = RequestMethod.POST)
     public String getProductByCategoriesHasLimit(ModelMap modelMap, Integer id, Integer limit, Integer page) {
         if (limit == null) {
-            limit = 12;
+            limit = 16;
         }
         if (page == null) {
             page = 0;
@@ -34,14 +34,14 @@ public class ProductController {
             Category type = categoryServices.getCategoryById(id);
             if (type != null) {
                 List<Product> products = productServices.getProductByCategoriesHasLimit(id, page-1, limit);
-                Double value = Double.valueOf(productServices.getCountProductByCategoriesHasLimit(id)) / 12;
+                Double value = Double.valueOf(productServices.getCountProductByCategoriesHasLimit(id)) / 16;
                 Double count = Math.ceil(value);
                 modelMap.addAttribute("products", products);
                 modelMap.addAttribute("count", count);
                 return "product/ProductByCategoriesHasLimit";
             }
         } else {
-            Double value = Double.valueOf(productServices.getCountProduct()) / 12;
+            Double value = Double.valueOf(productServices.getCountProduct()) / 16;
             Double count = Math.ceil(value);
             List<Product> products = productServices.getProductHasL21imit(page-1,limit);
             modelMap.addAttribute("products", products);

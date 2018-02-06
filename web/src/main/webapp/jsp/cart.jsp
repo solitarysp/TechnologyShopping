@@ -132,7 +132,7 @@
 
                                                                     <input type="text" data-rule="quantity" step="1" min="0" max=""
                                                                            name="txtQuantity"
-                                                                           value="${p.id}" title="Quantity" class="input-text qty text"
+                                                                           value="${p.repository}" title="Quantity" class="input-text qty text"
                                                                            size="4" pattern="[0-9]*" inputmode="numeric"/>
                                                                     <a class="spinner-btn-mod" href="javascript:;"
                                                                        data-spin="up">+</a>

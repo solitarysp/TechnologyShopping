@@ -13,7 +13,7 @@
     <button id="cart" class="btn btn-default-color1 btn-sm">
                             <span class="price"><i class="fa fa-shopping-bag"></i><span
                                     class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol"></span>${totol1}</span> VND</span>
+                                    class="woocommerce-Price-currencySymbol"></span>${totol1}</span> $</span>
         <span class="counter-wrapper"><span class="counter">${totalCartFull}</span></span>
 
     </button>
