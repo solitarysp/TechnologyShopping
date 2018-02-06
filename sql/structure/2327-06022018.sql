@@ -116,8 +116,8 @@ CREATE TABLE payment(
 CREATE TABLE order_product(
   _id INTEGER PRIMARY KEY auto_increment,
   _date DATETIME DEFAULT current_timestamp,
-  _status_payment NVARCHAR(100) DEFAULT N'Unpaid' NOT NULL, --Chưa thanh toán
-  _status_delivery NVARCHAR(100) DEFAULT N'Not transport' NOT NULL,  --Chưa vận chuyển
+  _status_payment NVARCHAR(100) DEFAULT N'Unpaid' NOT NULL, /* --Chưa thanh toán */
+  _status_delivery NVARCHAR(100) DEFAULT N'Not transport' NOT NULL, /* --Chưa vận chuyển */
   _total_bill FLOAT  NOT NULL CHECK (_total_bill >=0),
   _total_weight FLOAT CHECK (_total_weight >=0) ,
   _fee_delivery FLOAT CHECK (_fee_delivery >=0) ,
@@ -183,8 +183,8 @@ CREATE TABLE persistent_logins
 
 /* add data mặc định */
 
-INSERT administrator (`_email`, `_user`,`_password`) VALUES ('1','solitarysp','1');
+INSERT administrator (`_email`, `_user`,`_password`) VALUES ('admin@gmail.com','solitarysp','1');
 
-INSERT customer (`_email`, `_user`, `_password`, `_name`) VALUES ('email','user','123','thanh');
+/*INSERT customer (`_email`, `_user`, `_password`, `_name`) VALUES ('member@gmail.com','user','123','thanh');*/
 
 
