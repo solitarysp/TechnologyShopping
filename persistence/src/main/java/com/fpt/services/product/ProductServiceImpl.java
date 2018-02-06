@@ -77,5 +77,10 @@ public class ProductServiceImpl implements ProductServices {
         productRepo.delete(id);
     }
 
+    @Override
+    public List<Product> getAllProductByName(String name) {
+        return productRepo.getAllProductByName(name);
+    }
+
 
 }

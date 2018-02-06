@@ -20,4 +20,6 @@ public interface ProductTypeServices {
     Double getTotalRevenueOfProductType(Integer idProductType);
 
     Double getTotalRevenue();
+
+    List<ProductType> getAllProductTypeByName(String name);
 }

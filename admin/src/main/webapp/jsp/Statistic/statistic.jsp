@@ -112,6 +112,9 @@
             </div>
             <c:set var="percent"
                    value="${(order.get('ordernow')-order.get('orderbefore'))/order.get('orderbefore')*100}"/>
+            <c:catch>
+            ${percent=0}
+        </c:catch>
             <c:choose>
                 <c:when test="${percent>=0}">
                     <div class="stat stat-success">${percent}%</div>
@@ -526,7 +529,7 @@
             </div><!-- /.widget-body -->
         </div><!-- /.widget-box -->
     </div><!-- /.col -->
-    <div class="col-sm-12">
+    <div class="col-sm-11">
         <div class="widget-box transparent">
             <div class="widget-header widget-header-flat">
                 <h4 class="widget-title lighter">

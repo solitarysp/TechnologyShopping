@@ -36,4 +36,9 @@ public class PaymentServiceImpl implements PaymentServices {
     public Payment findByID(Integer id) {
         return paymentRepo.findOne(id);
     }
+
+    @Override
+    public List<Payment> getAllPaymentByName(String name) {
+        return paymentRepo.getAllPaymentByName(name);
+    }
 }

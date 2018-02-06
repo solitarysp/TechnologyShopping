@@ -41,4 +41,9 @@ public class CategoryServiceImpl implements CategoryServices {
     public Category findByID(Integer id) {
         return categoryRepo.findOne(id);
     }
+
+    @Override
+    public List<Category> getAllCategoryByName(String name) {
+        return categoryRepo.getAllCategoryByName(name);
+    }
 }

@@ -11,9 +11,10 @@ import com.fpt.services.producttype.ProductTypeServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,8 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class ProductController {
@@ -53,7 +55,7 @@ public class ProductController {
         Category category = null;
         Set<Category> categories = new HashSet<Category>();
 
-        for(int i = 0; i < categoryTemp.length; i++){
+        for (int i = 0; i < categoryTemp.length; i++) {
             category = categoryServices.findByID(categoryTemp[i]);
             categories.add(category);
         }
@@ -79,8 +81,13 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/viewProduct", method = RequestMethod.GET)
-    public String ViewAllProduct(ModelMap modelMap) {
-        modelMap.addAttribute("listAllProduct", productServices.getAll());
+    public String ViewAllProduct(ModelMap modelMap, HttpServletRequest request) {
+        String value = request.getParameter("name");
+        if (value != null) {
+            modelMap.addAttribute("listAllProduct", productServices.getAllProductByName(value));
+        } else {
+            modelMap.addAttribute("listAllProduct", productServices.getAll());
+        }
         return "Product/viewAllProduct";
     }
 
@@ -98,11 +105,16 @@ public class ProductController {
     public ModelAndView editProduct(Product product, Integer[] categoryTemp, HttpServletRequest
             request, HttpServletResponse response, @RequestParam("file") MultipartFile file, Integer brandTemp
             , Integer productTypeTemp) {
+
+        //get category
         Set<Category> categoryList = new HashSet<Category>();
-        for (int i = 0; i < categoryTemp.length; i++) {
-            Category category = categoryServices.findByID(categoryTemp[i]);
-            categoryList.add(category);
+        if (categoryTemp != null) {
+            for (int i = 0; i < categoryTemp.length; i++) {
+                Category category = categoryServices.findByID(categoryTemp[i]);
+                categoryList.add(category);
+            }
         }
+
         product.setCategory(categoryList);
         product.setBrand(brandServices.findByID(brandTemp));
         product.setProductType(productTypeServices.findByID(productTypeTemp));

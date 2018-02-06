@@ -13,4 +13,5 @@ public interface ProductRepoCustom {
     Long getCountProductByCategoriesHasLimit(Integer id);
     List<Product> getProductHasL21imit(Integer page, Integer limit);
     List<Product> getAllProductBestSellers();
+    List<Product> getAllProductByName(String name);
 }
