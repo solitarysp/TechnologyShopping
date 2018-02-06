@@ -20,4 +20,5 @@ public interface CustomerRepo extends PagingAndSortingRepository<Customer, Integ
 
     @Query(value = "select C from Customer as C where C.user=:user", nativeQuery = false)
     Customer getCustomerByUser(@Param("user") String user);
+
 }

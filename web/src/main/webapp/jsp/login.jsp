@@ -46,12 +46,11 @@
 
 
                 <p class="form-row">
-                    <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="cdb2ac42ed"><input
-                        type="hidden" name="_wp_http_referer" value="/wordpress/ismiler/my-account/"> <input
+                   <input
                         type="submit" class="woocommerce-Button button" name="login" value="Login">
                     <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-                        <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme"
-                               type="checkbox" id="rememberme" value="forever"> <span>Remember me</span>
+                        <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="remember-me"
+                               type="checkbox" id="rememberme" > <span>Remember me</span>
                     </label>
                 </p>
                 <p class="woocommerce-LostPassword lost_password">
