@@ -81,7 +81,7 @@ public class ProductRepoImpl implements ProductRepoCustom {
             limit = 15;
         }
         Integer first = page * limit;
-        Query query = em.createQuery("SELECT p FROM Product AS p").setFirstResult(first).setMaxResults(limit);
+        Query query = em.createQuery("SELECT p FROM Product AS p order by p.date desc ").setFirstResult(first).setMaxResults(limit);
         return query.getResultList();
     }
 
