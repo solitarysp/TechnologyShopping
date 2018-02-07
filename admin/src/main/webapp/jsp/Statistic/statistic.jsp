@@ -90,7 +90,7 @@
             </c:catch>
             <c:choose>
                 <c:when test="${percentCmt>=0}">
-                    <div class="stat stat-success">${percentCmt}%</div>
+                    <div class="stat stat-success"><fmt:formatNumber value="${percentCmt}" type="number" pattern="#"></fmt:formatNumber>%</div>
                 </c:when>
                 <c:otherwise>
                     <div class="stat stat-important">${percentCmt}%</div>
@@ -129,8 +129,11 @@
                 ${percent=0}
             </c:catch>
             <c:choose>
-                <c:when test="${percent>=0}">
+                <c:when test="${percent>0}">
                     <div class="stat stat-success">${percent}%</div>
+                </c:when>
+                <c:when test="${percent==0}">
+                    <div class="stat stat-success">100%</div>
                 </c:when>
                 <c:otherwise>
                     <div class="stat stat-important">${percent}%</div>
